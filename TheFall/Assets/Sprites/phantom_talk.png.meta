@@ -1,0 +1,1266 @@
+fileFormatVersion: 2
+guid: 47fa7ac5709869249addedc0369c0797
+timeCreated: 1441758477
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: phantom_talk_0
+    21300002: phantom_talk_1
+    21300004: phantom_talk_2
+    21300006: phantom_talk_3
+    21300008: phantom_talk_4
+    21300010: phantom_talk_5
+    21300012: phantom_talk_6
+    21300014: phantom_talk_7
+    21300016: phantom_talk_8
+    21300018: phantom_talk_9
+    21300020: phantom_talk_10
+    21300022: phantom_talk_11
+    21300024: phantom_talk_12
+    21300026: phantom_talk_13
+    21300028: phantom_talk_14
+    21300030: phantom_talk_15
+    21300032: phantom_talk_16
+    21300034: phantom_talk_17
+    21300036: phantom_talk_18
+    21300038: phantom_talk_19
+    21300040: phantom_talk_20
+    21300042: phantom_talk_21
+    21300044: phantom_talk_22
+    21300046: phantom_talk_23
+    21300048: phantom_talk_24
+    21300050: phantom_talk_25
+    21300052: phantom_talk_26
+    21300054: phantom_talk_27
+    21300056: phantom_talk_28
+    21300058: phantom_talk_29
+    21300060: phantom_talk_30
+    21300062: phantom_talk_31
+    21300064: phantom_talk_32
+    21300066: phantom_talk_33
+    21300068: phantom_talk_34
+    21300070: phantom_talk_35
+    21300072: phantom_talk_36
+    21300074: phantom_talk_37
+    21300076: phantom_talk_38
+    21300078: phantom_talk_39
+    21300080: phantom_talk_40
+    21300082: phantom_talk_41
+    21300084: phantom_talk_42
+    21300086: phantom_talk_43
+    21300088: phantom_talk_44
+    21300090: phantom_talk_45
+    21300092: phantom_talk_46
+    21300094: phantom_talk_47
+    21300096: phantom_talk_48
+    21300098: phantom_talk_49
+    21300100: phantom_talk_50
+    21300102: phantom_talk_51
+    21300104: phantom_talk_52
+    21300106: phantom_talk_53
+    21300108: phantom_talk_54
+    21300110: phantom_talk_55
+    21300112: phantom_talk_56
+    21300114: phantom_talk_57
+    21300116: phantom_talk_58
+    21300118: phantom_talk_59
+    21300120: phantom_talk_60
+    21300122: phantom_talk_61
+    21300124: phantom_talk_62
+    21300126: phantom_talk_63
+    21300128: phantom_talk_64
+    21300130: phantom_talk_65
+    21300132: phantom_talk_66
+    21300134: phantom_talk_67
+    21300136: phantom_talk_68
+    21300138: phantom_talk_69
+    21300140: phantom_talk_70
+    21300142: phantom_talk_71
+    21300144: phantom_talk_72
+    21300146: phantom_talk_73
+    21300148: phantom_talk_74
+    21300150: phantom_talk_75
+    21300152: phantom_talk_76
+    21300154: phantom_talk_77
+    21300156: phantom_talk_78
+    21300158: phantom_talk_79
+    21300160: phantom_talk_80
+    21300162: phantom_talk_81
+    21300164: phantom_talk_82
+    21300166: phantom_talk_83
+    21300168: phantom_talk_84
+    21300170: phantom_talk_85
+    21300172: phantom_talk_86
+    21300174: phantom_talk_87
+    21300176: phantom_talk_88
+    21300178: phantom_talk_89
+    21300180: phantom_talk_90
+    21300182: phantom_talk_91
+    21300184: phantom_talk_92
+    21300186: phantom_talk_93
+    21300188: phantom_talk_94
+    21300190: phantom_talk_95
+    21300192: phantom_talk_96
+    21300194: phantom_talk_97
+    21300196: phantom_talk_98
+    21300198: phantom_talk_99
+    21300200: phantom_talk_100
+    21300202: phantom_talk_101
+    21300204: phantom_talk_102
+    21300206: phantom_talk_103
+    21300208: phantom_talk_104
+    21300210: phantom_talk_105
+    21300212: phantom_talk_106
+    21300214: phantom_talk_107
+    21300216: phantom_talk_108
+    21300218: phantom_talk_109
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: phantom_talk_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_3
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_5
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3860
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_7
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_8
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_9
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_11
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3645
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_14
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_15
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_17
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3431
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_19
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_20
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_21
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_22
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_23
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3218
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_24
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_26
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_27
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_28
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_29
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 3004
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_30
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_31
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_32
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_33
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_34
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_35
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2789
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_36
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_37
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_38
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_39
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_40
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_41
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2575
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_42
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_43
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_44
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_45
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_46
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_47
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2361
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_48
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_49
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_50
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_51
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_52
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_53
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2148
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_54
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_55
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_56
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_57
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_58
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_59
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1934
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_60
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_61
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_62
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_63
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_64
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_65
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_66
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_67
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_68
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_69
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_70
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_71
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_72
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_73
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_74
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_75
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_76
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_77
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1292
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_78
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_79
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_80
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_81
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_82
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_83
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1078
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_84
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_85
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_86
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_87
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_88
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_89
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 864
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_90
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_91
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_92
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_93
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_94
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_95
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_96
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_97
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_98
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_99
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_100
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_101
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 435
+        width: 119
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_102
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_103
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_104
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_105
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_106
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_107
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 222
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_108
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 8
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_talk_109
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 8
+        width: 119
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

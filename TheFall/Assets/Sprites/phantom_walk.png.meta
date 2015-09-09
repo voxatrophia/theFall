@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 4a5bb222412cdf74a89df54a4cd0fe5f
+timeCreated: 1441758114
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: phantom_glitch__x1_walk_png_1354836321_0
+    21300002: phantom_glitch__x1_walk_png_1354836321_1
+    21300004: phantom_glitch__x1_walk_png_1354836321_2
+    21300006: phantom_glitch__x1_walk_png_1354836321_3
+    21300008: phantom_glitch__x1_walk_png_1354836321_4
+    21300010: phantom_glitch__x1_walk_png_1354836321_5
+    21300012: phantom_glitch__x1_walk_png_1354836321_6
+    21300014: phantom_glitch__x1_walk_png_1354836321_7
+    21300016: phantom_glitch__x1_walk_png_1354836321_8
+    21300018: phantom_glitch__x1_walk_png_1354836321_9
+    21300020: phantom_glitch__x1_walk_png_1354836321_10
+    21300022: phantom_glitch__x1_walk_png_1354836321_11
+    21300024: phantom_glitch__x1_walk_png_1354836321_12
+    21300026: phantom_glitch__x1_walk_png_1354836321_13
+    21300028: phantom_glitch__x1_walk_png_1354836321_14
+    21300030: phantom_glitch__x1_walk_png_1354836321_15
+    21300032: phantom_glitch__x1_walk_png_1354836321_16
+    21300034: phantom_glitch__x1_walk_png_1354836321_17
+    21300036: phantom_glitch__x1_walk_png_1354836321_18
+    21300038: phantom_glitch__x1_walk_png_1354836321_19
+    21300040: phantom_glitch__x1_walk_png_1354836321_20
+    21300042: phantom_glitch__x1_walk_png_1354836321_21
+    21300044: phantom_glitch__x1_walk_png_1354836321_22
+    21300046: phantom_glitch__x1_walk_png_1354836321_23
+    21300048: phantom_glitch__x1_walk_png_1354836321_24
+    21300050: phantom_walk_0
+    21300052: phantom_walk_1
+    21300054: phantom_walk_2
+    21300056: phantom_walk_3
+    21300058: phantom_walk_4
+    21300060: phantom_walk_5
+    21300062: phantom_walk_6
+    21300064: phantom_walk_7
+    21300066: phantom_walk_8
+    21300068: phantom_walk_9
+    21300070: phantom_walk_10
+    21300072: phantom_walk_11
+    21300074: phantom_walk_12
+    21300076: phantom_walk_13
+    21300078: phantom_walk_14
+    21300080: phantom_walk_15
+    21300082: phantom_walk_16
+    21300084: phantom_walk_17
+    21300086: phantom_walk_18
+    21300088: phantom_walk_19
+    21300090: phantom_walk_20
+    21300092: phantom_walk_21
+    21300094: phantom_walk_22
+    21300096: phantom_walk_23
+    21300098: phantom_walk_24
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: phantom_walk_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_3
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_6
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_7
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_8
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_9
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_10
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_11
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_12
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_13
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_14
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_16
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_17
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_18
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_19
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_20
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_21
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_22
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_23
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_walk_24
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

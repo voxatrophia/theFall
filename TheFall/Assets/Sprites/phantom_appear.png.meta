@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: 85d367e303f97b043bec5b35c7f8163a
+timeCreated: 1441758526
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: phantom_appear_0
+    21300002: phantom_appear_1
+    21300004: phantom_appear_2
+    21300006: phantom_appear_3
+    21300008: phantom_appear_4
+    21300010: phantom_appear_5
+    21300012: phantom_appear_6
+    21300014: phantom_appear_7
+    21300016: phantom_appear_8
+    21300018: phantom_appear_9
+    21300020: phantom_appear_10
+    21300022: phantom_appear_11
+    21300024: phantom_appear_12
+    21300026: phantom_appear_13
+    21300028: phantom_appear_14
+    21300030: phantom_appear_15
+    21300032: phantom_appear_16
+    21300034: phantom_appear_17
+    21300036: phantom_appear_18
+    21300038: phantom_appear_19
+    21300040: phantom_appear_20
+    21300042: phantom_appear_21
+    21300044: phantom_appear_22
+    21300046: phantom_appear_23
+    21300048: phantom_appear_24
+    21300050: phantom_appear_25
+    21300052: phantom_appear_26
+    21300054: phantom_appear_27
+    21300056: phantom_appear_28
+    21300058: phantom_appear_29
+    21300060: phantom_appear_30
+    21300062: phantom_appear_31
+    21300064: phantom_appear_32
+    21300066: phantom_appear_33
+    21300068: phantom_appear_34
+    21300070: phantom_appear_35
+    21300072: phantom_appear_36
+    21300074: phantom_appear_37
+    21300076: phantom_appear_38
+    21300078: phantom_appear_39
+    21300080: phantom_appear_40
+    21300082: phantom_appear_41
+    21300084: phantom_appear_42
+    21300086: phantom_appear_43
+    21300088: phantom_appear_44
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: phantom_appear_0
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1523
+        width: 58
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1523
+        width: 59
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_2
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1523
+        width: 60
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_3
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1523
+        width: 70
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_4
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1524
+        width: 75
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1310
+        width: 89
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_6
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1310
+        width: 89
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1310
+        width: 89
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_8
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1299
+        width: 107
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_9
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1299
+        width: 107
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_10
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1295
+        width: 113
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1081
+        width: 113
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1081
+        width: 113
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_13
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1078
+        width: 117
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_14
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1078
+        width: 117
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_15
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1078
+        width: 117
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_16
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1078
+        width: 117
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_17
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 864
+        width: 117
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_18
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_19
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_20
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_21
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_22
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_23
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_24
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_25
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_26
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_27
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_28
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_29
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_30
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_31
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_32
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_33
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_34
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_35
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_36
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_37
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_38
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_39
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_40
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_41
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_42
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_43
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: phantom_appear_44
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
