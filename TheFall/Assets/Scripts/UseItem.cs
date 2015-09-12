@@ -4,7 +4,6 @@ using System.Collections;
 public class UseItem : MonoBehaviour {
 
 	GameObject item;
-
 	// Use this for initialization
 	void Start () {
 	
@@ -13,7 +12,9 @@ public class UseItem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetButtonDown("Fire1") ){
-			item = ItemManager.i.GetItem();
+			if(ItemManager.i != null){
+				item = ItemManager.i.GetItem();				
+			}
 			if(item != null){
 				switch(item.name){
 					case "Bomb":
@@ -24,11 +25,12 @@ public class UseItem : MonoBehaviour {
 						Apple useApple = item.GetComponent<Apple>();
 						useApple.Health();
 						break;
+					default:
+						break;
+
 				}
 				//Destroy item (or recycle for object pooling)
 				ItemManager.i.UsedItem();
-
-
 			}
 			else {
 				Debug.Log("No Item");
