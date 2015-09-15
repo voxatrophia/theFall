@@ -15,11 +15,11 @@ public class ItemManager : MonoBehaviour {
 		} else if(i != this){
 			Destroy(gameObject);
 		}
+
 		image = GetComponent<Image>();
 	}
 
 	public GameObject GetItem(){
-		//return item.name;
 		if(item != null){
 			return item;
 		}

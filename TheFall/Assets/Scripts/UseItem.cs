@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class UseItem : MonoBehaviour {
 
@@ -11,9 +12,11 @@ public class UseItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Fire1") ){
+
+		if(CrossPlatformInputManager.GetButtonDown("Submit")){
+			//Make sure ItemManager is active
 			if(ItemManager.i != null){
-				item = ItemManager.i.GetItem();				
+				item = ItemManager.i.GetItem();
 			}
 			if(item != null){
 				switch(item.name){

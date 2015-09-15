@@ -5,14 +5,17 @@ public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
 	Rigidbody2D rb;
-	public float switchTime = 0f;
+	public bool changeDirection;
+	public float switchTime = 3f;
 
 	void Awake () {
 		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void Start(){
-		InvokeRepeating("switchPlatform",switchTime,switchTime);
+		if(changeDirection){
+			InvokeRepeating("switchPlatform",switchTime,switchTime);
+		}
 	}
 	
 	void Update () {
