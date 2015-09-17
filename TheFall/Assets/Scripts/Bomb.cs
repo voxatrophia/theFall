@@ -30,12 +30,12 @@ public class Bomb : MonoBehaviour {
         Debug.Log(colliders.Length);
         foreach(Collider2D col in colliders)
         {
-            if (col.gameObject != gameObject && col.gameObject.tag != "Player"){
+            if (col.gameObject.tag == "Platform"){
             	col.gameObject.SetActive(false);
-            	return;
+//            	return;
             }
         }
-        part.Play();
+//        part.Play();
 		Debug.Log("Explode");
 //		part.SetActive(false);
 	}

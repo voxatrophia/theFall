@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11446456}
   - 212: {fileID: 21209540}
   - 58: {fileID: 5800354}
+  - 114: {fileID: 11416156}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.41899991, y: .541000009, z: 0}
+  m_LocalPosition: {x: -4.32278872, y: -1.43865132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,6 +61,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .286666662
+--- !u!114 &11416156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e42a69ba2d1dd84891572fa149760a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11446456
 MonoBehaviour:
   m_ObjectHideFlags: 1
