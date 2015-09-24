@@ -27,7 +27,6 @@ public class Bomb : MonoBehaviour {
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius);
-        Debug.Log(colliders.Length);
         foreach(Collider2D col in colliders)
         {
             if (col.gameObject.tag == "Platform"){
@@ -36,7 +35,7 @@ public class Bomb : MonoBehaviour {
             }
         }
 //        part.Play();
-		Debug.Log("Explode");
+//		Debug.Log("Explode");
 //		part.SetActive(false);
 	}
 }
