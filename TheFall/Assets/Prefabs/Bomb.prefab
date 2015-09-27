@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11415346}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Item
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 0}
-  m_GroundCheck: {fileID: 0}
   k_GroundedRadius: .5
 --- !u!114 &11468498
 MonoBehaviour:
@@ -121,7 +120,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Item
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

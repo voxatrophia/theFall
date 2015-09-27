@@ -7,6 +7,12 @@ TagManager:
   - MovingPlatform
   - Platform
   - Item
+  - Enemy
+  - Health
+  - Bomb
+  - Apple
+  - Ribs
+  - GroundCheck
   layers:
   - Default
   - TransparentFX

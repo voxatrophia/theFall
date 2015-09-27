@@ -18,17 +18,13 @@ public class LightFlash : MonoBehaviour {
 	void Update () {
 	}
 
+	//In theory, used to flash all lights at once
+	//stops co-routines, flashes once, starts repeating co-routine again
 	public void Flash(){
 		StopAllCoroutines();
 		StartCoroutine("FlashOnce");
 		StartCoroutine("FlashRepeat");
 	}
-
-	// void OnGUI(){
-	// 	if(GUI.Button(new Rect(Mathf.Abs(transform.position.x)*20,Mathf.Abs(transform.position.y)*20,50,25), "Flash")){
-	// 		Flash();
-	// 	}
-	// }
 
 	IEnumerator FlashOnce() {
 		lt.enabled = true;

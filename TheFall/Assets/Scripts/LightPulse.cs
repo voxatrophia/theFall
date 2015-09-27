@@ -12,25 +12,23 @@ public class LightPulse : MonoBehaviour {
 
     private bool isLit;
 
-    void Awake(){
+    void Awake() {
 		lt = GetComponent<Light>();
         isLit = startOn;
         lt.intensity = isLit ? maxBrightness : minBrightness;
     }
 
-    void OnEnable()
-    {
+    void OnEnable() {
        StartCoroutine(Transition(!isLit));
     }
  
-    void OnDisable()
-    {
+    void OnDisable() {
        StopAllCoroutines();
        isLit = false;
        lt.intensity = 0;
     }
 
-    IEnumerator Transition(bool turnOn){
+    IEnumerator Transition(bool turnOn) {
         float initialBrightness = lt.intensity;
         float targetBrightness = turnOn ? maxBrightness : minBrightness;
         float startTime = Time.time;

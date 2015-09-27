@@ -37,11 +37,5 @@ public class SpawnPlatforms : MonoBehaviour {
 								  Quaternion.identity)
 					  as GameObject;
 		newPlatform.transform.parent = movingPlatform;
-
-		// GameObject newPlatform;
-		// newPlatform = Instantiate(platforms[Random.Range (0, platforms.GetLength(0))], transform.position, Quaternion.identity) as GameObject;
-		// Debug.Log(newPlatform.name);
-		// newPlatform.transform.parent = MovingPlatform;
-		// origin = transform.position;
 	}
 }
