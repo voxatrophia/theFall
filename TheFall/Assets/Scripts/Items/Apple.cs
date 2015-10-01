@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Apple : MonoBehaviour {
 
+	//Called from UseItem script attached to player
 	public void HealthUp(){
-		Debug.Log("Health Up");
-		Health.AddHealth();
+		EventManager.TriggerEvent("HealthPickup");
 	}
 
 }

@@ -18,7 +18,7 @@ public class HealthHUD : MonoBehaviour {
 
 	void OnDisable(){
 		EventManager.StopListening("Damage", UpdateHealth);
-		EventManager.StartListening("AddHealth", UpdateHealth);
+		EventManager.StopListening("AddHealth", UpdateHealth);
 	}
 
 	void UpdateHealth(){

@@ -2,43 +2,30 @@
 using System.Collections;
 
 public class Bomb : MonoBehaviour {
-
-	public ParticleSystem part;
-	GameObject m_GroundCheck;
 	public float k_GroundedRadius;
+
+	GameObject m_GroundCheck;
+	GameObject explosionObject;
+	Explosion explosion;
 
 	void OnEnable(){
 		m_GroundCheck = GameObject.FindWithTag("GroundCheck");
+		explosionObject = GameObject.FindWithTag("Explosion");
+		explosion = explosionObject.GetComponent<Explosion>();
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+	//Called from UseItem script attached to player
 	public void Explode(){
-		//Create game object where player is facing
-		//physics.overlapcircle
-		//get all gameobjects that collide
-		//deactivate gameobjects that aren't player (or walls)
-
-        // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-        // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-
+		//Using same code as PlatformController2D, even using player ground_check
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.transform.position, k_GroundedRadius);
         foreach(Collider2D col in colliders)
         {
             if (col.gameObject.tag == "Platform"){
             	col.gameObject.SetActive(false);
-//            	return;
             }
         }
-//        part.Play();
-//		Debug.Log("Explode");
-//		part.SetActive(false);
+
+     	//Explosion particle effect
+        explosion.Explode(m_GroundCheck.transform.position);
 	}
 }

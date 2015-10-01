@@ -1,17 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(MultiObjectPooler))]
 public class ItemSpanwer : MonoBehaviour {
+	public float spawnMinTime = 3f;
+	public float spawnMaxTime = 5f;
 
-	public GameObject[] items;
+	Animator anim;
+	MultiObjectPooler itemList;
 
-	void Start(){
-		InvokeRepeating("SpawnItem", 3, Random.Range(3,5));
+	void Start() {
+		itemList = GetComponent<MultiObjectPooler>();
+
+		StartCoroutine("SpawnItem");
 	}
 
-	void SpawnItem(){
-		Vector3 loc = new Vector3(Random.Range(-10,10), transform.position.y, transform.position.z);
-		Instantiate(items[Random.Range(0,items.Length)], loc, Quaternion.identity);
-	}
+	IEnumerator SpawnItem(){
+		while(true){
+			yield return new WaitForSeconds(Random.Range(spawnMinTime, spawnMaxTime));
+			GameObject item = itemList.GetPooledObjectOfRandomType();
 
+			if(item != null){
+				item.transform.position = new Vector3(Random.Range(-10,10), transform.position.y, transform.position.z);
+				item.transform.rotation = Quaternion.identity;
+				item.SetActive(true);
+			}
+		}
+	}
 }

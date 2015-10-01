@@ -13,6 +13,9 @@ TagManager:
   - Apple
   - Ribs
   - GroundCheck
+  - Stopwatch
+  - Explosion
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

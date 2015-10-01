@@ -6,23 +6,42 @@ public class BossMove : MonoBehaviour {
 
 	public Transform target;
 	public float damp = 2f;
+	bool canMove = true;
 
-	//TODO: When boss gets close, change animation
-	//Animator anim;
-	//private float proximity;
+	Animator anim;
+	private float proximity;
 	private Vector3 velocity = Vector3.zero;
 
+	void OnEnable(){
+		EventManager.StartListening("StopMoving", StopMoving);
+	}
+
+	void OnDisable(){
+		EventManager.StopListening("StopMoving", StopMoving);
+	}
+
 	void Start () {
-		//anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
 	}
 	
 	void Update () {
-		//proximity = Vector2.Distance (target.position, transform.position);
+		if(canMove){
+			//Only move left and right, lock position.y
+			Vector3 dest = new Vector3 (target.transform.position.x, transform.position.y, transform.position.z);
+			transform.position = Vector3.SmoothDamp (transform.position, dest, ref velocity, damp);			
+		}
+		proximity = Vector2.Distance (target.position, transform.position);
 		//Send this info to Animator
-		//anim.SetFloat ("Proximity", proximity);
+		anim.SetFloat ("Proximity", proximity);
+	}
 
-		//Only move left and right, lock position.y
-		Vector3 dest = new Vector3 (target.transform.position.x, transform.position.y, transform.position.z);
-		transform.position = Vector3.SmoothDamp (transform.position, dest, ref velocity, damp);
+	void StopMoving(){
+		StartCoroutine("StopMovingCoroutine");
+	}
+
+	IEnumerator StopMovingCoroutine(){
+		canMove = false;
+		yield return new WaitForSeconds(2f);
+		canMove = true;
 	}
 }

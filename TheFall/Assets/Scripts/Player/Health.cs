@@ -8,18 +8,28 @@ public class Health : MonoBehaviour {
 
 	public int health = 3;
 	public float invulTime = 1f;
-    public Color flashColor;
+    public Color damageColor;
+    public Color healthColor;
 
     private bool invulnerable = false;
-    private SpriteRenderer spr;
-    private Color origColor;
+
+    Animator anim;
+    FlashSpriteColor flash;
+
+    void OnEnable(){
+        EventManager.StartListening("HealthPickup", AddHealth);
+    }
+
+    void OnDisable(){
+        EventManager.StopListening("HealthPickup", AddHealth);
+    }
 
     void Awake(){
     	if(i == null){
 			i = this;
     	}
-    	spr = GetComponent<SpriteRenderer>();
-    	origColor = spr.color;
+        anim = GetComponent<Animator>();
+        flash = GetComponent<FlashSpriteColor>();
     }
 
 	public static int CheckHealth(){
@@ -30,16 +40,18 @@ public class Health : MonoBehaviour {
 		if(!invulnerable){
 	    	if(other.gameObject.tag == "Enemy") {
     			TakeDamage();
+                //If hit near top of screen, too chaotic, move screen down
+                if(transform.position.y > 6){
+                    EventManager.TriggerEvent("MoveBackwards");                
+                }
 	    	}
-	    	// if(other.gameObject.tag == "Health") {
-      //           Debug.Log("Health?");
-	    	// 	AddHealth();
-	    	// }
+ 
     	}
     }
 
-	public static void AddHealth(){
+	void AddHealth(){
     	i.health += 1;
+        flash.FlashSprite(healthColor);
         EventManager.TriggerEvent("AddHealth");
 	}
 
@@ -49,50 +61,59 @@ public class Health : MonoBehaviour {
 			EventManager.TriggerEvent("Damage");
             StartCoroutine(JustHurt());
             if(health <= 0){
-            	Death();
+//            	Death();
+                StartCoroutine("Die");
             }
         }
     }
      
     IEnumerator JustHurt() {
         invulnerable = true;
-        StartCoroutine("Transition");
-
-        // spr.color = new Color(1f,1f,1f,Mathf.PingPong(Time.time, 10));
+        flash.FlashSprite(damageColor);
         yield return new WaitForSeconds(invulTime);
-        // spr.color = origColor;
         invulnerable = false;
      }
 
-    void Death(){
-    	//Debug.Log("Game Over");
+    IEnumerator Die(){
+        Time.timeScale = 0;
+        EventManager.TriggerEvent("Death");
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1f));
+        anim.SetBool("Dead",true);
     }
 
-    IEnumerator Transition() {
-        float endInvul = invulTime + Time.time;
-        while(Time.time < endInvul){
-            float lerpTransitionTime = 0.1f;
-            float lerpStartTime = Time.time;
-            float lerpEndTime = lerpStartTime + lerpTransitionTime;
+    // IEnumerator Transition(Color flashColor) {
+    //     float endInvul = invulTime + Time.time;
+    //     while(Time.time < endInvul){
+    //         float lerpTransitionTime = 0.1f;
+    //         float lerpStartTime = Time.time;
+    //         float lerpEndTime = lerpStartTime + lerpTransitionTime;
 
-            while (lerpEndTime >= Time.time)
-            {
-                spr.color = Color.Lerp(origColor, flashColor, (Time.time - lerpStartTime)/lerpTransitionTime);
-                yield return null;
-            }
+    //         while (lerpEndTime >= Time.time)
+    //         {
+    //             spr.color = Color.Lerp(origColor, flashColor, (Time.time - lerpStartTime)/lerpTransitionTime);
+    //             yield return null;
+    //         }
 
-            yield return new WaitForSeconds(0.1f);
+    //         yield return new WaitForSeconds(0.1f);
 
-            lerpStartTime = Time.time;
-            lerpEndTime = lerpStartTime + lerpTransitionTime;
+    //         lerpStartTime = Time.time;
+    //         lerpEndTime = lerpStartTime + lerpTransitionTime;
 
-            while (lerpEndTime >= Time.time)
-            {
-                spr.color = Color.Lerp(flashColor, origColor, (Time.time - lerpStartTime)/lerpTransitionTime);
-                yield return null;
-            }
-//            Debug.Log(counter);
-        }
-        yield return null;
-    }
+    //         while (lerpEndTime >= Time.time)
+    //         {
+    //             spr.color = Color.Lerp(flashColor, origColor, (Time.time - lerpStartTime)/lerpTransitionTime);
+    //             yield return null;
+    //         }
+    //     }
+    //     yield return null;
+    // }
+
+    // void MovePlayerToCenter(){
+    //     Vector3 dest = new Vector3(0, 0, transform.position.z);
+    //     Vector3 vel = Vector3.zero;
+    //     float damp = 0.2f;
+
+    //     transform.position = Vector3.SmoothDamp(transform.position, dest, ref vel, damp);
+    // }
+
 }

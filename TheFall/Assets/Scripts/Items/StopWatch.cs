@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StopWatch : MonoBehaviour {
+public class Stopwatch : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	//Called from UseItem script attached to player
+	public void StopTime(){
+        EventManager.TriggerEvent("StopMoving");
 	}
 }

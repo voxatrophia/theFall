@@ -11,17 +11,15 @@ public class PlatformCatcher : MonoBehaviour {
 		objects[1] = "Bomb";
 		objects[2] = "Ribs";
 		objects[3] = "Apple";
-		objects[4] = "Orb";
+		objects[4] = "Stopwatch";
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-//		Debug.Log("Collide" + col.gameObject.name);
 		foreach(string obj in objects){
 			if(col.gameObject.tag == obj){
-				Destroy(col.gameObject);
+				col.gameObject.SetActive(false);
 				break;
 			}
 		}
 	}
-
 }

@@ -5,14 +5,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class UseItem : MonoBehaviour {
 
 	GameObject item;
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
 	void Update () {
-
 		if(CrossPlatformInputManager.GetButtonDown("Submit")){
 			//Make sure ItemManager is active
 			if(ItemManager.i != null){
@@ -28,11 +22,15 @@ public class UseItem : MonoBehaviour {
 						Apple useApple = item.GetComponent<Apple>();
 						useApple.HealthUp();
 						break;
+					case "Stopwatch":
+						Stopwatch useStopwatch = item.GetComponent<Stopwatch>();
+						useStopwatch.StopTime();
+						break;
 					default:
 						break;
 
 				}
-				//Destroy item (or recycle for object pooling)
+				//Remove item from image
 				ItemManager.i.UsedItem();
 			}
 			else {

@@ -5,25 +5,39 @@ public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
 	Rigidbody2D rb;
-	public bool changeDirection;
-	public float switchTime = 3f;
-
-	void Awake () {
-		rb = GetComponent<Rigidbody2D>();
-	}
 
 	void Start(){
-		if(changeDirection){
-			InvokeRepeating("switchPlatform",switchTime,switchTime);
-		}
-	}
-	
-	void Update () {
-		rb.velocity = velocity;
-	
+		rb = GetComponent<Rigidbody2D>();
+		rb.velocity = new Vector2(0, 3);
 	}
 
-	void switchPlatform(){
-		velocity *= -1;
+	void OnEnable(){
+		EventManager.StartListening("StopMoving", StopMoving);
+		EventManager.StartListening("MoveBackwards", MoveBackwards);
+	}
+
+	void OnDisable(){
+		EventManager.StopListening("StopMoving", StopMoving);
+		EventManager.StopListening("MoveBackwards", MoveBackwards);
+	}
+
+	
+	void StopMoving(){
+		StartCoroutine("StopMovingCoroutine");
+	}
+
+	IEnumerator StopMovingCoroutine(){
+		rb.velocity = new Vector2(0, 0);
+		yield return new WaitForSeconds(2f);
+		rb.velocity = velocity;
+	}
+
+	void MoveBackwards(){
+		StartCoroutine("MoveBackwardsCoroutine");
+	}
+	IEnumerator MoveBackwardsCoroutine(){
+		rb.velocity = new Vector2(0, -5);
+		yield return new WaitForSeconds(1f);
+		rb.velocity = velocity;
 	}
 }

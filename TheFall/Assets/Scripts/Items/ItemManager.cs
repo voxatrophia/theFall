@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour {
 	//Singleton class
 	public static ItemManager i;
-	public GameObject[] items; 	//Array of prefab items
 	private Image image;		//UI Image
 	private GameObject item;	//current item
 
@@ -19,6 +18,10 @@ public class ItemManager : MonoBehaviour {
 		image = GetComponent<Image>();
 	}
 
+	void Start(){
+		changeAlpha(0);
+	}
+
 	public GameObject GetItem(){
 		if(item != null){
 			return item;
@@ -29,26 +32,22 @@ public class ItemManager : MonoBehaviour {
 	}
 
 	public void SetItem(GameObject obj){
-		if(checkItem(obj)){
-			SpriteRenderer spr = obj.GetComponent<SpriteRenderer>();
-			image.sprite = spr.sprite;
-			item = obj;
-		}
-	}
+		SpriteRenderer spr = obj.GetComponent<SpriteRenderer>();
+		image.sprite = spr.sprite;
+		changeAlpha(255);
 
-	//checks to make sure item is in the array
-	bool checkItem(GameObject obj){
-		return true;
-		foreach(GameObject itm in items){
-			if(obj.name == itm.name){
-				return true;
-			}
-		}
-		return false;
+		item = obj;
 	}
 
 	public void UsedItem(){
 		image.sprite = null;
 		item = null;
+		changeAlpha(0);
+	}
+
+	void changeAlpha(int alpha){
+		Color c = image.color;
+        c.a = alpha;
+        image.color = c;
 	}
 }
