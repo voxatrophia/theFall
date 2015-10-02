@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.CrossPlatformInput;
+//using UnityStandardAssets.CrossPlatformInput;
 
 public class UseItem : MonoBehaviour {
 
 	GameObject item;
 	
 	void Update () {
-		if(CrossPlatformInputManager.GetButtonDown("Submit")){
+//		if(CrossPlatformInputManager.GetButtonDown("Submit")){
+		if(Input.GetButtonDown("Fire1")){
 			//Make sure ItemManager is active
 			if(ItemManager.i != null){
 				item = ItemManager.i.GetItem();

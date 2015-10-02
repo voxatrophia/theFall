@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	void Update(){
 		if(readyToShoot){
-			if(Input.GetKeyDown(KeyCode.RightControl)){
+			if(Input.GetButtonDown("Fire2")){
 				Shoot();
 			}
 		}
