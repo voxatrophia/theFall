@@ -29,8 +29,8 @@ TagManager:
   - Foreground
   - Midground
   - Background
-  - 
-  - 
+  - Mountain
+  - Background_Env
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 531710347
+    locked: 0
+  - name: Front
+    uniqueID: 3297371337
     locked: 0

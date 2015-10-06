@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
@@ -8,7 +9,8 @@ public class MovingPlatform : MonoBehaviour {
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(0, 3);
+		//Vector2 defaults to (0,0) do don't need to check for null
+		rb.velocity = velocity;
 	}
 
 	void OnEnable(){
