@@ -10,9 +10,12 @@ public class Health : MonoBehaviour {
 	public float invulTime = 1f;
     public Color damageColor;
     public Color healthColor;
+    public AudioClip deathSound;
+    public AudioClip deathSound2;
 
     private bool invulnerable = false;
 
+    AudioSource audioSrc;
     Animator anim;
     FlashSpriteColor flash;
 
@@ -30,6 +33,7 @@ public class Health : MonoBehaviour {
     	}
         anim = GetComponent<Animator>();
         flash = GetComponent<FlashSpriteColor>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
 	public static int CheckHealth(){
@@ -39,7 +43,9 @@ public class Health : MonoBehaviour {
      void OnTriggerEnter2D(Collider2D other){
 		if(!invulnerable){
 	    	if(other.gameObject.tag == "Enemy") {
+                audioSrc.Play();
     			TakeDamage();
+
                 //If hit near top of screen, too chaotic, move screen down
                 if(transform.position.y > 6){
                     EventManager.TriggerEvent("MoveBackwards");                
@@ -77,43 +83,17 @@ public class Health : MonoBehaviour {
     IEnumerator Die(){
         Time.timeScale = 0;
         EventManager.TriggerEvent("Death");
-        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1f));
+        audioSrc.clip = deathSound2;
+        audioSrc.Play();
+        audioSrc.PlayOneShot(deathSound);
+
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.05f));
         anim.SetBool("Dead",true);
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3.5f));
+        EventManager.TriggerEvent("DeathFade");
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
+        Time.timeScale = 1;
+        MainController.SwitchScene("GameOver");
+
     }
-
-    // IEnumerator Transition(Color flashColor) {
-    //     float endInvul = invulTime + Time.time;
-    //     while(Time.time < endInvul){
-    //         float lerpTransitionTime = 0.1f;
-    //         float lerpStartTime = Time.time;
-    //         float lerpEndTime = lerpStartTime + lerpTransitionTime;
-
-    //         while (lerpEndTime >= Time.time)
-    //         {
-    //             spr.color = Color.Lerp(origColor, flashColor, (Time.time - lerpStartTime)/lerpTransitionTime);
-    //             yield return null;
-    //         }
-
-    //         yield return new WaitForSeconds(0.1f);
-
-    //         lerpStartTime = Time.time;
-    //         lerpEndTime = lerpStartTime + lerpTransitionTime;
-
-    //         while (lerpEndTime >= Time.time)
-    //         {
-    //             spr.color = Color.Lerp(flashColor, origColor, (Time.time - lerpStartTime)/lerpTransitionTime);
-    //             yield return null;
-    //         }
-    //     }
-    //     yield return null;
-    // }
-
-    // void MovePlayerToCenter(){
-    //     Vector3 dest = new Vector3(0, 0, transform.position.z);
-    //     Vector3 vel = Vector3.zero;
-    //     float damp = 0.2f;
-
-    //     transform.position = Vector3.SmoothDamp(transform.position, dest, ref vel, damp);
-    // }
-
 }

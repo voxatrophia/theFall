@@ -8,10 +8,14 @@ public class Bomb : MonoBehaviour {
 	GameObject explosionObject;
 	Explosion explosion;
 
-	void OnEnable(){
-		m_GroundCheck = GameObject.FindWithTag("GroundCheck");
+	void Awake(){
+		//particle system
 		explosionObject = GameObject.FindWithTag("Explosion");
 		explosion = explosionObject.GetComponent<Explosion>();
+	}
+
+	void OnEnable(){
+		m_GroundCheck = GameObject.FindWithTag("GroundCheck");
 	}
 
 	//Called from UseItem script attached to player
@@ -27,5 +31,6 @@ public class Bomb : MonoBehaviour {
 
      	//Explosion particle effect
         explosion.Explode(m_GroundCheck.transform.position);
+
 	}
 }

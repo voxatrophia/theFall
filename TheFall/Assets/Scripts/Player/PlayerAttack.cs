@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	bool readyToShoot = false;
 	public GameObject attack;
+	bool isShooting = false;
 
 
 	void OnEnable(){

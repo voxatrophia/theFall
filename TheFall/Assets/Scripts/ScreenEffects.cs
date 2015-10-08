@@ -8,8 +8,10 @@ public class ScreenEffects : MonoBehaviour {
 	public Color healthColor;
 	CameraShake shake;
 	ScreenFlash flash;
+	AudioSource audioSrc;
 
 	void Start(){
+		audioSrc = GetComponent<AudioSource>();
 		shake = GetComponent<CameraShake> ();
 		flash = GetComponent<ScreenFlash>();
 	}
@@ -17,11 +19,13 @@ public class ScreenEffects : MonoBehaviour {
 	void OnEnable(){
 		EventManager.StartListening("Damage", ScreenEffect);
 		EventManager.StartListening("AddHealth", HealthScreenEffect);
+		EventManager.StartListening("StopMoving", PauseSound);
 	}
 
 	void OnDisable(){
 		EventManager.StopListening("Damage", ScreenEffect);
 		EventManager.StopListening("AddHealth", HealthScreenEffect);
+		EventManager.StopListening("StopMoving", PauseSound);
 	}
 
 	void ScreenEffect(){
@@ -31,5 +35,17 @@ public class ScreenEffects : MonoBehaviour {
 
 	void HealthScreenEffect(){
 		flash.FlashScreen(healthColor);
+	}
+
+	void PauseSound(){
+		StartCoroutine("StopMusic");
+	}
+	
+	IEnumerator StopMusic(){
+		if(audioSrc.isPlaying){
+			audioSrc.Pause();
+			yield return new WaitForSeconds(2f);
+			audioSrc.Play();
+		}
 	}
 }

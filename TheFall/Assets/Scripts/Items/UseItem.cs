@@ -5,7 +5,16 @@ using System.Collections;
 public class UseItem : MonoBehaviour {
 
 	GameObject item;
-	
+	AudioSource audioSrc;
+
+	public AudioClip bombSE;
+	public AudioClip appleSE;
+	public AudioClip watchSE;
+
+	void Start(){
+		audioSrc = GetComponent<AudioSource>();
+	}
+
 	void Update () {
 //		if(CrossPlatformInputManager.GetButtonDown("Submit")){
 		if(Input.GetButtonDown("Fire1")){
@@ -18,12 +27,15 @@ public class UseItem : MonoBehaviour {
 					case "Bomb":
 						Bomb useBomb = item.GetComponent<Bomb>();
 						useBomb.Explode();
+						audioSrc.PlayOneShot(bombSE);
 						break;
 					case "Apple":
 						Apple useApple = item.GetComponent<Apple>();
 						useApple.HealthUp();
+						audioSrc.PlayOneShot(appleSE);
 						break;
 					case "Stopwatch":
+						audioSrc.PlayOneShot(watchSE);
 						Stopwatch useStopwatch = item.GetComponent<Stopwatch>();
 						useStopwatch.StopTime();
 						break;

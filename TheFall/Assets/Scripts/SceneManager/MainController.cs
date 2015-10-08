@@ -57,9 +57,9 @@ public class MainController : MonoBehaviour
 		updateDelegates[(int)SceneState.Ready] = UpdateSceneReady;
 		updateDelegates[(int)SceneState.Run] = UpdateSceneRun;
 
-		nextSceneName = "Menu Scene";
+		nextSceneName = "StartScene";
 		sceneState = SceneState.Reset;
-		Camera.main.orthographicSize = Screen.height/2;
+//		Camera.main.orthographicSize = Screen.height/2;
 	}
 	
 	protected void OnDestroy()

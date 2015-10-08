@@ -22,6 +22,6 @@ public class MessTest : MonoBehaviour {
 	}
 
 	void Test(){
-		
+		Debug.Log("Test Message Received");
 	}
 }

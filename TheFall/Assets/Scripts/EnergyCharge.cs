@@ -8,6 +8,7 @@ public class EnergyCharge : MonoBehaviour {
 	float rechargeRate = 50;
 	public Slider energy;
 	bool energyFullTrigger = false;
+	AudioSource audioSrc;
 
 	void OnEnable(){
 		EventManager.StartListening("Damage", ResetEnergy);
@@ -29,6 +30,13 @@ public class EnergyCharge : MonoBehaviour {
 		if(energy == null){
 			Debug.LogError("Slider not attached");
 		}
+		audioSrc = GetComponent<AudioSource>();
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.CompareTag("Player")){
+			audioSrc.Play();
+		}
 	}
 
 	void OnTriggerStay2D(Collider2D other){
@@ -48,7 +56,9 @@ public class EnergyCharge : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D(Collider2D other){
-//		Debug.Log(energyLevel);		
+		if(other.CompareTag("Player")){
+			audioSrc.Stop();
+		}		
 	}
 
 }

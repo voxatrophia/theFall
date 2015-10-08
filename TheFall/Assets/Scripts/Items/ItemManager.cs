@@ -8,6 +8,8 @@ public class ItemManager : MonoBehaviour {
 	private Image image;		//UI Image
 	private GameObject item;	//current item
 
+	public AudioSource audioSrc;
+
 	void Awake(){
 		if(i == null){
 			i = this;
@@ -16,6 +18,7 @@ public class ItemManager : MonoBehaviour {
 		}
 
 		image = GetComponent<Image>();
+		audioSrc = GetComponent<AudioSource>();
 	}
 
 	void Start(){
