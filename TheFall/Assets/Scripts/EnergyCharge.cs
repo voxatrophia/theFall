@@ -5,7 +5,7 @@ using System.Collections;
 public class EnergyCharge : MonoBehaviour {
 
 	float energyLevel = 0;
-	float rechargeRate = 50;
+	float rechargeRate = 25;
 	public Slider energy;
 	bool energyFullTrigger = false;
 	AudioSource audioSrc;
