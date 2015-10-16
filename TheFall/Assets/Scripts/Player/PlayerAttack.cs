@@ -5,8 +5,12 @@ public class PlayerAttack : MonoBehaviour {
 
 	bool readyToShoot = false;
 	public GameObject attack;
-	bool isShooting = false;
+	public AudioClip readySound;
+	AudioSource audioSrc;
 
+	void Start(){
+		audioSrc = GetComponent<AudioSource>();
+	}
 
 	void OnEnable(){
 		EventManager.StartListening("EnergyFull", Ready);
@@ -29,6 +33,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	void Ready(){
 		readyToShoot = true;
+		audioSrc.PlayOneShot(readySound);
 	}
 
 	void Shoot(){

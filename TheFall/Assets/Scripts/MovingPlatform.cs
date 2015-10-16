@@ -5,22 +5,24 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
+	public float speedIncrease = 1.3f;
 	Rigidbody2D rb;
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
-		//Vector2 defaults to (0,0) do don't need to check for null
 		rb.velocity = velocity;
 	}
 
 	void OnEnable(){
 		EventManager.StartListening("StopMoving", StopMoving);
 		EventManager.StartListening("MoveBackwards", MoveBackwards);
+		EventManager.StartListening("BossNearDeath", MoveFaster);
 	}
 
 	void OnDisable(){
 		EventManager.StopListening("StopMoving", StopMoving);
 		EventManager.StopListening("MoveBackwards", MoveBackwards);
+		EventManager.StopListening("BossNearDeath", MoveFaster);
 	}
 
 	
@@ -40,6 +42,11 @@ public class MovingPlatform : MonoBehaviour {
 	IEnumerator MoveBackwardsCoroutine(){
 		rb.velocity = new Vector2(0, -5);
 		yield return new WaitForSeconds(1f);
+		rb.velocity = velocity;
+	}
+
+	void MoveFaster(){
+		velocity = new Vector2(0, rb.velocity.y * speedIncrease);
 		rb.velocity = velocity;
 	}
 }

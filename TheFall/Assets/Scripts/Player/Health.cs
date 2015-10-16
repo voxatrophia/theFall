@@ -72,7 +72,7 @@ public class Health : MonoBehaviour {
             }
         }
     }
-     
+
     IEnumerator JustHurt() {
         invulnerable = true;
         flash.FlashSprite(damageColor);
@@ -82,18 +82,21 @@ public class Health : MonoBehaviour {
 
     IEnumerator Die(){
         Time.timeScale = 0;
-        EventManager.TriggerEvent("Death");
         audioSrc.clip = deathSound2;
         audioSrc.Play();
-        audioSrc.PlayOneShot(deathSound);
-
-        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.05f));
+        EventManager.TriggerEvent("Death");
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.8f));
         anim.SetBool("Dead",true);
-        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3.5f));
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3f));
+        audioSrc.Stop();
         EventManager.TriggerEvent("DeathFade");
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         Time.timeScale = 1;
         MainController.SwitchScene("GameOver");
+    }
+
+    public void PlayDeathSound(){
+        audioSrc.PlayOneShot(deathSound);    	
 
     }
 }

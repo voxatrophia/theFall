@@ -6,13 +6,15 @@ public class ScreenEffects : MonoBehaviour {
 
 	public Color damageColor;
 	public Color healthColor;
-	CameraShake shake;
+//	CameraShake shake;
+	ScreenShake shake;
 	ScreenFlash flash;
 	AudioSource audioSrc;
 
 	void Start(){
 		audioSrc = GetComponent<AudioSource>();
-		shake = GetComponent<CameraShake> ();
+//		shake = GetComponent<CameraShake> ();
+		shake = GetComponent<ScreenShake> ();
 		flash = GetComponent<ScreenFlash>();
 	}
 

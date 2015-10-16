@@ -11,4 +11,10 @@ public class PlayerAttackSpell : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		rb.velocity = velocity;
 	}
+
+	// void OnTriggerEnter2D(Collider2D other){
+	// 	if(other.gameObject.CompareTag("Enemy")){
+	// 		this.gameObject.SetActive(false);
+	// 	}
+	// }
 }

@@ -9,6 +9,7 @@ public class EnergyCharge : MonoBehaviour {
 	public Slider energy;
 	bool energyFullTrigger = false;
 	AudioSource audioSrc;
+	public AudioClip fullChime;
 
 	void OnEnable(){
 		EventManager.StartListening("Damage", ResetEnergy);
@@ -44,6 +45,8 @@ public class EnergyCharge : MonoBehaviour {
 			energyLevel = Mathf.Min(energyLevel + rechargeRate * Time.deltaTime, 100.0F);
 			if(energyLevel == 100){
 				energyFullTrigger = true;
+				audioSrc.Stop();
+				//audioSrc.PlayOneShot(fullChime);
 		        EventManager.TriggerEvent("EnergyFull");
 			}
 		}

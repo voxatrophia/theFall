@@ -8,5 +8,4 @@ public class Platform : MonoBehaviour {
 			child.gameObject.SetActive(true);
 		}
 	}
-
 }

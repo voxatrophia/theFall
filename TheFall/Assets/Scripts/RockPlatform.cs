@@ -13,10 +13,6 @@ public class RockPlatform : MonoBehaviour {
 		children = new GameObject[childCount];
 	}
 
-	void OnBecameInvisible(){
-		enabled = false;;
-	}
-
 	void OnEnable(){
 		//Re-enable all child transforms (blocks in platform)
 		int i = 0;
