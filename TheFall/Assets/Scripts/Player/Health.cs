@@ -88,6 +88,7 @@ public class Health : MonoBehaviour {
         Time.timeScale = 0;
         audioSrc.clip = deathSound2;
         audioSrc.Play();
+        AudioManager.Instance.StopSound();
         EventManager.TriggerEvent(Events.Death);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.8f));
         anim.SetBool(PlayerAnim.Dead,true);

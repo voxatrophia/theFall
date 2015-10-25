@@ -14,13 +14,9 @@ public class AudioManager : Singleton<AudioManager> {
 
 	void OnEnable(){
 		EventManager.StartListening(Events.StopMoving, PauseSound);
-		EventManager.StartListening(Events.Death, StopSound);
-
 	}
 	void OnDisable(){
 		EventManager.StopListening(Events.StopMoving, PauseSound);
-		EventManager.StopListening(Events.Death, StopSound);
-
 	}
 
 	// public void SwitchMusic(AudioClip clip){
@@ -57,7 +53,7 @@ public class AudioManager : Singleton<AudioManager> {
 		StartCoroutine(StopMusic());
 	}
 
-	void StopSound(){
+	public void StopSound(){
 		audioSource.Stop();
 	}
 	
