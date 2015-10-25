@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MultiObjectPooler : MonoBehaviour {
 
+	public Transform parent;
 	//The list of type of objects to pool
 	public GameObject[] objectsList;
 	//Array to know how many to pool initially
@@ -34,6 +35,9 @@ public class MultiObjectPooler : MonoBehaviour {
 			//now begin creating objects to store in list
 			for(int j=0; j < pooledAmount[i]; j++){
 				GameObject obj = (GameObject)Instantiate(objectsList[i]);
+				if(parent != null){
+					obj.transform.parent = parent;
+				}
 				obj.SetActive(false);
 				pooledObjectsList[objectsList[i].name].Add(obj);
 			}

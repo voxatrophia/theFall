@@ -38,7 +38,6 @@ public class ItemManager : MonoBehaviour {
 		SpriteRenderer spr = obj.GetComponent<SpriteRenderer>();
 		image.sprite = spr.sprite;
 		changeAlpha(255);
-
 		item = obj;
 	}
 

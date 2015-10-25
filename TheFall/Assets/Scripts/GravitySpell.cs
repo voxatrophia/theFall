@@ -11,27 +11,27 @@ public class GravitySpell : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		EventManager.StartListening("StopMoving", StopMoving);
+		EventManager.StartListening(Events.StopMoving, StopMoving);
 		rb.gravityScale = origGravity;
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("StopMoving", StopMoving);
+		EventManager.StopListening(Events.StopMoving, StopMoving);
 	}
 
 	void StopMoving(){
-		StartCoroutine("StopMovingCoroutine");
+		StartCoroutine(StopMovingCoroutine());
 	}
 
 	IEnumerator StopMovingCoroutine(){
 		rb.gravityScale = 0;
 		rb.velocity = new Vector2(0, 0);
-		yield return new WaitForSeconds(2f);
+		yield return Yielders.Get(2f);
 		rb.gravityScale = origGravity;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Player"){
+		if(other.CompareTag(Tags.Player)) {
 			this.gameObject.SetActive(false);
 		}
 	}

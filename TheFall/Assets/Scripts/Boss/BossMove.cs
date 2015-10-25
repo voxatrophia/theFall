@@ -13,11 +13,12 @@ public class BossMove : MonoBehaviour {
 	private Vector3 velocity = Vector3.zero;
 
 	void OnEnable(){
-		EventManager.StartListening("StopMoving", StopMoving);
+		//Called from Stopwatch item
+		EventManager.StartListening(Events.StopMoving, StopMoving);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("StopMoving", StopMoving);
+		EventManager.StopListening(Events.StopMoving, StopMoving);
 	}
 
 	void Start () {
@@ -31,12 +32,11 @@ public class BossMove : MonoBehaviour {
 			transform.position = Vector3.SmoothDamp (transform.position, dest, ref velocity, damp);			
 		}
 		proximity = Vector2.Distance (target.position, transform.position);
-		//Send this info to Animator
-		anim.SetFloat ("Proximity", proximity);
+		anim.SetFloat (BossAnim.Proximity, proximity);
 	}
 
 	void StopMoving(){
-		StartCoroutine("StopMovingCoroutine");
+		StartCoroutine(StopMovingCoroutine());
 	}
 
 	IEnumerator StopMovingCoroutine(){

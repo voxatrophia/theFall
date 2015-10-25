@@ -12,8 +12,11 @@ public class PlayerAttackSpell : MonoBehaviour {
 		rb.velocity = velocity;
 	}
 
+	//This disables attack when it hits the Boss...
+	//But it also disables the attack when it hits another spell.
+	//Nearly impossible to hit boss with this enabled
 	// void OnTriggerEnter2D(Collider2D other){
-	// 	if(other.gameObject.CompareTag("Enemy")){
+	// 	if(other.CompareTag("Enemy")){
 	// 		this.gameObject.SetActive(false);
 	// 	}
 	// }

@@ -12,25 +12,25 @@ public class HomingAttack : MonoBehaviour {
 
 	void OnEnable(){
 		canMove = true;
-		EventManager.StartListening("StopMoving", StopMoving);
+		EventManager.StartListening(Events.StopMoving, StopMoving);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("StopMoving", StopMoving);
+		EventManager.StopListening(Events.StopMoving, StopMoving);
 	}
 
 	void Start(){
-		target = GameObject.FindWithTag("Player");
+		target = GameObject.FindWithTag(Tags.Player);
 	}
 
 	//Coroutine wrapper
 	void StopMoving(){
-		StartCoroutine("StopMovingCoroutine");
+		StartCoroutine(StopMovingCoroutine());
 	}
 
 	IEnumerator StopMovingCoroutine(){
 		canMove = false;
-		yield return new WaitForSeconds(2f);
+		yield return Yielders.Get(2f);
 		canMove = true;
 	}
 
@@ -44,7 +44,7 @@ public class HomingAttack : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Player"){
+		if(other.CompareTag(Tags.Player)){
 			this.gameObject.SetActive(false);
 		}
 	}

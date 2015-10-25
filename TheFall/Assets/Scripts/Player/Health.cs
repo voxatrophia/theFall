@@ -20,17 +20,22 @@ public class Health : MonoBehaviour {
     FlashSpriteColor flash;
 
     void OnEnable(){
-        EventManager.StartListening("HealthPickup", AddHealth);
+        //Called from Apple item
+        EventManager.StartListening(Events.HealthPickup, AddHealth);
     }
 
     void OnDisable(){
-        EventManager.StopListening("HealthPickup", AddHealth);
+        EventManager.StopListening(Events.HealthPickup, AddHealth);
     }
 
     void Awake(){
     	if(i == null){
 			i = this;
     	}
+        else{
+            Destroy(this.gameObject);
+        }
+
         anim = GetComponent<Animator>();
         flash = GetComponent<FlashSpriteColor>();
         audioSrc = GetComponent<AudioSource>();
@@ -42,13 +47,13 @@ public class Health : MonoBehaviour {
 
      void OnTriggerEnter2D(Collider2D other){
 		if(!invulnerable){
-	    	if(other.gameObject.tag == "Enemy") {
+	    	if(other.CompareTag("Enemy")) {
                 audioSrc.Play();
     			TakeDamage();
 
                 //If hit near top of screen, too chaotic, move screen down
                 if(transform.position.y > 6){
-                    EventManager.TriggerEvent("MoveBackwards");                
+                    EventManager.TriggerEvent(Events.MoveBackwards);
                 }
 	    	}
  
@@ -58,17 +63,16 @@ public class Health : MonoBehaviour {
 	void AddHealth(){
     	i.health += 1;
         flash.FlashSprite(healthColor);
-        EventManager.TriggerEvent("AddHealth");
+        EventManager.TriggerEvent(Events.AddHealth);
 	}
 
     public void TakeDamage() {
         if(!invulnerable){
             health -= 1;
-			EventManager.TriggerEvent("Damage");
+			EventManager.TriggerEvent(Events.Damage);
             StartCoroutine(JustHurt());
             if(health <= 0){
-//            	Death();
-                StartCoroutine("Die");
+                StartCoroutine(Die());
             }
         }
     }
@@ -76,7 +80,7 @@ public class Health : MonoBehaviour {
     IEnumerator JustHurt() {
         invulnerable = true;
         flash.FlashSprite(damageColor);
-        yield return new WaitForSeconds(invulTime);
+        yield return Yielders.Get(invulTime);
         invulnerable = false;
      }
 
@@ -84,19 +88,19 @@ public class Health : MonoBehaviour {
         Time.timeScale = 0;
         audioSrc.clip = deathSound2;
         audioSrc.Play();
-        EventManager.TriggerEvent("Death");
+        EventManager.TriggerEvent(Events.Death);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.8f));
-        anim.SetBool("Dead",true);
+        anim.SetBool(PlayerAnim.Dead,true);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3f));
         audioSrc.Stop();
-        EventManager.TriggerEvent("DeathFade");
+        EventManager.TriggerEvent(Events.DeathFade);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         Time.timeScale = 1;
-        MainController.SwitchScene("GameOver");
+        MainController.SwitchScene(Scenes.GameOver);
     }
 
+    //Called by animation event
     public void PlayDeathSound(){
         audioSrc.PlayOneShot(deathSound);    	
-
     }
 }

@@ -3,24 +3,28 @@ using System.Collections;
 
 public class PlayerAttack : MonoBehaviour {
 
-	bool readyToShoot = false;
 	public GameObject attack;
 	public AudioClip readySound;
+
 	AudioSource audioSrc;
+	bool readyToShoot = false;
 
 	void Start(){
 		audioSrc = GetComponent<AudioSource>();
 	}
 
 	void OnEnable(){
-		EventManager.StartListening("EnergyFull", Ready);
+		EventManager.StartListening(Events.EnergyFull, Ready);
+		EventManager.StartListening(Events.Damage, NotReady);
+
 		if(attack != null) {
 			attack.SetActive(false);
 		}
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("EnergyFull", Ready);
+		EventManager.StopListening(Events.EnergyFull, Ready);
+		EventManager.StopListening(Events.Damage, Ready);
 	}
 
 	void Update(){
@@ -36,10 +40,14 @@ public class PlayerAttack : MonoBehaviour {
 		audioSrc.PlayOneShot(readySound);
 	}
 
+	void NotReady(){
+		readyToShoot = false;
+	}
+
 	void Shoot(){
 		attack.transform.position = transform.position;
 		attack.SetActive(true);
-        EventManager.TriggerEvent("PlayerAttack");
+        EventManager.TriggerEvent(Events.PlayerAttack);
 		readyToShoot = false;
 	}
 

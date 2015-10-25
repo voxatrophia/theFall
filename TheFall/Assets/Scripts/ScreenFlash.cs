@@ -24,7 +24,7 @@ public class ScreenFlash : MonoBehaviour {
 	    while(progress < 1) {
 	    	flashImg.color = Color.Lerp(flashColor, Color.clear, progress);
 	        progress += increment;
-	        yield return new WaitForSeconds(smoothness);
+	        yield return Yielders.Get(smoothness);
 	    }
 	    isFlashing = false;
 	    return true;

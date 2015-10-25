@@ -8,27 +8,50 @@ public class BossAttack : MonoBehaviour {
 	public float attackMinTime = 3f;
 	public float attackMaxTime = 5f;
 
+	bool canMove = true;
+	GameObject attack;
 	Animator anim;
 	MultiObjectPooler attacks;
 
 	void Start () {
 		anim = GetComponent<Animator> ();
 		attacks = GetComponent<MultiObjectPooler>();
-		StartCoroutine("Attack");
+		StartCoroutine(Attack());
+	}
+
+	void OnEnable(){
+		//Called from Stopwatch item
+		EventManager.StartListening(Events.StopMoving, StopMoving);
+	}
+
+	void OnDisable(){
+		EventManager.StopListening(Events.StopMoving, StopMoving);
 	}
 
 	IEnumerator Attack(){
 		while(true){
-			//random Attack interval
-			yield return new WaitForSeconds(Random.Range(attackMinTime,attackMaxTime));
+			yield return Yielders.Get((Random.Range(attackMinTime,attackMaxTime)));
 
-			GameObject attack = attacks.GetPooledObjectOfRandomType();
-			if(attack != null){
-				attack.transform.position = transform.position;
-				attack.transform.rotation = Quaternion.identity;
-				attack.SetActive(true);
-				anim.SetTrigger("Attack");
+			if(canMove){
+				attack = attacks.GetPooledObjectOfRandomType();
+				if(attack != null){
+					attack.transform.position = transform.position;
+					attack.transform.rotation = Quaternion.identity;
+					attack.SetActive(true);
+					anim.SetTrigger(BossAnim.Attack);
+				}
 			}
 		}
 	}
+
+	void StopMoving(){
+		StartCoroutine(StopMovingCoroutine());
+	}
+
+	IEnumerator StopMovingCoroutine(){
+		canMove = false;
+		yield return new WaitForSeconds(2f);
+		canMove = true;
+	}
+
 }

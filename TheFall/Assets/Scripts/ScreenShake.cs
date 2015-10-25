@@ -21,7 +21,7 @@ public class ScreenShake : MonoBehaviour {
 		OriginalPos = transform.position;
 		OriginalRot = transform.rotation;
 
-		StartCoroutine ("ProcessShake");
+		StartCoroutine (ProcessShake());
 	}
 
 	IEnumerator ProcessShake()

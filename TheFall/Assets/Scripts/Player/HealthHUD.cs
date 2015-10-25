@@ -12,17 +12,16 @@ public class HealthHUD : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		EventManager.StartListening("Damage", UpdateHealth);
-		EventManager.StartListening("AddHealth", UpdateHealth);
+		EventManager.StartListening(Events.Damage, UpdateHealth);
+		EventManager.StartListening(Events.AddHealth, UpdateHealth);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("Damage", UpdateHealth);
-		EventManager.StopListening("AddHealth", UpdateHealth);
+		EventManager.StopListening(Events.Damage, UpdateHealth);
+		EventManager.StopListening(Events.AddHealth, UpdateHealth);
 	}
 
 	void UpdateHealth(){
 		text.text = "x" + Health.CheckHealth();
 	}
-
 }

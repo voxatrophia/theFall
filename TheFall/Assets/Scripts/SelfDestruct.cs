@@ -6,11 +6,11 @@ public class SelfDestruct : MonoBehaviour {
 	public float lifetime = 5f;
 
 	void OnEnable(){
-		StartCoroutine("DestructSelf");
+		StartCoroutine(DestructSelf());
 	}
 
 	IEnumerator DestructSelf(){
-		yield return new WaitForSeconds(lifetime);
+		yield return Yielders.Get(lifetime);
 		this.gameObject.SetActive(false);
 	}
 }

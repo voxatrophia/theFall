@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class FlashSpriteColor : MonoBehaviour {
 
    	public float flashTime = 1f;

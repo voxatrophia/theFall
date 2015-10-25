@@ -7,18 +7,17 @@ public class PlatformCatcher : MonoBehaviour {
 
 	void Start(){
 		objects = new string[5];
-		objects[0] = "MovingPlatform";
-		objects[1] = "Bomb";
-		objects[2] = "Ribs";
-		objects[3] = "Apple";
-		objects[4] = "Stopwatch";
+		objects[0] = Tags.MovingPlatform;
+		objects[1] = Tags.Bomb;
+		objects[2] = Tags.Ribs;
+		objects[3] = Tags.Apple;
+		objects[4] = Tags.Stopwatch;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		foreach(string obj in objects){
-			if(col.gameObject.tag == obj){
+		for(int i=0;i<objects.Length;i++) {
+			if(col.CompareTag(objects[i])) {
 				col.gameObject.SetActive(false);
-				break;
 			}
 		}
 	}

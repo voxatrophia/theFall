@@ -6,9 +6,7 @@ public class BossHealth : MonoBehaviour {
 	public Color damageColor;
 	public AudioClip damageSound;
 	public AudioClip nearDeathSound;
-	public AudioClip deathSound;
-	public GameObject victory;
-	AudioSource victoryAudio;
+	public AudioClip victoryTheme;
 
 	[Range(0, 10)]
 	public int bossHealth = 10;
@@ -17,13 +15,12 @@ public class BossHealth : MonoBehaviour {
 	FlashSpriteColor flash;
 
 	void Start () {
-		victoryAudio = victory.GetComponent<AudioSource>();
 		flash = GetComponent<FlashSpriteColor>();
 		audioSrc = GetComponent<AudioSource>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "PlayerAttack"){
+		if(other.CompareTag(Tags.PlayerAttack)){
 			bossHealth -= 1;
 
 			if(bossHealth > 1){
@@ -31,9 +28,9 @@ public class BossHealth : MonoBehaviour {
 				flash.FlashSprite(damageColor);
 			}
 			else if(bossHealth == 1){
-				audioSrc.PlayOneShot(nearDeathSound);
+				AudioManager.Instance.SwitchMusic(nearDeathSound);
 				flash.ChangeSpriteColor(damageColor);
-				EventManager.TriggerEvent("BossNearDeath");
+				EventManager.TriggerEvent(Events.BossNearDeath);
 			}
 			else if(bossHealth == 0){
 				StartCoroutine(BossDeath());
@@ -43,14 +40,14 @@ public class BossHealth : MonoBehaviour {
 
 
 	IEnumerator BossDeath(){
-		victoryAudio.Play();
-		EventManager.TriggerEvent("Death");
+		AudioManager.Instance.SwitchMusic(victoryTheme);
+		EventManager.TriggerEvent(Events.Victory);
 		Time.timeScale = 0;
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1f));
-		EventManager.TriggerEvent("DeathFade");
+		EventManager.TriggerEvent(Events.DeathFade);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         Time.timeScale = 1;
-        MainController.SwitchScene("Victory");
+        MainController.SwitchScene(Scenes.Victory);
 	}
 
 }

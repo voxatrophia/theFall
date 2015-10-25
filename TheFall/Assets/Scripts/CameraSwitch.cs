@@ -15,11 +15,13 @@ public class CameraSwitch : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		EventManager.StartListening("Death", SwitchCamera);
+		EventManager.StartListening(Events.Death, SwitchCamera);
+		EventManager.StartListening(Events.Victory, SwitchCamera);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("Death", SwitchCamera);
+		EventManager.StopListening(Events.Death, SwitchCamera);
+		EventManager.StopListening(Events.Victory, SwitchCamera);
 	}
 
     IEnumerator Zoom() {
@@ -38,7 +40,7 @@ public class CameraSwitch : MonoBehaviour {
 		if(mainCamera.activeSelf){
 			mainCamera.SetActive(false);
 			secondaryCamera.SetActive(true);
-			StartCoroutine("Zoom");
+			StartCoroutine(Zoom());
 		}
 		else{
 			mainCamera.SetActive(true);

@@ -16,6 +16,8 @@ TagManager:
   - Stopwatch
   - Explosion
   - PlayerAttack
+  - Cloud
+  - PlayerCatcher
   layers:
   - Default
   - TransparentFX

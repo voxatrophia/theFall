@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MultiObjectPooler))]
 public class SpawnPlatforms : MonoBehaviour {
 
 	public float platformDistance = 3f;
@@ -22,6 +23,7 @@ public class SpawnPlatforms : MonoBehaviour {
 
 		}
 	}
+
 	void Spawn(){
 		newPlatform = platforms.GetPooledObjectOfRandomType();
 		if(newPlatform != null){

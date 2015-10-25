@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 using System.Collections;
 
 public class EnergyCharge : MonoBehaviour {
 
-	float energyLevel = 0;
-	float rechargeRate = 25;
+	public float rechargeRate = 25;
+	public float maxEnergy = 100;
 	public Slider energy;
-	bool energyFullTrigger = false;
-	AudioSource audioSrc;
 	public AudioClip fullChime;
 
+	float energyLevel = 0;
+	bool energyFullTrigger = false;
+	AudioSource audioSrc;
+
 	void OnEnable(){
-		EventManager.StartListening("Damage", ResetEnergy);
-		EventManager.StartListening("PlayerAttack", ResetEnergy);
+		EventManager.StartListening(Events.Damage, ResetEnergy);
+		EventManager.StartListening(Events.PlayerAttack, ResetEnergy);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("Damage", ResetEnergy);
-		EventManager.StopListening("PlayerAttack", ResetEnergy);
+		EventManager.StopListening(Events.Damage, ResetEnergy);
+		EventManager.StopListening(Events.PlayerAttack, ResetEnergy);
 	}
 
 	void ResetEnergy(){
@@ -26,28 +29,25 @@ public class EnergyCharge : MonoBehaviour {
 		energyFullTrigger = false;
 	}
 
-
 	void Start(){
-		if(energy == null){
-			Debug.LogError("Slider not attached");
-		}
+		Assert.IsNotNull(energy);
 		audioSrc = GetComponent<AudioSource>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.CompareTag("Player")){
+		if(other.CompareTag(Tags.Player)){
 			audioSrc.Play();
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D other){
-		if(other.gameObject.tag == "Player" && !energyFullTrigger){
-			energyLevel = Mathf.Min(energyLevel + rechargeRate * Time.deltaTime, 100.0F);
-			if(energyLevel == 100){
+		if(other.CompareTag(Tags.Player) && !energyFullTrigger){
+			//Mathf.Min returns smallest of 2 values, so energy level won't ever be above 100
+			energyLevel = Mathf.Min(energyLevel + rechargeRate * Time.deltaTime, maxEnergy);
+			if(energyLevel == maxEnergy){
 				energyFullTrigger = true;
 				audioSrc.Stop();
-				//audioSrc.PlayOneShot(fullChime);
-		        EventManager.TriggerEvent("EnergyFull");
+		        EventManager.TriggerEvent(Events.EnergyFull);
 			}
 		}
 	}
@@ -59,9 +59,8 @@ public class EnergyCharge : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D(Collider2D other){
-		if(other.CompareTag("Player")){
+		if(other.CompareTag(Tags.Player)){
 			audioSrc.Stop();
-		}		
+		}
 	}
-
 }

@@ -5,7 +5,7 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
-	public float speedIncrease = 1.3f;
+	public float speedIncrease = 1.5f;
 	Rigidbody2D rb;
 
 	void Start(){
@@ -14,34 +14,35 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		EventManager.StartListening("StopMoving", StopMoving);
-		EventManager.StartListening("MoveBackwards", MoveBackwards);
-		EventManager.StartListening("BossNearDeath", MoveFaster);
+		EventManager.StartListening(Events.StopMoving, StopMoving);
+		EventManager.StartListening(Events.MoveBackwards, MoveBackwards);
+		EventManager.StartListening(Events.BossNearDeath, MoveFaster);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening("StopMoving", StopMoving);
-		EventManager.StopListening("MoveBackwards", MoveBackwards);
-		EventManager.StopListening("BossNearDeath", MoveFaster);
+		EventManager.StopListening(Events.StopMoving, StopMoving);
+		EventManager.StopListening(Events.MoveBackwards, MoveBackwards);
+		EventManager.StopListening(Events.BossNearDeath, MoveFaster);
 	}
 
 	
 	void StopMoving(){
-		StartCoroutine("StopMovingCoroutine");
+		StartCoroutine(StopMovingCoroutine());
 	}
 
 	IEnumerator StopMovingCoroutine(){
 		rb.velocity = new Vector2(0, 0);
-		yield return new WaitForSeconds(2f);
+		yield return Yielders.Get(2f);
 		rb.velocity = velocity;
 	}
 
 	void MoveBackwards(){
-		StartCoroutine("MoveBackwardsCoroutine");
+		StartCoroutine(MoveBackwardsCoroutine());
 	}
+
 	IEnumerator MoveBackwardsCoroutine(){
-		rb.velocity = new Vector2(0, -5);
-		yield return new WaitForSeconds(1f);
+		rb.velocity = new Vector2(0, -rb.velocity.y);
+		yield return Yielders.Get(1f);
 		rb.velocity = velocity;
 	}
 

@@ -6,6 +6,6 @@ public class StartPlayer : MonoBehaviour {
 
 	void Start(){
 		anim = GetComponent<Animator>();
-		anim.SetBool("Start", true);
+		anim.SetBool(PlayerAnim.Start, true);
 	}
 }
