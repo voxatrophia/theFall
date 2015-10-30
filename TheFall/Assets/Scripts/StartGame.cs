@@ -21,6 +21,12 @@ public class StartGame : MonoBehaviour {
 	}
 
 	public void PlayGame(){
+		PlayerPrefs.SetInt("GameMode",Modes.Story);
+		StartCoroutine(Play());
+	}
+
+	public void ArcadeMode(){
+		PlayerPrefs.SetInt("GameMode",Modes.Arcade);
 		StartCoroutine(Play());
 	}
 
@@ -48,6 +54,11 @@ public class StartGame : MonoBehaviour {
 
 	public void CancelOptions(){
 		optionsMenu.SetActive(false);
+	}
+
+	public void ClearScore(){
+		audioSrc.PlayOneShot(clickSound);
+		PlayerPrefs.SetInt("HighScore", 0);
 	}
 
 }

@@ -5,6 +5,11 @@
 	public const string Main = "Main";
 }
 
+public static class Modes {
+	public const int Story = 0;
+	public const int Arcade = 1;
+}
+
 public static class Tags {
 	public const string Player = "Player";
 	public const string MovingPlatform = "MovingPlatform";
@@ -45,5 +50,6 @@ public static class Events {
 	public const string Damage = "Damage";
 	public const string EnergyFull = "EnergyFull";
 	public const string PlayerAttack = "PlayerAttack";
+	public const string BossHit = "BossHit";
 
 }

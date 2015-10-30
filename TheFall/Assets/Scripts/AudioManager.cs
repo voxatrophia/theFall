@@ -12,13 +12,6 @@ public class AudioManager : Singleton<AudioManager> {
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	void OnEnable(){
-		EventManager.StartListening(Events.StopMoving, PauseSound);
-	}
-	void OnDisable(){
-		EventManager.StopListening(Events.StopMoving, PauseSound);
-	}
-
 	// public void SwitchMusic(AudioClip clip){
 	// 	if(audioSource.isPlaying){
 	// 		StartCoroutine(FadeAudio(1f,Fade.Out));
@@ -49,7 +42,17 @@ public class AudioManager : Singleton<AudioManager> {
         }
     }
 
-	void PauseSound(){
+    public void Pause(){
+		if(audioSource.isPlaying){
+			audioSource.Pause();
+		}
+    }
+
+    public void Play(){
+		audioSource.Play();
+    }
+
+	public void PauseSound(){
 		StartCoroutine(StopMusic());
 	}
 
@@ -64,5 +67,4 @@ public class AudioManager : Singleton<AudioManager> {
 			audioSource.Play();
 		}
 	}
-
 }

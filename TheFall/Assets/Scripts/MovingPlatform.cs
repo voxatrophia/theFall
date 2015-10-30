@@ -6,11 +6,22 @@ public class MovingPlatform : MonoBehaviour {
 
 	public Vector2 velocity;
 	public float speedIncrease = 1.5f;
+	public float arcadeIncrease = 1.1f;
+	float increase;
 	Rigidbody2D rb;
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
 		rb.velocity = velocity;
+
+		switch(LevelManager.Instance.GetMode()){
+			case Modes.Arcade:
+				increase = arcadeIncrease;
+				break;
+			case Modes.Story:
+				increase = speedIncrease;
+				break;
+		}
 	}
 
 	void OnEnable(){
@@ -27,6 +38,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	
 	void StopMoving(){
+		AudioManager.Instance.PauseSound();
 		StartCoroutine(StopMovingCoroutine());
 	}
 
@@ -47,7 +59,7 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	void MoveFaster(){
-		velocity = new Vector2(0, rb.velocity.y * speedIncrease);
+		velocity = new Vector2(0, rb.velocity.y * increase);
 		rb.velocity = velocity;
 	}
 }

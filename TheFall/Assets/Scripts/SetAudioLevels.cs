@@ -5,19 +5,35 @@ using UnityEngine.UI;
 
 public class SetAudioLevels : MonoBehaviour {
 	public AudioMixer mainMixer;
+	public Slider musicSlider;
+	public Slider sfxSlider;
 
-	public void SetMusicLevel(float musicLvl){
-		if(musicLvl < -24f){
-			musicLvl = -80;
+	void Start(){
+		if(PlayerPrefs.HasKey("musicVol")){
+			mainMixer.SetFloat("musicVol", PlayerPrefs.GetFloat("musicVol"));
+			musicSlider.value = PlayerPrefs.GetFloat("musicVol");
 		}
-		mainMixer.SetFloat("musicVol", musicLvl);
+		if(PlayerPrefs.HasKey("sfxVol")){
+			mainMixer.SetFloat("sfxVol", PlayerPrefs.GetFloat("sfxVol"));
+			sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
+		}
+
 	}
 
-	public void SetSfxLevel(float sfxLvl){
-		if(sfxLvl < -24f){
-			sfxLvl = -80;
+	public void SetMusicLevel(float musicVol){
+		if(musicVol < -24f){
+			musicVol = -80;
 		}
-		mainMixer.SetFloat("sfxVol", sfxLvl);
+		mainMixer.SetFloat("musicVol", musicVol);
+		PlayerPrefs.SetFloat("musicVol", musicVol);
+	}
+
+	public void SetSfxLevel(float sfxVol){
+		if(sfxVol < -24f){
+			sfxVol = -80;
+		}
+		mainMixer.SetFloat("sfxVol", sfxVol);
+		PlayerPrefs.SetFloat("sfxVol", sfxVol);
 	}
 
 }

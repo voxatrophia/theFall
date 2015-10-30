@@ -9,6 +9,9 @@ public class SpawnPlatforms : MonoBehaviour {
 	MultiObjectPooler platforms;
 
 	GameObject newPlatform;
+	//this is for a graphics bug
+	//adds spacing for new platforms
+	int sortingSpacer = 5;
 
 	void Start () {
 		platforms = GetComponent<MultiObjectPooler>();
@@ -27,6 +30,9 @@ public class SpawnPlatforms : MonoBehaviour {
 	void Spawn(){
 		newPlatform = platforms.GetPooledObjectOfRandomType();
 		if(newPlatform != null){
+			SpriteRenderer spr = newPlatform.GetComponent<SpriteRenderer>();
+			spr.sortingOrder = spr.sortingOrder + sortingSpacer;
+			sortingSpacer += 5;
 			Vector3 pos = transform.position;
 			pos.z = movingPlatform.position.z;
 			newPlatform.transform.position = pos;

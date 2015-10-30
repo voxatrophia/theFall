@@ -38,12 +38,14 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void PauseGame(){
+		AudioManager.Instance.Pause();
 		menuState = (int)menu.Paused;
 		Time.timeScale = 0;
 		pauseMenu.SetActive(true);
 	}
 
 	public void Resume(){
+		AudioManager.Instance.Play();
 		menuState = (int)menu.Normal;
 		Time.timeScale = 1;
 		pauseMenu.SetActive(false);
@@ -59,6 +61,10 @@ public class Pause : MonoBehaviour {
 		optionsMenu.SetActive(false);
 	}
 
+	public void Confirm(string Where){
+		Debug.Log(Where);
+	}
+
 	public void Confirm(){
 		menuState = (int)menu.Quit;
 		quitMenu.SetActive(true);
@@ -70,8 +76,9 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void Restart(){
-		//MainController.SwitchScene(Scenes.Main);
-		Debug.Log("Restart");
+		AudioManager.Instance.StopSound();
+		Time.timeScale = 1;
+        MainController.SwitchScene(Scenes.StartScene);
 	}
 
 	public void Quit(){

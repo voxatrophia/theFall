@@ -680,8 +680,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 424074}
   - 50: {fileID: 5089334}
-  - 114: {fileID: 11423656}
   - 61: {fileID: 6116580}
+  - 114: {fileID: 11423656}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -1371,11 +1371,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 193296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09de8d388ef01948b8b060e9cf54de0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3202e02db516ce445b7dcc01d71ad0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: .5, y: 0}
-  speedIncrease: 1.5
+  velocity: {x: .200000003, y: 0}
 --- !u!114 &11458392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1384,11 +1383,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 175296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09de8d388ef01948b8b060e9cf54de0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3202e02db516ce445b7dcc01d71ad0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: .400000006, y: 0}
-  speedIncrease: 1.5
 --- !u!114 &11497056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1397,11 +1395,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 126480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09de8d388ef01948b8b060e9cf54de0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3202e02db516ce445b7dcc01d71ad0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: .699999988, y: 0}
-  speedIncrease: 1.5
 --- !u!212 &21204482
 SpriteRenderer:
   m_ObjectHideFlags: 1

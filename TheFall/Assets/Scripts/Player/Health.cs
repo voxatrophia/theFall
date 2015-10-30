@@ -86,6 +86,7 @@ public class Health : MonoBehaviour {
 
     IEnumerator Die(){
         Time.timeScale = 0;
+        ScoreManager.Instance.SaveScores();
         audioSrc.clip = deathSound2;
         audioSrc.Play();
         AudioManager.Instance.StopSound();
@@ -93,7 +94,6 @@ public class Health : MonoBehaviour {
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.8f));
         anim.SetBool(PlayerAnim.Dead,true);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3f));
-        audioSrc.Stop();
         EventManager.TriggerEvent(Events.DeathFade);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         Time.timeScale = 1;
@@ -102,6 +102,9 @@ public class Health : MonoBehaviour {
 
     //Called by animation event
     public void PlayDeathSound(){
-        audioSrc.PlayOneShot(deathSound);    	
+        if(audioSrc.isPlaying){
+            audioSrc.Stop();
+        }
+        audioSrc.PlayOneShot(deathSound);
     }
 }

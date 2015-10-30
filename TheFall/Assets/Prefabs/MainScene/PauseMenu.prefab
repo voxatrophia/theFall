@@ -1628,6 +1628,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMixer: {fileID: 24100000, guid: 5f296c287d4a6b14080a9af8c5655ee6, type: 2}
+  musicSlider: {fileID: 11418802}
+  sfxSlider: {fileID: 11406490}
 --- !u!114 &11474242
 MonoBehaviour:
   m_ObjectHideFlags: 1

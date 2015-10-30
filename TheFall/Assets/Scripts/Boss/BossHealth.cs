@@ -5,7 +5,7 @@ public class BossHealth : MonoBehaviour {
 
 	public Color damageColor;
 	public AudioClip damageSound;
-	public AudioClip nearDeathSound;
+	public AudioClip nearDeathTheme;
 	public AudioClip victoryTheme;
 
 	[Range(0, 10)]
@@ -21,23 +21,38 @@ public class BossHealth : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.CompareTag(Tags.PlayerAttack)){
-			bossHealth -= 1;
+			EventManager.TriggerEvent(Events.BossHit);
+			switch(LevelManager.Instance.GetMode()){
+				case Modes.Arcade:
+					ArcadeDamage();
+					break;
+				case Modes.Story:
+					StoryDamage();
+					break;
+			}
 
-			if(bossHealth > 1){
-				audioSrc.PlayOneShot(damageSound);
-				flash.FlashSprite(damageColor);
-			}
-			else if(bossHealth == 1){
-				AudioManager.Instance.SwitchMusic(nearDeathSound);
-				flash.ChangeSpriteColor(damageColor);
-				EventManager.TriggerEvent(Events.BossNearDeath);
-			}
-			else if(bossHealth == 0){
-				StartCoroutine(BossDeath());
-			}
+			//damage effects
+			audioSrc.PlayOneShot(damageSound);
+			flash.FlashSprite(damageColor);
 		}
 	}
 
+	void ArcadeDamage(){
+		EventManager.TriggerEvent(Events.BossNearDeath);
+	}
+
+	void StoryDamage(){
+		bossHealth -= 1;
+
+		if(bossHealth == 1){
+			AudioManager.Instance.SwitchMusic(nearDeathTheme);
+			flash.ChangeSpriteColor(damageColor);
+			EventManager.TriggerEvent(Events.BossNearDeath);
+		}
+		else if(bossHealth == 0){
+			StartCoroutine(BossDeath());
+		}		
+	}
 
 	IEnumerator BossDeath(){
 		AudioManager.Instance.SwitchMusic(victoryTheme);
