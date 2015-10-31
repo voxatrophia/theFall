@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class Pause : MonoBehaviour {
 
 	public GameObject pauseMenu;
 	public GameObject optionsMenu;
 	public GameObject quitMenu;
+	public GameObject startFocus;
 
 	enum menu {Normal, Paused, Options, Quit}
+	GameObject focus;
 
 	int menuState;
 
@@ -16,6 +19,8 @@ public class Pause : MonoBehaviour {
 		pauseMenu.SetActive(false);
 		optionsMenu.SetActive(false);
 		quitMenu.SetActive(false);
+		focus = startFocus;
+		EventSystem.current.SetSelectedGameObject(focus);
 	}
 
 	void Update(){
@@ -56,8 +61,21 @@ public class Pause : MonoBehaviour {
 		optionsMenu.SetActive(true);
 	}
 
+	public void Options(GameObject highlight){
+		EventSystem.current.SetSelectedGameObject(highlight);
+		menuState = (int)menu.Options;
+		optionsMenu.SetActive(true);
+	}
+
 	public void CancelOptions(){
+		EventSystem.current.SetSelectedGameObject(focus);
 		menuState = (int)menu.Paused;
+		optionsMenu.SetActive(false);
+	}
+
+	public void CancelOptions(GameObject highlight){
+		menuState = (int)menu.Paused;
+		EventSystem.current.SetSelectedGameObject(highlight);		
 		optionsMenu.SetActive(false);
 	}
 
