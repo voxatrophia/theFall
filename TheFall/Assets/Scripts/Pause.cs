@@ -14,6 +14,13 @@ public class Pause : MonoBehaviour {
 
 	int menuState;
 
+    private Modal modalPanel;
+
+    void Awake () {
+        modalPanel = Modal.Instance();
+    }
+
+
 	void Start(){
 		menuState = (int)menu.Normal;
 		pauseMenu.SetActive(false);
@@ -92,6 +99,10 @@ public class Pause : MonoBehaviour {
 		menuState = (int)menu.Paused;
 		quitMenu.SetActive(false);
 	}
+	public void Confirm(GameObject FocusHere){
+		menuState = (int)menu.Quit;
+		quitMenu.SetActive(true);
+	}
 
 	public void Restart(){
 		AudioManager.Instance.StopSound();
@@ -102,4 +113,43 @@ public class Pause : MonoBehaviour {
 	public void Quit(){
 		Application.Quit();
 	}
+
+
+///Modal Window Functions
+    public void ConfirmQuit (GameObject returnFocusHere) {
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails {message = "Are you sure?"};
+        modalPanelDetails.button1Details = new EventButtonDetails {buttonTitle = "Quit", action = Quit};
+        modalPanelDetails.button2Details = new EventButtonDetails {buttonTitle = "Cancel", action = CancelConfirmQuit};
+
+        modalPanel.NewChoice (modalPanelDetails);
+
+        focus = returnFocusHere;
+    }
+
+	public void CancelConfirmQuit(){
+		menuState = (int)menu.Paused;
+		EventSystem.current.SetSelectedGameObject(focus);
+
+//		quitMenu.SetActive(false);
+	}
+
+    public void ConfirmRestart (GameObject returnFocusHere) {
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails {message = "Are you sure?"};
+        modalPanelDetails.button1Details = new EventButtonDetails {buttonTitle = "Main Menu", action = Restart};
+        modalPanelDetails.button2Details = new EventButtonDetails {buttonTitle = "Cancel", action = CancelConfirmRestart};
+
+        modalPanel.NewChoice (modalPanelDetails);
+
+        focus = returnFocusHere;
+    }
+
+	public void CancelConfirmRestart(){
+		menuState = (int)menu.Paused;
+		EventSystem.current.SetSelectedGameObject(focus);
+
+//		quitMenu.SetActive(false);
+	}
+
+
+
 }

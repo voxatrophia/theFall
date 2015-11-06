@@ -42,6 +42,16 @@ public class StartGame : MonoBehaviour {
         modalPanel.NewChoice (modalPanelDetails);
     }
 
+    public void ConfirmQuit (GameObject returnFocusHere) {
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails {message = "Are you sure?"};
+        modalPanelDetails.button1Details = new EventButtonDetails {buttonTitle = "Yes", action = Quit};
+        modalPanelDetails.button2Details = new EventButtonDetails {buttonTitle = "Cancel", action = CancelFunction};
+        highlight = returnFocusHere;
+
+        modalPanel.NewChoice (modalPanelDetails);
+    }
+
+
     public void ClearHighScore(GameObject returnFocusHere){
         ModalPanelDetails modalPanelDetails = new ModalPanelDetails {message = "Are you sure you want to delete the high score?"};
         modalPanelDetails.button1Details = new EventButtonDetails {buttonTitle = "Yes", action = ScoreClear};
@@ -106,8 +116,8 @@ public class StartGame : MonoBehaviour {
 
 	public void Options(GameObject focus){
 		highlight = focus;
-		EventSystem.current.SetSelectedGameObject(focus);
 		optionsMenu.SetActive(true);
+		EventSystem.current.SetSelectedGameObject(focus);
 	}
 
 
@@ -117,8 +127,8 @@ public class StartGame : MonoBehaviour {
 
 	public void CancelOptions(GameObject focus){
 		highlight = focus;
-		EventSystem.current.SetSelectedGameObject(highlight);
 		optionsMenu.SetActive(false);
+		EventSystem.current.SetSelectedGameObject(highlight);
 	}
 
 	public void ClearScore(){

@@ -3,11 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class Victory : MonoBehaviour {
-
-	public void Restart(){
-		MainController.SwitchScene(Scenes.Main);
-	}
+public class GameOverMenu : MonoBehaviour {
 
 	enum menu {Normal, Paused, Options, Modal, OptionsModal}
 

@@ -47,6 +47,12 @@ public class Modal : MonoBehaviour {
     	modalPanelObject.SetActive(false);
     }
 
+    void Update(){
+        if(Input.GetButtonDown("Cancel")){
+            ClosePanel();
+        }
+    }
+
     public void NewChoice (ModalPanelDetails details){
         modalPanelObject.SetActive (true);
 
@@ -66,6 +72,7 @@ public class Modal : MonoBehaviour {
         button1.onClick.AddListener (ClosePanel);
         button1Text.text = details.button1Details.buttonTitle;
         button1.gameObject.SetActive(true);
+        //Changes focus to this button
    		EventSystem.current.SetSelectedGameObject(button1.gameObject);
 
         if (details.button2Details != null) {

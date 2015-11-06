@@ -19,7 +19,6 @@ public class GameOver : MonoBehaviour {
 		//0 = Story
 		//1 = Arcade
 		mode = (PlayerPrefs.HasKey("GameMode")) ? PlayerPrefs.GetInt("GameMode") : Modes.Arcade;
-
 		if(mode == Modes.Arcade){
 			score = (PlayerPrefs.HasKey("Score")) ?
 					PlayerPrefs.GetInt("Score") :
