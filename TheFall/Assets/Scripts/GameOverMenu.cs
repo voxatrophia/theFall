@@ -62,7 +62,25 @@ public class GameOverMenu : MonoBehaviour {
         modalPanel.NewChoice (modalPanelDetails);
     }
 
-	public void Quit(){
-		AppHelper.Quit();
-	}
+    public void Quit()
+    {
+        AppHelper.Quit();
+    }
+
+    public void ConfirmRestart()
+    {
+        menuState = (int)menu.Modal;
+
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Are you sure?" };
+        modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "Main Menu", action = Restart };
+        modalPanelDetails.button2Details = new EventButtonDetails { buttonTitle = "Cancel", action = CancelModal };
+
+        modalPanel.NewChoice(modalPanelDetails);
+    }
+
+    public void Restart()
+    {
+        MainController.SwitchScene(Scenes.StartScene);
+    }
+
 }

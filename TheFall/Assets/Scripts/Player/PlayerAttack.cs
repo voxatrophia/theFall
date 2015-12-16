@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	void OnDisable(){
 		EventManager.StopListening(Events.EnergyFull, Ready);
-		EventManager.StopListening(Events.Damage, Ready);
+		EventManager.StopListening(Events.Damage, NotReady);
 	}
 
 	void Update(){

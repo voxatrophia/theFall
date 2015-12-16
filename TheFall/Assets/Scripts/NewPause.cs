@@ -52,7 +52,6 @@ public class NewPause : MonoBehaviour {
 	}
 
 	//All buttons that open menus (modal or not) call this function with their own GO as parameter
-	//This will let 
 	public void ReturnFocusHere(GameObject returnFocus){
 		focus = returnFocus;
 	}

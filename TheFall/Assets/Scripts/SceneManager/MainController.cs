@@ -115,8 +115,9 @@ public class MainController : MonoBehaviour
 	// handle anything that needs to happen before loading
 	private void UpdateScenePreload()
 	{
-		sceneLoadTask = Application.LoadLevelAsync(nextSceneName);
-		sceneState = SceneState.Load;
+        		sceneLoadTask = Application.LoadLevelAsync(nextSceneName);
+ //       SceneManager.LoadSceneAsync(nextScenename);
+        sceneState = SceneState.Load;
 	}
 	
 	// show the loading screen until it's loaded

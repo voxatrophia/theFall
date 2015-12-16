@@ -107,7 +107,7 @@ public class StartGame : MonoBehaviour {
 
 	public void Quit(){
 		Debug.Log("quit");
-		Application.Quit();
+		AppHelper.Quit();
 	}
 
 	public void Options(){

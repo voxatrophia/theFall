@@ -26,6 +26,7 @@ public class LevelManager : Singleton<LevelManager> {
 		//Modes
 		//0 = Story
 		//1 = Arcade
+		//Defaults to Arcade
 		mode = (PlayerPrefs.HasKey("GameMode")) ? PlayerPrefs.GetInt("GameMode") : Modes.Arcade;
 		return mode;
 	}
