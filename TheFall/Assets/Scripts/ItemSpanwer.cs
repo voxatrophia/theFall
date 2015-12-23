@@ -26,8 +26,7 @@ public class ItemSpanwer : MonoBehaviour
         //        Debug.Log(itemToSpawn);
     }
 
-    void SetUpItemList()
-    {
+    void SetUpItemList() {
         items = new Dictionary<string, float>();
         foreach (string itemType in itemList.GetObjectTypes())
         {
@@ -36,8 +35,7 @@ public class ItemSpanwer : MonoBehaviour
         items["NA"] = 0.25f;
     }
 
-    void SpawnItem()
-    {
+    void SpawnItem() {
         //Set up list (already done in start method, only needed once)
         //get tension measurements (tension y, health, tension x)
         //Assign new probabilities based on tension
@@ -46,7 +44,7 @@ public class ItemSpanwer : MonoBehaviour
             items["Apple"] += 0.5f;
         }
         itemToSpawn = ChooseItem();
-        Debug.Log(itemToSpawn);
+//        Debug.Log(itemToSpawn);
         if (itemToSpawn == "NA") {
             return;
         }

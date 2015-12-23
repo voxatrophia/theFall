@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 
 [RequireComponent (typeof(Animator))]
 [RequireComponent (typeof(MultiObjectPooler))]
@@ -11,13 +11,16 @@ public class BossAttack : MonoBehaviour {
 	bool canMove = true;
 	GameObject attack;
 	Animator anim;
-	MultiObjectPooler attacks;
+	MultiObjectPooler attackPool;
 
-	void Start () {
+    Dictionary<string, float> attackProbs;
+    string pendingAttack;
+
+    void Start () {
 		anim = GetComponent<Animator> ();
-		attacks = GetComponent<MultiObjectPooler>();
-		StartCoroutine(Attack());
-	}
+		attackPool = GetComponent<MultiObjectPooler>();
+		StartCoroutine(RandomAttack());
+    }
 
 	void OnEnable(){
 		//Called from Stopwatch item
@@ -28,19 +31,75 @@ public class BossAttack : MonoBehaviour {
 		EventManager.StopListening(Events.StopMoving, StopMoving);
 	}
 
-	IEnumerator Attack(){
+    //Sets all attacks to be equal chance
+    void SetUpAttackList() {
+        attackProbs = new Dictionary<string, float>();
+        foreach (string attackType in attackPool.GetObjectTypes()) {
+            attackProbs[attackType] = 0.25f;
+        }
+        attackProbs["NA"] = 0.25f;
+    }
+
+    void Attack() {
+        attackProbs = DifficultyManager.Instance.GetAttackList();
+        pendingAttack = ChooseAttack();
+        if (pendingAttack == "NA") {
+            return;
+        }
+        else {
+            attack = attackPool.GetPooledObject(pendingAttack);
+            if (attack != null)
+            {
+                attack.transform.position = transform.position;
+                attack.transform.rotation = Quaternion.identity;
+                attack.SetActive(true);
+                anim.SetTrigger(BossAnim.Attack);
+            }
+
+        }
+    }
+
+    //Given probability list, choose one at random but taking their weights into account
+    string ChooseAttack() {
+        float total = 0;
+
+        foreach (KeyValuePair<string, float> elem in attackProbs)
+        {
+            // do something with entry.Value or entry.Key
+            total += elem.Value;
+        }
+
+        float randomPoint = Random.value * total;
+
+        foreach (KeyValuePair<string, float> elem in attackProbs)
+        {
+            if (randomPoint < elem.Value)
+            {
+                return elem.Key;
+            }
+            else
+            {
+                randomPoint -= elem.Value;
+            }
+        }
+        return "NA";
+    }
+
+    IEnumerator RandomAttack(){
 		while(true){
 			yield return Yielders.Get((Random.Range(attackMinTime,attackMaxTime)));
-
-			if(canMove){
-				attack = attacks.GetPooledObjectOfRandomType();
-				if(attack != null){
-					attack.transform.position = transform.position;
-					attack.transform.rotation = Quaternion.identity;
-					attack.SetActive(true);
-					anim.SetTrigger(BossAnim.Attack);
-				}
-			}
+            if (canMove) {
+                Attack();
+                /*
+                    attack = attackPool.GetPooledObjectOfRandomType();
+                    if(attack != null){
+                        attack.transform.position = transform.position;
+                        attack.transform.rotation = Quaternion.identity;
+                        attack.SetActive(true);
+                        anim.SetTrigger(BossAnim.Attack);
+                    }
+                */
+            }
 		}
 	}
 

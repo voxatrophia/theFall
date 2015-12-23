@@ -28,16 +28,18 @@ public class MovingPlatform : MonoBehaviour {
 		EventManager.StartListening(Events.StopMoving, StopMoving);
 		EventManager.StartListening(Events.MoveBackwards, MoveBackwards);
 		EventManager.StartListening(Events.BossNearDeath, MoveFaster);
-	}
+        EventManager.StartListening(Events.MoveFaster, MoveFaster);
+    }
 
-	void OnDisable(){
+    void OnDisable(){
 		EventManager.StopListening(Events.StopMoving, StopMoving);
 		EventManager.StopListening(Events.MoveBackwards, MoveBackwards);
 		EventManager.StopListening(Events.BossNearDeath, MoveFaster);
-	}
+        EventManager.StopListening(Events.MoveFaster, MoveFaster);
+    }
 
-	
-	void StopMoving(){
+
+    void StopMoving(){
 		AudioManager.Instance.PauseSound();
 		StartCoroutine(StopMovingCoroutine());
 	}

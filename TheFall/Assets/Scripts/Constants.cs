@@ -51,5 +51,6 @@ public static class Events {
 	public const string EnergyFull = "EnergyFull";
 	public const string PlayerAttack = "PlayerAttack";
 	public const string BossHit = "BossHit";
+    public const string MoveFaster = "MoveFaster";
 
 }

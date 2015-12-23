@@ -18,6 +18,7 @@ TagManager:
   - PlayerAttack
   - Cloud
   - PlayerCatcher
+  - Wall
   layers:
   - Default
   - TransparentFX
