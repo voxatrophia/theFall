@@ -27,6 +27,6 @@ public class ScreenFlash : MonoBehaviour {
 	        yield return Yielders.Get(smoothness);
 	    }
 	    isFlashing = false;
-	    return true;
+	    yield return true;
 	 }
 }

@@ -40,7 +40,13 @@ public class UseItem : MonoBehaviour {
 				}
 				//Remove item from image
 				ItemManager.i.UsedItem();
-			}
+
+                //Tutorial
+                if (TensionManager.Instance.tutorial) {
+                    EventManager.TriggerEvent("TutorialItemUsed");
+                }
+
+            }
 		}
 	}
 }

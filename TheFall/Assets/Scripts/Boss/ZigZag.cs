@@ -4,7 +4,6 @@ using System.Collections;
 public class ZigZag : MonoBehaviour {
 
     Rigidbody2D rb;
-    bool canMove;
     Vector2 origVel;
     int startDir;
 
@@ -17,15 +16,12 @@ public class ZigZag : MonoBehaviour {
     }
 
     void OnEnable() {
-        canMove = true;
         EventManager.StartListening(Events.StopMoving, StopMoving);
         rb.velocity = origVel;
 
         startDir = (Random.value < 0.5f) ? -1 : 1;
         Vector2 v = new Vector2(rb.velocity.x * startDir, rb.velocity.y);
         rb.velocity = v;
-        Debug.Log(rb.velocity);
-
     }
 
     void OnDisable() {
@@ -37,11 +33,9 @@ public class ZigZag : MonoBehaviour {
     }
 
     IEnumerator StopMovingCoroutine() {
-        canMove = false;
         rb.velocity = new Vector2(0, 0);
         yield return Yielders.Get(2f);
         rb.velocity = origVel;
-        canMove = true;
     }
 
     void OnTriggerEnter2D(Collider2D other) {

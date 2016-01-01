@@ -10,6 +10,7 @@ public class CameraLock : MonoBehaviour {
 
 	 void Update(){
 
-		transform.position = new Vector3(Mathf.Clamp(Player.position.x, xLeft, xRight), Mathf.Clamp(Player.position.y, yBot, yTop), -10);
+        transform.position = new Vector3(Player.position.x, Player.position.y, -10);
+//		transform.position = new Vector3(Mathf.Clamp(Player.position.x, xLeft, xRight), Mathf.Clamp(Player.position.y, yBot, yTop), -10);
     }
 }

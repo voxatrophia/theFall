@@ -10,9 +10,10 @@ public class TensionManager : Singleton<TensionManager> {
     public Transform player;
     public float tensionY = 0;
 
+    public bool tutorial;
 
-    void Start () {
-	
+    void Awake () {
+        tutorial = true;
 	}
 
     void OnDisable() {
@@ -30,6 +31,5 @@ public class TensionManager : Singleton<TensionManager> {
             if (player.position.y > 0) {
                 tensionY += Time.deltaTime;
             }
-
         }
     }
