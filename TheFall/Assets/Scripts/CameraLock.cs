@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class CameraLock : MonoBehaviour {
-	float yTop = 7.5f;
-	float yBot = -7.5f;
-	float xLeft = -14.5f;
-	float xRight = 14.5f;
+	//float yTop = 7.5f;
+	//float yBot = -7.5f;
+	//float xLeft = -14.5f;
+	//float xRight = 14.5f;
 	public Transform Player;
 
 	 void Update(){

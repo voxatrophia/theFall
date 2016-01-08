@@ -2,34 +2,40 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent (typeof(Animator))]
-[RequireComponent (typeof(MultiObjectPooler))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(MultiObjectPooler))]
 public class BossAttack : MonoBehaviour {
-	public float attackMinTime = 3f;
-	public float attackMaxTime = 5f;
+    public float attackMinTime = 3f;
+    public float attackMaxTime = 5f;
 
-	bool canMove = true;
-	GameObject attack;
-	Animator anim;
-	MultiObjectPooler attackPool;
+    bool canMove = true;
+    GameObject attack;
+    Animator anim;
+    MultiObjectPooler attackPool;
 
     Dictionary<string, float> attackProbs;
     string pendingAttack;
 
-    void Start () {
-		anim = GetComponent<Animator> ();
-		attackPool = GetComponent<MultiObjectPooler>();
-		StartCoroutine(RandomAttack());
+    void Start() {
+        anim = GetComponent<Animator>();
+        attackPool = GetComponent<MultiObjectPooler>();
+
+        if (!TutorialManager.Instance.inTutorial) {
+            StartCoroutine(RandomAttack());
+        }
     }
 
-	void OnEnable(){
-		//Called from Stopwatch item
-		EventManager.StartListening(Events.StopMoving, StopMoving);
-	}
+    void OnEnable() {
+        //Called from Stopwatch item
+        EventManager.StartListening(Events.StopMoving, StopMoving);
+        //Called from TutorialManager
+        EventManager.StartListening("TutorialStage3Start", StartAttack);
+    }
 
-	void OnDisable(){
-		EventManager.StopListening(Events.StopMoving, StopMoving);
-	}
+    void OnDisable() {
+        EventManager.StopListening(Events.StopMoving, StopMoving);
+        EventManager.StopListening("TutorialStage3Start", StartAttack);
+    }
 
     //Sets all attacks to be equal chance
     void SetUpAttackList() {
@@ -85,12 +91,18 @@ public class BossAttack : MonoBehaviour {
         return "NA";
     }
 
+    //Wrapper for RandomAttack() coroutine
+    void StartAttack() {
+        StartCoroutine(RandomAttack());
+    }
+
     IEnumerator RandomAttack(){
 		while(true){
 			yield return Yielders.Get((Random.Range(attackMinTime,attackMaxTime)));
             if (canMove) {
                 Attack();
                 /*
+                    //old method
                     attack = attackPool.GetPooledObjectOfRandomType();
                     if(attack != null){
                         attack.transform.position = transform.position;

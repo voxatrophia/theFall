@@ -27,11 +27,26 @@ public class Difficulty {
 public class DifficultyManager : Singleton<DifficultyManager> {
     Difficulty diff;
     public int level = 1;
-    public float levelIncrease = 10f;
+    public float levelIncrease = 30f;
 
     void Start () {
         diff = new Difficulty();
         diff.Initialize();
+        if (!TutorialManager.Instance.inTutorial) {
+            StartCoroutine(IncreaseDifficulty());
+        }
+    }
+
+    void OnEnable() {
+        //Called from TutorialManager
+        EventManager.StartListening("TutorialStage3Start", StartAttack);
+    }
+
+    void OnDisable() {
+        EventManager.StopListening("TutorialStage3Start", StartAttack);
+    }
+
+    void StartAttack() {
         StartCoroutine(IncreaseDifficulty());
     }
 

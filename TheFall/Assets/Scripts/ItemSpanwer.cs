@@ -8,6 +8,7 @@ public class ItemSpanwer : MonoBehaviour {
     public float spawnMaxTime = 5f;
 
     Dictionary<string, float> items;
+    Dictionary<string, float> originalItems;
     MultiObjectPooler itemList;
     string itemToSpawn;
 
@@ -36,10 +37,11 @@ public class ItemSpanwer : MonoBehaviour {
         itemToSpawn = tutorialItems[tutorialItemIndex];
         SpawnItem(itemToSpawn);
     }
-
+    
     void ChangeItem() {
         if (tutorialItemIndex == tutorialItems.Count - 1) {
             inTutorial = false;
+            EventManager.TriggerEvent("ItemTutorialDone");
         }
         else {
             tutorialItemIndex += 1;
@@ -52,12 +54,15 @@ public class ItemSpanwer : MonoBehaviour {
             items[itemType] = 0.25f;
         }
         items["NA"] = 0.25f;
+        originalItems = items;
     }
 
     void SelectItem() {
         AdjustItemProb();
         itemToSpawn = ChooseItem();
         SpawnItem(itemToSpawn);
+        //reset probabilities
+        items = originalItems;
     }
 
     void AdjustItemProb() {
@@ -65,8 +70,12 @@ public class ItemSpanwer : MonoBehaviour {
         //get tension measurements (tension y, health, tension x)
         //Assign new probabilities based on tension
         //spawn item of correct type (or none at all)
+
+        items["Stopwatch"] += TensionManager.Instance.tensionY / 100;
+
+
         if (Health.CheckHealth() < 2) {
-            items["Apple"] += 0.5f;
+            items["Apple"] = items["Apple"] * 2;
         }
     }
 

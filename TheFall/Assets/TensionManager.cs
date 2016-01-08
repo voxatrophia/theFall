@@ -13,11 +13,19 @@ public class TensionManager : Singleton<TensionManager> {
     public bool tutorial;
 
     void Awake () {
-        tutorial = true;
+        tutorial = false;
 	}
 
     void OnDisable() {
         Debug.Log("Tension Y:" + tensionY);
+    }
+
+    public void ReleaseTension(float amt) {
+        tensionY -= amt;
+    }
+
+    public float CheckTension() {
+        return tensionY;
     }
 
     void Tutorial() {
@@ -27,8 +35,8 @@ public class TensionManager : Singleton<TensionManager> {
         //Remove score tracking
     }
 
-        void Update() {
-            if (player.position.y > 0) {
+    void Update() {
+        if (player.position.y > 0) {
                 tensionY += Time.deltaTime;
             }
         }
