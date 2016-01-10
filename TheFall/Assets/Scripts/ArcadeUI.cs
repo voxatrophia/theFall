@@ -37,6 +37,6 @@ public class ArcadeUI : MonoBehaviour {
 
 	public void UpdateLevel(){
 		level = ScoreManager.Instance.GetLevel();
-		levelText.text = "Level: " + level;
+		levelText.text = "Multipler: " + level;
 	}
 }

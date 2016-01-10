@@ -20,6 +20,7 @@ public class BossAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
         attackPool = GetComponent<MultiObjectPooler>();
 
+        //If not in the tutorial, start attacking
         if (!TutorialManager.Instance.inTutorial) {
             StartCoroutine(RandomAttack());
         }
@@ -29,12 +30,12 @@ public class BossAttack : MonoBehaviour {
         //Called from Stopwatch item
         EventManager.StartListening(Events.StopMoving, StopMoving);
         //Called from TutorialManager
-        EventManager.StartListening("TutorialStage3Start", StartAttack);
+        EventManager.StartListening(TutorialEvents.Done, StartAttack);
     }
 
     void OnDisable() {
         EventManager.StopListening(Events.StopMoving, StopMoving);
-        EventManager.StopListening("TutorialStage3Start", StartAttack);
+        EventManager.StopListening(TutorialEvents.Done, StartAttack);
     }
 
     //Sets all attacks to be equal chance
@@ -54,8 +55,7 @@ public class BossAttack : MonoBehaviour {
         }
         else {
             attack = attackPool.GetPooledObject(pendingAttack);
-            if (attack != null)
-            {
+            if (attack != null) {
                 attack.transform.position = transform.position;
                 attack.transform.rotation = Quaternion.identity;
                 attack.SetActive(true);
@@ -69,8 +69,7 @@ public class BossAttack : MonoBehaviour {
     string ChooseAttack() {
         float total = 0;
 
-        foreach (KeyValuePair<string, float> elem in attackProbs)
-        {
+        foreach (KeyValuePair<string, float> elem in attackProbs) {
             // do something with entry.Value or entry.Key
             total += elem.Value;
         }
@@ -79,12 +78,10 @@ public class BossAttack : MonoBehaviour {
 
         foreach (KeyValuePair<string, float> elem in attackProbs)
         {
-            if (randomPoint < elem.Value)
-            {
+            if (randomPoint < elem.Value) {
                 return elem.Key;
             }
-            else
-            {
+            else {
                 randomPoint -= elem.Value;
             }
         }
@@ -98,7 +95,7 @@ public class BossAttack : MonoBehaviour {
 
     IEnumerator RandomAttack(){
 		while(true){
-			yield return Yielders.Get((Random.Range(attackMinTime,attackMaxTime)));
+			yield return Yielders.Get(DifficultyManager.Instance.GetAttackInterval());
             if (canMove) {
                 Attack();
                 /*

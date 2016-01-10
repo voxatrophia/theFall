@@ -42,8 +42,8 @@ public class UseItem : MonoBehaviour {
 				ItemManager.i.UsedItem();
 
                 //Tutorial
-                if (TensionManager.Instance.tutorial) {
-                    EventManager.TriggerEvent("TutorialItemUsed");
+                if (TutorialManager.Instance.inTutorial) {
+                    EventManager.TriggerEvent(TutorialEvents.ItemUsed);
                 }
 
             }

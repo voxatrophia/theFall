@@ -7,6 +7,7 @@ public class ItemManager : MonoBehaviour {
 	public static ItemManager i;
 	private Image image;		//UI Image
 	private GameObject item;	//current item
+    bool firstItem;
 
 	public AudioSource audioSrc;
 
@@ -22,8 +23,13 @@ public class ItemManager : MonoBehaviour {
 	}
 
 	void Start(){
-		changeAlpha(0);
-	}
+        changeAlpha(0);
+
+        //Tutorial Trigger for first text
+        //If inTutorial, then check for first item
+        firstItem = (TutorialManager.Instance.inTutorial) ? true : false;
+
+    }
 
 	public GameObject GetItem(){
 		if(item != null){
@@ -39,7 +45,12 @@ public class ItemManager : MonoBehaviour {
 		image.sprite = spr.sprite;
 		changeAlpha(255);
 		item = obj;
-	}
+
+        if (firstItem) {
+            EventManager.TriggerEvent(TutorialEvents.FirstItem);
+            firstItem = false;
+        }
+    }
 
 	public void UsedItem(){
 		image.sprite = null;

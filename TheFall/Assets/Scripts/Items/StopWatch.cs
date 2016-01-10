@@ -6,7 +6,5 @@ public class Stopwatch : MonoBehaviour {
 	//Called from UseItem script attached to player
 	public void StopTime(){
         EventManager.TriggerEvent(Events.StopMoving);
-        
-        TensionManager.Instance.ReleaseTension(TensionManager.Instance.tensionY);
 	}
 }

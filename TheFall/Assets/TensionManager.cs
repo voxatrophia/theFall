@@ -10,14 +10,16 @@ public class TensionManager : Singleton<TensionManager> {
     public Transform player;
     public float tensionY = 0;
 
-    public bool tutorial;
-
-    void Awake () {
-        tutorial = false;
-	}
+    void OnEnable() {
+        EventManager.StartListening(Events.StopMoving, ZeroTension);
+    }
 
     void OnDisable() {
         Debug.Log("Tension Y:" + tensionY);
+    }
+
+    public void ZeroTension() {
+        tensionY = 0;
     }
 
     public void ReleaseTension(float amt) {
