@@ -1,46 +1,114 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 
-[RequireComponent (typeof(Animator))]
-[RequireComponent (typeof(MultiObjectPooler))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(MultiObjectPooler))]
 public class BossAttack : MonoBehaviour {
-	public float attackMinTime = 3f;
-	public float attackMaxTime = 5f;
+    public float attackMinTime = 3f;
+    public float attackMaxTime = 5f;
 
-	bool canMove = true;
-	GameObject attack;
-	Animator anim;
-	MultiObjectPooler attacks;
+    bool canMove = true;
+    GameObject attack;
+    Animator anim;
+    MultiObjectPooler attackPool;
 
-	void Start () {
-		anim = GetComponent<Animator> ();
-		attacks = GetComponent<MultiObjectPooler>();
-		StartCoroutine(Attack());
-	}
+    Dictionary<string, float> attackProbs;
+    string pendingAttack;
 
-	void OnEnable(){
-		//Called from Stopwatch item
-		EventManager.StartListening(Events.StopMoving, StopMoving);
-	}
+    void Start() {
+        anim = GetComponent<Animator>();
+        attackPool = GetComponent<MultiObjectPooler>();
 
-	void OnDisable(){
-		EventManager.StopListening(Events.StopMoving, StopMoving);
-	}
+        //If not in the tutorial, start attacking
+        if (!TutorialManager.Instance.inTutorial) {
+            StartCoroutine(RandomAttack());
+        }
+    }
 
-	IEnumerator Attack(){
+    void OnEnable() {
+        //Called from Stopwatch item
+        EventManager.StartListening(Events.StopMoving, StopMoving);
+        //Called from TutorialManager
+        EventManager.StartListening(TutorialEvents.Done, StartAttack);
+    }
+
+    void OnDisable() {
+        EventManager.StopListening(Events.StopMoving, StopMoving);
+        EventManager.StopListening(TutorialEvents.Done, StartAttack);
+    }
+
+    //Sets all attacks to be equal chance
+    void SetUpAttackList() {
+        attackProbs = new Dictionary<string, float>();
+        foreach (string attackType in attackPool.GetObjectTypes()) {
+            attackProbs[attackType] = 0.25f;
+        }
+        attackProbs["NA"] = 0.25f;
+    }
+
+    void Attack() {
+        attackProbs = DifficultyManager.Instance.GetAttackList();
+        pendingAttack = ChooseAttack();
+        if (pendingAttack == "NA") {
+            return;
+        }
+        else {
+            attack = attackPool.GetPooledObject(pendingAttack);
+            if (attack != null) {
+                attack.transform.position = transform.position;
+                attack.transform.rotation = Quaternion.identity;
+                attack.SetActive(true);
+                anim.SetTrigger(BossAnim.Attack);
+            }
+
+        }
+    }
+
+    //Given probability list, choose one at random but taking their weights into account
+    string ChooseAttack() {
+        float total = 0;
+
+        foreach (KeyValuePair<string, float> elem in attackProbs) {
+            // do something with entry.Value or entry.Key
+            total += elem.Value;
+        }
+
+        float randomPoint = Random.value * total;
+
+        foreach (KeyValuePair<string, float> elem in attackProbs)
+        {
+            if (randomPoint < elem.Value) {
+                return elem.Key;
+            }
+            else {
+                randomPoint -= elem.Value;
+            }
+        }
+        return "NA";
+    }
+
+    //Wrapper for RandomAttack() coroutine
+    void StartAttack() {
+        StartCoroutine(RandomAttack());
+    }
+
+    IEnumerator RandomAttack(){
 		while(true){
-			yield return Yielders.Get((Random.Range(attackMinTime,attackMaxTime)));
-
-			if(canMove){
-				attack = attacks.GetPooledObjectOfRandomType();
-				if(attack != null){
-					attack.transform.position = transform.position;
-					attack.transform.rotation = Quaternion.identity;
-					attack.SetActive(true);
-					anim.SetTrigger(BossAnim.Attack);
-				}
-			}
+			yield return Yielders.Get(DifficultyManager.Instance.GetAttackInterval());
+            if (canMove) {
+                Attack();
+                /*
+                    //old method
+                    attack = attackPool.GetPooledObjectOfRandomType();
+                    if(attack != null){
+                        attack.transform.position = transform.position;
+                        attack.transform.rotation = Quaternion.identity;
+                        attack.SetActive(true);
+                        anim.SetTrigger(BossAnim.Attack);
+                    }
+                */
+            }
 		}
 	}
 

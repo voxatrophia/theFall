@@ -51,5 +51,19 @@ public static class Events {
 	public const string EnergyFull = "EnergyFull";
 	public const string PlayerAttack = "PlayerAttack";
 	public const string BossHit = "BossHit";
+    public const string MoveFaster = "MoveFaster";
 
+}
+
+public static class TutorialEvents {
+    public const string ItemStageStart = "ItemStageStart";
+    public const string FirstItem = "FirstItem";
+    public const string ItemUsed = "ItemUsed";
+    public const string ItemStageDone = "ItemStageDone";
+
+    public const string AttackStageStart = "AttackStageStart";
+    public const string EnergyFull = "TutorialEnergyFull";
+    public const string AttackStageDone = "AttackStageDone";
+
+    public const string Done = "Done";
 }

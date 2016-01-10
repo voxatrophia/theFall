@@ -14,6 +14,8 @@ public class EnergyCharge : MonoBehaviour {
 	bool energyFullTrigger = false;
 	AudioSource audioSrc;
 
+    bool firstCharge;
+
 	void OnEnable(){
 		EventManager.StartListening(Events.Damage, ResetEnergy);
 		EventManager.StartListening(Events.PlayerAttack, ResetEnergy);
@@ -32,6 +34,9 @@ public class EnergyCharge : MonoBehaviour {
 	void Start(){
 		Assert.IsNotNull(energy);
 		audioSrc = GetComponent<AudioSource>();
+
+        //If in tutorial, keep track of first charge
+        firstCharge = (TutorialManager.Instance.inTutorial) ? true : false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -48,6 +53,10 @@ public class EnergyCharge : MonoBehaviour {
 				energyFullTrigger = true;
 				audioSrc.Stop();
 		        EventManager.TriggerEvent(Events.EnergyFull);
+                if (firstCharge) {
+                    EventManager.TriggerEvent(TutorialEvents.EnergyFull);
+                    firstCharge = false;
+                }
 			}
 		}
 	}

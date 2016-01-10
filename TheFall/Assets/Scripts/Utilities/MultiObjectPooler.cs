@@ -60,15 +60,15 @@ public class MultiObjectPooler : MonoBehaviour {
 
 		//Pull from existing disabled objects
 		for(int i = 0; i < pooledObjectsList[type].Count; i++){
-			if(!pooledObjectsList[type][i].activeInHierarchy){
+			if(!pooledObjectsList[type][i].activeInHierarchy) {
 				return pooledObjectsList[type][i];
 			}
 		}
 
 		//If out of existing pool, check if allowed to grow
 		int poIndex = -1;
-		for(int i = 0; i < objectsList.Length; i++){
-			if(objectsList[i].name == type){
+		for(int i = 0; i < objectsList.Length; i++) {
+			if(objectsList[i].name == type) {
 				poIndex = i;
 				break;
 			}

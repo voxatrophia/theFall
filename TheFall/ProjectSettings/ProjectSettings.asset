@@ -68,6 +68,7 @@ PlayerSettings:
   n3dsEnableSharedListOpt: 1
   n3dsEnableVSync: 0
   uiUse16BitDepthBuffer: 0
+  ignoreAlphaClear: 0
   xboxOneResolution: 0
   ps3SplashScreen: {fileID: 0}
   videoMemoryForVertexBuffers: 0
@@ -133,6 +134,9 @@ PlayerSettings:
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   appleTVSplashScreen: {fileID: 0}
+  tvOSSmallIconLayers: []
+  tvOSLargeIconLayers: []
+  tvOSTopShelfImageLayers: []
   iOSLaunchScreenType: 0
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
@@ -170,38 +174,38 @@ PlayerSettings:
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 128
-      m_Height: 128
+      m_Width: 0
+      m_Height: 0
   - m_BuildTarget: Standalone
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 73fed672810b42b45adfe1bec3082e40, type: 3}
-      m_Width: 1024
-      m_Height: 1024
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 512
-      m_Height: 512
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 256
-      m_Height: 256
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 128
-      m_Height: 128
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 48
-      m_Height: 48
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 32
-      m_Height: 32
+      m_Width: 0
+      m_Height: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 16
-      m_Height: 16
+      m_Width: 0
+      m_Height: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default

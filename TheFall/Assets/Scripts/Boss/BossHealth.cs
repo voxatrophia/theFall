@@ -8,6 +8,8 @@ public class BossHealth : MonoBehaviour {
 	public AudioClip nearDeathTheme;
 	public AudioClip victoryTheme;
 
+    bool firstAttack;
+
 	[Range(0, 10)]
 	public int bossHealth = 10;
 
@@ -17,11 +19,18 @@ public class BossHealth : MonoBehaviour {
 	void Start () {
 		flash = GetComponent<FlashSpriteColor>();
 		audioSrc = GetComponent<AudioSource>();
-	}
+
+        //if in Tutorial, keep track of first attack
+        firstAttack = (TutorialManager.Instance.inTutorial) ? true : false;
+    }
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.CompareTag(Tags.PlayerAttack)){
 			EventManager.TriggerEvent(Events.BossHit);
+            if (firstAttack) {
+                firstAttack = false;
+                EventManager.TriggerEvent(TutorialEvents.AttackStageDone);
+            }
 			switch(LevelManager.Instance.GetMode()){
 				case Modes.Arcade:
 					ArcadeDamage();
