@@ -52,6 +52,7 @@ public static class Events {
 	public const string PlayerAttack = "PlayerAttack";
 	public const string BossHit = "BossHit";
     public const string MoveFaster = "MoveFaster";
+    public const string UpdateMultiplier = "UpdateMultiplier";
 
 }
 

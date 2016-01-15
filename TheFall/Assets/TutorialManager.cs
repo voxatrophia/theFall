@@ -22,7 +22,7 @@ public class TutorialManager : Singleton<TutorialManager>
     int tutorialStage;
 
     void Awake() {
-        inTutorial = false;
+//        inTutorial = false;
         tutorialStage = 1;
     }
 

@@ -1,37 +1,39 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ScoreManager : Singleton<ScoreManager> {
 
 	int score;
 	int highScore;
-	int level;
+	int multipler;
 
 	void OnEnable(){
-		EventManager.StartListening(Events.BossHit, UpdateLevel);
+		EventManager.StartListening(Events.BossHit, UpdateMultiplier);
 	}
 
 	void OnDisable(){
-		EventManager.StopListening(Events.BossHit, UpdateLevel);
+		EventManager.StopListening(Events.BossHit, UpdateMultiplier);
 	}
 
 	void Awake () {
 		score = 0;
-		level = 1;
+        multipler = 1;
 	}
 
 	//Level Functions
-	public int GetLevel(){
-		return level;
+	public int GetMultiplier(){
+		return multipler;
 	}
 
-	void UpdateLevel(){
-		level += 1;
+	void UpdateMultiplier(){
+        multipler += 1;
+        EventManager.TriggerEvent(Events.UpdateMultiplier);
 	}
 
 	//Score Functions
 	void CalculateScore(){
-		score = Mathf.RoundToInt(Time.timeSinceLevelLoad) * 100 * level;
+		score = Mathf.RoundToInt(Time.timeSinceLevelLoad) * 100 * multipler;
 	}
 
 	public int GetScore(){
@@ -39,7 +41,11 @@ public class ScoreManager : Singleton<ScoreManager> {
 		return score;
     }
 
-	void SetScore(){
+    public int GetHighScore() {
+        return (PlayerPrefs.HasKey("HighScore")) ? PlayerPrefs.GetInt("HighScore") : 0;
+    }
+
+    void SetScore(){
 		CalculateScore();
 		PlayerPrefs.SetInt("Score", score);
 	}
