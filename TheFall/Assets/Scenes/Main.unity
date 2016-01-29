@@ -290,7 +290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &63530813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &89798190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!114 &133809699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,7 +1170,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1192,7 +1192,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &341321934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,7 +1409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 0
+  m_RootOrder: 12
 --- !u!114 &371966958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,7 +2343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 6
+  m_RootOrder: 13
 --- !u!114 &712707553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,6 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2bd605152baff40be6088bbb2d009d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 475240768}
   platformDistance: 5
   movingPlatform: {fileID: 1724908255}
 --- !u!1 &730831675
@@ -2870,7 +2871,7 @@ Transform:
   - {fileID: 1406905913}
   - {fileID: 339794959}
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 11
+  m_RootOrder: 9
 --- !u!1 &950672724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,7 +3020,7 @@ Transform:
   - {fileID: 2028502472}
   - {fileID: 6131882}
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!1 &1026298463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1117021894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3742,7 +3743,7 @@ Transform:
   - {fileID: 1341571301}
   - {fileID: 1829559730}
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!1 &1400338395
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,7 +4658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!61 &1677336193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4707,7 +4708,7 @@ Transform:
   m_LocalScale: {x: 1.03, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!114 &1724908256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4772,7 +4773,7 @@ Transform:
   - {fileID: 1530177121}
   - {fileID: 1348343952}
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 12
+  m_RootOrder: 10
 --- !u!61 &1782145169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5156,7 +5157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!82 &1907267434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5210,7 +5211,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -5232,7 +5233,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &1907267435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5245,7 +5246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30ac89b279d81d40917ce78193bc922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rechargeRate: 25
+  rechargeRate: 15
   maxEnergy: 100
   energy: {fileID: 206639528}
   fullChime: {fileID: 8300000, guid: 6eb65009f9e39af40a08c7d4148d0295, type: 3}
@@ -5363,13 +5364,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 371966957}
   - {fileID: 1117021893}
   - {fileID: 1907267433}
   - {fileID: 63530812}
   - {fileID: 89798189}
   - {fileID: 1677336192}
-  - {fileID: 712707552}
   - {fileID: 1724908255}
   - {fileID: 133809698}
   - {fileID: 2023474729}
@@ -5377,6 +5376,8 @@ Transform:
   - {fileID: 949834360}
   - {fileID: 1782145168}
   - {fileID: 1375155210}
+  - {fileID: 371966957}
+  - {fileID: 712707552}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1982807934
@@ -5610,7 +5611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981299683}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!1 &2028502471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,7 +5700,7 @@ Transform:
   m_LocalScale: {x: 0.51780826, y: 0.51780826, z: 0.51780826}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!114 &2079158521
 MonoBehaviour:
   m_ObjectHideFlags: 0
