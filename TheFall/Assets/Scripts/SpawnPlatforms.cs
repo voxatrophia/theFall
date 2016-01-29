@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(MultiObjectPooler))]
 public class SpawnPlatforms : MonoBehaviour {
 
-    public Transform player;
 	public float platformDistance = 3f;
 	public Transform movingPlatform;
 	MultiObjectPooler platforms;
@@ -20,8 +19,6 @@ public class SpawnPlatforms : MonoBehaviour {
 	}
 
 	void Update () {
-        transform.position = new Vector3(0, player.position.y - 25, 0);
-
 		if(newPlatform != null){
 			if((newPlatform.transform.position.y) > (transform.position.y + platformDistance)) {
 				Spawn();
