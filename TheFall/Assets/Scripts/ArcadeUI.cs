@@ -24,12 +24,12 @@ public class ArcadeUI : MonoBehaviour {
 				break;
 		}
 
-        highScoreText.text = "High Score: " + ScoreManager.Instance.GetHighScore();
+        highScoreText.text = "High Score: " + ScoreManager.Instance.GetHighScore().ToString("n0");
     }
 
 	void Update(){
 		score = ScoreManager.Instance.GetScore();
-		scoreText.text = "Score: " + score;
+		scoreText.text = "Score: " + score.ToString("n0");
 	}
 
 	void OnEnable(){

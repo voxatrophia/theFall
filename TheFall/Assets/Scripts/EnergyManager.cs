@@ -8,7 +8,7 @@ public class EnergyManager : MonoBehaviour {
     public GameObject EnergyCharge;
 
     void Start() {
-        if (TutorialManager.Instance.inTutorial) {
+        if (TutorialManager.Instance.inTutorial || true) {
             EnergyMeter.gameObject.SetActive(false);
             EnergyCharge.SetActive(false);
         }

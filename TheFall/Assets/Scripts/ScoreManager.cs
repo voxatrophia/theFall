@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
 public class ScoreManager : Singleton<ScoreManager> {
 
@@ -51,14 +49,13 @@ public class ScoreManager : Singleton<ScoreManager> {
 	}
 
     void SetHighScore(){
-    	CalculateScore();
     	if(PlayerPrefs.HasKey("HighScore")){
 			if(PlayerPrefs.GetInt("HighScore") < score) {
-				PlayerPrefs.SetInt("HighScore",score);
+				PlayerPrefs.SetInt("HighScore", score);
 			}
     	}
     	else{
-			PlayerPrefs.SetInt("HighScore",score);
+			PlayerPrefs.SetInt("HighScore", score);
 		}
 	}
 

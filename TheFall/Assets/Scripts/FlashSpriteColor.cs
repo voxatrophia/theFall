@@ -42,6 +42,7 @@ public class FlashSpriteColor : MonoBehaviour {
                 yield return null;
             }
         }
+        spr.color = origColor;
         yield return null;
     }
 

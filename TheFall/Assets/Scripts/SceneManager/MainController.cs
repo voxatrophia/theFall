@@ -2,7 +2,7 @@
 //#define LOG_EXTRA_INFO
 
 using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 //------------------------------------------------------------------------------
 // class definition
@@ -115,7 +115,7 @@ public class MainController : MonoBehaviour
 	// handle anything that needs to happen before loading
 	private void UpdateScenePreload()
 	{
-        		sceneLoadTask = Application.LoadLevelAsync(nextSceneName);
+        sceneLoadTask = SceneManager.LoadSceneAsync(nextSceneName);
  //       SceneManager.LoadSceneAsync(nextScenename);
         sceneState = SceneState.Load;
 	}

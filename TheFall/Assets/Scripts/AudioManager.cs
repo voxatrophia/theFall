@@ -12,18 +12,6 @@ public class AudioManager : Singleton<AudioManager> {
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	// public void SwitchMusic(AudioClip clip){
-	// 	if(audioSource.isPlaying){
-	// 		StartCoroutine(FadeAudio(1f,Fade.Out));
-	// 		audioSource.clip = clip;
-	// 		audioSource.Play();
-	// 	}
-	// 	else{
-	// 		audioSource.clip = clip;
-	// 		audioSource.Play();
-	// 	}
-	// }
-
 	public void SwitchMusic(AudioClip clip){
 		audioSource.clip = clip;
 		audioSource.Play();

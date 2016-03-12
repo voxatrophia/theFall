@@ -4,21 +4,19 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour {
 
-	public Text scoreText;
+    public Text scoreText;
+    public Text highScoreText;
 
-	int score;
+    int score;
 	int highScore;
 	int mode;
 
-	public void Restart(){
-		MainController.SwitchScene(Scenes.Main);
-	}
-
 	void Start(){
-		//Modes
-		//0 = Story
-		//1 = Arcade
-		mode = (PlayerPrefs.HasKey("GameMode")) ? PlayerPrefs.GetInt("GameMode") : Modes.Arcade;
+        //Modes
+        //0 = Story
+        //1 = Arcade
+        //mode = (PlayerPrefs.HasKey("GameMode")) ? PlayerPrefs.GetInt("GameMode") : Modes.Arcade;
+        mode = Modes.Arcade;
 		if(mode == Modes.Arcade){
 			score = (PlayerPrefs.HasKey("Score")) ?
 					PlayerPrefs.GetInt("Score") :
@@ -27,10 +25,14 @@ public class GameOver : MonoBehaviour {
 			highScore = (PlayerPrefs.HasKey("HighScore")) ? 
 						PlayerPrefs.GetInt("HighScore") :
 						0;
-
-			scoreText.text = (score == highScore) ?
-							"Your score: " + score.ToString("n0") + "\n" + "High Score: " + highScore.ToString("n0") + "\n" + "New High Score!" :
-							"Your score: " + score.ToString("n0") + "\n" + "High Score: " + highScore.ToString("n0");
-		}
-	}
+            if (score == highScore) {
+                scoreText.text = score.ToString("n0");
+                highScoreText.text = "New High Score!";
+            }
+            else {
+                scoreText.text = "Your Score: " + score.ToString("n0");
+                highScoreText.text = "High Score: " + highScore.ToString("n0");
+            }
+        }
+    }
 }

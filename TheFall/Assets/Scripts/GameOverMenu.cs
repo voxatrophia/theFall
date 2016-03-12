@@ -3,84 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class GameOverMenu : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+public class GameOverMenu : Menu {
 
-	enum menu {Normal, Paused, Options, Modal, OptionsModal}
+    public AudioClip hoverSound;
+    AudioSource audioSrc;
 
-	LinkedList<GameObject> highlight = new LinkedList<GameObject>();
-	int menuState;
-
-    private Modal modalPanel;
-
-    void Awake () {
-        modalPanel = Modal.Instance();
+    void Start() {
+        audioSrc = GetComponent<AudioSource>();
     }
 
-	void Start(){
-		menuState = (int)menu.Normal;
-	}
-
-	void Update(){
-		//Handles state of Escape Key
-		if(Input.GetButtonDown("Cancel")){
-			switch(menuState){
-				case (int)menu.Normal:
-					break;
-				case (int)menu.Modal:
-					CancelModal();
-					break;
-			}
-		}
-	}
-
-	public void ReturnFocus(GameObject returnFocus){
-		highlight.AddLast(returnFocus);
-	}
-
-	public void CloseMenu(){
-		EventSystem.current.SetSelectedGameObject(highlight.Last.Value);
-		highlight.RemoveLast();
-	}
-
-//Modal Window Functions
-
-	//All Cancel buttons for modal windows use the same functionality
-	public void CancelModal(){
-		menuState = (int)menu.Normal;
-		CloseMenu();
-	}
-
-//QUIT GAME
-
-    public void ConfirmQuit () {
-    	menuState = (int)menu.Modal;
-
-        ModalPanelDetails modalPanelDetails = new ModalPanelDetails {message = "Are you sure?"};
-        modalPanelDetails.button1Details = new EventButtonDetails {buttonTitle = "Quit", action = Quit};
-        modalPanelDetails.button2Details = new EventButtonDetails {buttonTitle = "Cancel", action = CancelModal};
-
-        modalPanel.NewChoice (modalPanelDetails);
+    public void Hover() {
+        audioSrc.PlayOneShot(hoverSound);
     }
 
-    public void Quit()
-    {
+    public void RetryLevel() {
+        MainController.SwitchScene(Scenes.Main);
+    }
+
+    public void ConfirmQuit() {
+        StandardModal(Quit);
+    }
+
+    public void Quit() {
         AppHelper.Quit();
     }
 
-    public void ConfirmRestart()
-    {
-        menuState = (int)menu.Modal;
-
-        ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Are you sure?" };
-        modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "Main Menu", action = Restart };
-        modalPanelDetails.button2Details = new EventButtonDetails { buttonTitle = "Cancel", action = CancelModal };
-
-        modalPanel.NewChoice(modalPanelDetails);
+    public void ConfirmMainMenu() {
+        StandardModal(ReturnToMainMenu);
     }
 
-    public void Restart()
+    public void ReturnToMainMenu()
     {
         MainController.SwitchScene(Scenes.StartScene);
     }
-
 }

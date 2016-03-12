@@ -13,7 +13,10 @@ public class LevelManager : Singleton<LevelManager> {
 	int mode;
 
 	void Start(){
-		mode = GetMode();
+        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+
+        mode = GetMode();
 		if(mode == Modes.Arcade){
 			AudioManager.Instance.SwitchMusic(ArcadeTheme);
 		}

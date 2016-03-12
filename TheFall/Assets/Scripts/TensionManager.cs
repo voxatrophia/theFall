@@ -15,7 +15,7 @@ public class TensionManager : Singleton<TensionManager> {
     }
 
     void OnDisable() {
-        Debug.Log("Tension Y:" + tensionY);
+        EventManager.StopListening(Events.StopMoving, ZeroTension);
     }
 
     public void ZeroTension() {

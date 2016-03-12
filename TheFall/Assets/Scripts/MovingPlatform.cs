@@ -7,12 +7,20 @@ public class MovingPlatform : MonoBehaviour {
 	public Vector2 velocity;
 	public float speedIncrease = 1.5f;
 	public float arcadeIncrease = 1.1f;
-	float increase;
+    public bool autoIncrease;
+    public float autoIncreaseInterval = 30f;
+    public float maxSpeed = 8f;
+
+    float increase;
 	Rigidbody2D rb;
+
+    bool velocityChanging;
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
 		rb.velocity = velocity;
+
+        StartCoroutine(IncreaseSpeed());
 
 		switch(LevelManager.Instance.GetMode()){
 			case Modes.Arcade:
@@ -22,7 +30,8 @@ public class MovingPlatform : MonoBehaviour {
 				increase = speedIncrease;
 				break;
 		}
-	}
+        increase = 0.1f;
+    }
 
 	void OnEnable(){
 		EventManager.StartListening(Events.StopMoving, StopMoving);
@@ -45,23 +54,40 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	IEnumerator StopMovingCoroutine(){
+        velocityChanging = true;
 		rb.velocity = new Vector2(0, 0);
 		yield return Yielders.Get(2f);
 		rb.velocity = velocity;
-	}
+        velocityChanging = false;
+    }
 
-	void MoveBackwards(){
+    void MoveBackwards(){
 		StartCoroutine(MoveBackwardsCoroutine());
 	}
 
 	IEnumerator MoveBackwardsCoroutine(){
-		rb.velocity = new Vector2(0, -rb.velocity.y);
+        velocityChanging = true;
+        rb.velocity = new Vector2(0, -rb.velocity.y);
 		yield return Yielders.Get(1f);
+		rb.velocity = velocity;
+        velocityChanging = false;
+    }
+
+    void MoveFaster(){
+		velocity = new Vector2(0, Mathf.Abs(rb.velocity.y) + increase);
 		rb.velocity = velocity;
 	}
 
-	void MoveFaster(){
-		velocity = new Vector2(0, rb.velocity.y * increase);
-		rb.velocity = velocity;
-	}
+    IEnumerator IncreaseSpeed() {
+        while (autoIncrease) {
+            if (velocityChanging) {
+                yield return Yielders.Get(2f);
+            }
+            yield return Yielders.Get(autoIncreaseInterval);
+            MoveFaster();
+            if (rb.velocity.y >= maxSpeed) {
+                autoIncrease = false;
+            }
+        }
+    }
 }

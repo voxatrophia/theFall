@@ -39,13 +39,13 @@ public class BossAttack : MonoBehaviour {
     }
 
     //Sets all attacks to be equal chance
-    void SetUpAttackList() {
-        attackProbs = new Dictionary<string, float>();
-        foreach (string attackType in attackPool.GetObjectTypes()) {
-            attackProbs[attackType] = 0.25f;
-        }
-        attackProbs["NA"] = 0.25f;
-    }
+    //void SetUpAttackList() {
+    //    attackProbs = new Dictionary<string, float>();
+    //    foreach (string attackType in attackPool.GetObjectTypes()) {
+    //        attackProbs[attackType] = 0.25f;
+    //    }
+    //    attackProbs["NA"] = 0.25f;
+    //}
 
     void Attack() {
         attackProbs = DifficultyManager.Instance.GetAttackList();
@@ -61,7 +61,6 @@ public class BossAttack : MonoBehaviour {
                 attack.SetActive(true);
                 anim.SetTrigger(BossAnim.Attack);
             }
-
         }
     }
 
@@ -70,7 +69,7 @@ public class BossAttack : MonoBehaviour {
         float total = 0;
 
         foreach (KeyValuePair<string, float> elem in attackProbs) {
-            // do something with entry.Value or entry.Key
+            //Sum probabilities
             total += elem.Value;
         }
 
@@ -89,6 +88,7 @@ public class BossAttack : MonoBehaviour {
     }
 
     //Wrapper for RandomAttack() coroutine
+    //Called after Tutorial finished
     void StartAttack() {
         StartCoroutine(RandomAttack());
     }
@@ -98,16 +98,6 @@ public class BossAttack : MonoBehaviour {
 			yield return Yielders.Get(DifficultyManager.Instance.GetAttackInterval());
             if (canMove) {
                 Attack();
-                /*
-                    //old method
-                    attack = attackPool.GetPooledObjectOfRandomType();
-                    if(attack != null){
-                        attack.transform.position = transform.position;
-                        attack.transform.rotation = Quaternion.identity;
-                        attack.SetActive(true);
-                        anim.SetTrigger(BossAnim.Attack);
-                    }
-                */
             }
 		}
 	}
