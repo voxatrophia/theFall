@@ -3,20 +3,21 @@
 public class ScoreManager : Singleton<ScoreManager> {
 
 	int score;
-	int highScore;
+//	int highScore;
 	int multipler;
 
 	void OnEnable(){
 		EventManager.StartListening(Events.BossHit, UpdateMultiplier);
-	}
+    }
 
-	void OnDisable(){
+    void OnDisable(){
 		EventManager.StopListening(Events.BossHit, UpdateMultiplier);
 	}
 
 	void Awake () {
 		score = 0;
         multipler = 1;
+//        highScore = GetHighScore();
 	}
 
 	//Level Functions

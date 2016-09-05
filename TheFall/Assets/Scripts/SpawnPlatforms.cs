@@ -13,27 +13,32 @@ public class SpawnPlatforms : MonoBehaviour {
 	//adds spacing for new platforms
 	int sortingSpacer = 5;
 
-	void Start () {
+    void Start () {
 		platforms = GetComponent<MultiObjectPooler>();
 		Spawn();
-	}
+    }
 
 	void Update () {
 		if(newPlatform != null){
 			if((newPlatform.transform.position.y) > (transform.position.y + platformDistance)) {
 				Spawn();
 			}
-
 		}
 	}
 
 	void Spawn(){
 		newPlatform = platforms.GetPooledObjectOfRandomType();
 		if(newPlatform != null){
-			SpriteRenderer spr = newPlatform.GetComponent<SpriteRenderer>();
-			spr.sortingOrder = spr.sortingOrder + sortingSpacer;
-			sortingSpacer += 5;
-			Vector3 pos = transform.position;
+            //Change platform size for Aspect Ratio
+            Vector3 newSize = newPlatform.transform.localScale;
+            newSize.x = AspectRatioController.Instance.Scale;
+            newPlatform.transform.localScale = newSize;
+            foreach (Transform child in newPlatform.transform) {
+                SpriteRenderer spr = child.GetComponent<SpriteRenderer>();
+                spr.sortingOrder = spr.sortingOrder + sortingSpacer;
+                sortingSpacer += 5;
+            }
+            Vector3 pos = transform.position;
 			pos.z = movingPlatform.position.z;
 			newPlatform.transform.position = pos;
 			newPlatform.transform.parent = movingPlatform;

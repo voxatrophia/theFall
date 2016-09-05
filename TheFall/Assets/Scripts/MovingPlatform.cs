@@ -74,15 +74,14 @@ public class MovingPlatform : MonoBehaviour {
     }
 
     void MoveFaster(){
-		velocity = new Vector2(0, Mathf.Abs(rb.velocity.y) + increase);
-		rb.velocity = velocity;
-	}
+        if (!velocityChanging) {
+            velocity = new Vector2(0, Mathf.Abs(velocity.y) + increase);
+            rb.velocity = velocity;
+        }
+    }
 
     IEnumerator IncreaseSpeed() {
         while (autoIncrease) {
-            if (velocityChanging) {
-                yield return Yielders.Get(2f);
-            }
             yield return Yielders.Get(autoIncreaseInterval);
             MoveFaster();
             if (rb.velocity.y >= maxSpeed) {

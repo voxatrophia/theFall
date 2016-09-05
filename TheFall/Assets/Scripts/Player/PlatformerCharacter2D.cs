@@ -29,6 +29,11 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
+        void Start() {
+            //Normalize speed to Aspect Ratio
+            //Designed for 16:9, but supports any resoultion
+            m_MaxSpeed *= AspectRatioController.Instance.Scale;
+        }
 
         private void FixedUpdate()
         {
@@ -99,7 +104,6 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
         }
-
 
         private void Flip()
         {

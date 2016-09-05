@@ -12,6 +12,7 @@ public class ArcadeUI : MonoBehaviour {
 	int level;
 	int score;
     int multiplier;
+    int highScore;
 
 	void Start(){
 		switch(LevelManager.Instance.GetMode()){
@@ -23,22 +24,31 @@ public class ArcadeUI : MonoBehaviour {
 				score = 0;
 				break;
 		}
-
-        highScoreText.text = "High Score: " + ScoreManager.Instance.GetHighScore().ToString("n0");
+        highScore = ScoreManager.Instance.GetHighScore();
+        highScoreText.text = "High Score: " + highScore.ToString("n0");
     }
 
-	void Update(){
+    void OnEnable() {
+        EventManager.StartListening(Events.UpdateMultiplier, UpdateMultiplier);
+    }
+
+    void OnDisable() {
+        EventManager.StopListening(Events.UpdateMultiplier, UpdateMultiplier);
+    }
+
+
+    void Update(){
 		score = ScoreManager.Instance.GetScore();
 		scoreText.text = "Score: " + score.ToString("n0");
+        if (score > highScore) {
+            UpdateHighScore();
+        }
 	}
 
-	void OnEnable(){
-		EventManager.StartListening(Events.UpdateMultiplier, UpdateMultiplier);
-	}
 
-	void OnDisable(){
-		EventManager.StopListening(Events.UpdateMultiplier, UpdateMultiplier);
-	}
+    void UpdateHighScore() {
+        highScoreText.text = "New High Score!";
+    }
 
     public void UpdateMultiplier() {
         multiplier = ScoreManager.Instance.GetMultiplier();

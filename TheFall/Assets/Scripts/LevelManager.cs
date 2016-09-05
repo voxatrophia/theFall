@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class LevelManager : Singleton<LevelManager> {
 
@@ -10,10 +9,10 @@ public class LevelManager : Singleton<LevelManager> {
 	public AudioClip StoryTheme;
 	public AudioClip ArcadeTheme;
 
-	int mode;
+    int mode;
 
 	void Start(){
-        Cursor.visible = false;
+        //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
 
         mode = GetMode();
@@ -23,9 +22,9 @@ public class LevelManager : Singleton<LevelManager> {
 		else if(mode == Modes.Story) {
 			AudioManager.Instance.SwitchMusic(StoryTheme);
 		}
-	}
+    }
 
-	public int GetMode(){
+    public int GetMode(){
 		//Modes
 		//0 = Story
 		//1 = Arcade

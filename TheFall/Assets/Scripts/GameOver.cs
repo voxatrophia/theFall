@@ -25,6 +25,7 @@ public class GameOver : MonoBehaviour {
 			highScore = (PlayerPrefs.HasKey("HighScore")) ? 
 						PlayerPrefs.GetInt("HighScore") :
 						0;
+
             if (score == highScore) {
                 scoreText.text = score.ToString("n0");
                 highScoreText.text = "New High Score!";
