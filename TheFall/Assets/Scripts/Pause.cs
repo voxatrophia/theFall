@@ -20,11 +20,22 @@ public class Pause : Menu {
     }
 
     void Update() {
-        if (Input.GetButtonDown("Cancel")) {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(Controls.Instance.pause)) {
             switch (menus.Count) {
                 case 0:
                     PauseGame();
                     break;
+                case 1:
+                    Resume();
+                    break;
+                default:
+                    CloseOpenMenu();
+                    break;
+            }
+        }
+
+        if (Input.GetKeyDown(Controls.Instance.back)) {
+            switch (menus.Count) {
                 case 1:
                     Resume();
                     break;
@@ -39,10 +50,11 @@ public class Pause : Menu {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         menus.AddLast(pauseMenu);
-        //Setting to null first seems to fix a bug
-        //Dug: Doesn't initially trigger the highlight color
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(startFocus);
+        FocusHereNext(startFocus);
+        ////Setting to null first seems to fix a bug
+        ////Bug: Doesn't initially trigger the highlight color
+        //EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(startFocus);
         AudioManager.Instance.Pause();
     }
 

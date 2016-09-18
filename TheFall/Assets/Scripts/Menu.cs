@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Menu : MonoBehaviour {
@@ -17,8 +18,18 @@ public class Menu : MonoBehaviour {
         menus.AddLast(menu);
     }
 
-    public void FocusHereNext(GameObject focus) {
+    IEnumerator SetFocus(GameObject focus) {
+        //Setting to null first seems to fix a bug
+        //Bug: Doesn't initially trigger the highlight color
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(focus);
+    }
+
+    public void FocusHereNext(GameObject focus) {
+        StartCoroutine(SetFocus(focus));
+        //EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(focus);
     }
 
     //Called on every button that opens a menu
@@ -37,13 +48,14 @@ public class Menu : MonoBehaviour {
         }
 
         if (selected.Count != 0) {
-            EventSystem.current.SetSelectedGameObject(selected.Last.Value);
+            StartCoroutine(SetFocus(selected.Last.Value));
+            //EventSystem.current.SetSelectedGameObject(selected.Last.Value);
             selected.RemoveLast();
         }
     }
 
     void Update() {
-        if (Input.GetButtonDown("Cancel")) {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(Controls.Instance.back)) {
             if (menus.Count != 0) {
                 CloseOpenMenu();
             }

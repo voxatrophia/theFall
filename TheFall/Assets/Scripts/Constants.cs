@@ -68,3 +68,10 @@ public static class TutorialEvents {
 
     public const string Done = "Done";
 }
+
+public static class Control {
+    public const string Jump = "Jump";
+    public const string UseItem = "UseItem";
+    public const string Pause = "Pause";
+    public const string Back = "Back";
+}

@@ -9,6 +9,7 @@ public class InputHandler : Singleton<InputHandler> {
 
     //Window where key binding happens
     public GameObject RebindWindow;
+    public GameObject RebindMenu;
     //component to cache
     Rebind rebind;
 
@@ -21,7 +22,7 @@ public class InputHandler : Singleton<InputHandler> {
     Button lastButton;
 
     //Keep track of BindAll steps
-    public int step = 0;
+    int step = 0;
     bool bindAll = false;
 
     void Start() {
@@ -68,16 +69,12 @@ public class InputHandler : Singleton<InputHandler> {
                 break;
             }
         }
-
-
     }
 
     public void BindAll() {
         bindAll = true;
         StartCoroutine(BindAllKeysRoutine());
     }
-
-
 
     public void KeyInUse() {
         fade.Fade("That key is already in use...");
@@ -96,15 +93,20 @@ public class InputHandler : Singleton<InputHandler> {
             step++;
         }
         else {
-            Invoke("Return", 0.25f);
+            lastButton.interactable = true;
+            EventSystem.current.SetSelectedGameObject(lastButton.gameObject);
         }
     }
 
-    public void Return() {
-        lastButton.interactable = true;
-        EventSystem.current.SetSelectedGameObject(lastButton.gameObject);
-        //EventSystem.current.sendNavigationEvents = true;
+    //public void ReturnFocus() {
+    //    Debug.Log("?");
+    //    lastButton.interactable = true;
+    //    EventSystem.current.SetSelectedGameObject(lastButton.gameObject);
+    //    //EventSystem.current.sendNavigationEvents = true;
+    //}
+
+    public void Save() {
+        Controls.Instance.Save();
+        RebindMenu.SetActive(false);
     }
-
-
 }

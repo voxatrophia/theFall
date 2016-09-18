@@ -15,7 +15,7 @@ public class UseItem : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetKeyDown(Controls.Instance.useItem)){
 			item = ItemManager.i.GetItem();
 			if(item != null){
 				switch(item.tag){

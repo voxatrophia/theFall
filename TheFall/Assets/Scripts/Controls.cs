@@ -2,24 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Controls : Singleton<Controls> {
+public enum actions { Jump, UseItem, Pause, Back }
 
+public class Controls : Singleton<Controls> {
     public KeyCode jump { get; private set; }
     public KeyCode pause { get; private set; }
     public KeyCode useItem { get; private set; }
     public KeyCode back { get; private set; }
 
-    private KeyCode[] _defaultBindings = new KeyCode[] { KeyCode.Space, KeyCode.Escape, KeyCode.LeftShift, KeyCode.Backspace};
+    //private KeyCode[] _defaultBindings = new KeyCode[] { KeyCode.Space, KeyCode.Escape, KeyCode.LeftShift, KeyCode.Backspace};
+    private Dictionary<string, KeyCode> _default = new Dictionary<string, KeyCode>()
+    {
+        { Control.Jump, KeyCode.Space },
+        { Control.UseItem, KeyCode.LeftShift },
+        { Control.Pause, KeyCode.Escape },
+        { Control.Back, KeyCode.Backspace }
+    };
 
     void Awake() {
-        SetDefaults();
+        Load();
     }
 
     public void SetDefaults() {
-        jump = _defaultBindings[0];
-        pause = _defaultBindings[1];
-        useItem = _defaultBindings[2];
-        back = _defaultBindings[3];
+        jump = _default[Control.Jump];
+        useItem = _default[Control.UseItem];
+        pause = _default[Control.Pause];
+        back = _default[Control.Back];
+    }
+
+    public void Load() {
+        jump = (PlayerPrefs.HasKey(Control.Jump)) ? (KeyCode)PlayerPrefs.GetInt(Control.Jump) : _default[Control.Jump];
+        useItem = (PlayerPrefs.HasKey(Control.UseItem)) ? (KeyCode)PlayerPrefs.GetInt(Control.UseItem) : _default[Control.UseItem];
+        pause = (PlayerPrefs.HasKey(Control.Pause)) ? (KeyCode)PlayerPrefs.GetInt(Control.Pause) : _default[Control.Pause];
+        back = (PlayerPrefs.HasKey(Control.Back)) ? (KeyCode)PlayerPrefs.GetInt(Control.Back) : _default[Control.Back];
     }
 
     public bool SetKey(actions action, KeyCode key) {
@@ -42,7 +57,7 @@ public class Controls : Singleton<Controls> {
                 back = key;
                 break;
             default:
-                Debug.Log("Unknown Action");
+                Debug.LogError("Unknown Action");
                 return false;
         }
         return true;
@@ -62,5 +77,12 @@ public class Controls : Singleton<Controls> {
             return false;
         }
         return true;
+    }
+
+    public void Save() {
+        PlayerPrefs.SetInt(Control.Jump, (int)jump);
+        PlayerPrefs.SetInt(Control.UseItem, (int)useItem);
+        PlayerPrefs.SetInt(Control.Pause, (int)pause);
+        PlayerPrefs.SetInt(Control.Back, (int)back);
     }
 }

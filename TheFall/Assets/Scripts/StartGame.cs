@@ -8,10 +8,13 @@ public class StartGame : Menu {
     AudioSource audioSrc;
 	public AudioClip hoverSound;
 	public AudioClip clickSound;
+    public GameObject startFocus;
 
 	void Start(){
 		audioSrc = GetComponent<AudioSource>();
-	}
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(startFocus);
+    }
 
     public void Hover() {
         audioSrc.PlayOneShot(hoverSound);

@@ -1,16 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public enum actions { Jump, UseItem, Pause, Back }
-
 public class Rebind : Menu {
     public Text action;
     public actions control;
-
-    //void Start() {
-    //    gameObject.SetActive(false);
-    //}
 
     void OnEnable() {
         action.text = control.ToString();
@@ -28,7 +21,6 @@ public class Rebind : Menu {
             if (Input.GetKeyDown(code)) {
                 //Set Key - Will return true if set
                 if (Controls.Instance.SetKey(control, code)) {
-                    Debug.Log(control.ToString() + " Set to " + code);
                 }
                 //Will return false if that key is already in use
                 else {
