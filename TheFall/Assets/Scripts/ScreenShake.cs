@@ -43,7 +43,8 @@ public class ScreenShake : MonoBehaviour {
 				currentShakeIntensity -= shakeDecay;
 				yield return null;
 			}
-
+            transform.rotation = OriginalRot;
+            transform.position = OriginalPos;
 			isShakeRunning = false;
 		}
 	}

@@ -62,6 +62,15 @@ public class Menu : MonoBehaviour {
         modalPanel.NewChoice(modalPanelDetails);
     }
 
+    protected void Announcement(UnityAction act) {
+        menus.AddLast(modalPanel.modalPanelObject);
+
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Press a key" };
+        modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "Yes", action = act };
+
+        modalPanel.NewChoice(modalPanelDetails);
+    }
+
     //public void ConfirmClearScore() {
     //    menuState = (int)menu.OptionsModal;
 
