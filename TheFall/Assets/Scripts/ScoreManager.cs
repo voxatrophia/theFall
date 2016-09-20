@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class ScoreManager : Singleton<ScoreManager> {
 
@@ -47,6 +48,8 @@ public class ScoreManager : Singleton<ScoreManager> {
     void SetScore(){
 		CalculateScore();
 		PlayerPrefs.SetInt("Score", score);
+        HighScore highscore = new HighScore { name = "Player", score = score, date = DateTime.Today };
+        DataAccess.Save(highscore, Data.LastScore);
 	}
 
     void SetHighScore(){

@@ -75,3 +75,8 @@ public static class Control {
     public const string Pause = "Pause";
     public const string Back = "Back";
 }
+
+public static class Data {
+    public const string LastScore = "LastScore";
+    public const string ScoreTable = "ScoreTable";
+}
