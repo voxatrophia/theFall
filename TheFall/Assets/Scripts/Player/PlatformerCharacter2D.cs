@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+        [SerializeField] public float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
@@ -19,6 +19,8 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+
+        float origSpeed;
 
         private void Awake()
         {
@@ -114,6 +116,18 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        public void SpeedUp() {
+            StartCoroutine(MoveFaster());
+            Debug.Log("Speed up");
+        }
+
+        IEnumerator MoveFaster() {
+            origSpeed = m_MaxSpeed;
+            m_MaxSpeed = 25f;
+            yield return Yielders.Get(2f);
+            m_MaxSpeed = origSpeed;
         }
     }
 }

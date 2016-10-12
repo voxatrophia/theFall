@@ -9,8 +9,11 @@ public class Menu : MonoBehaviour {
     protected LinkedList<GameObject> menus = new LinkedList<GameObject>();
     private Modal modalPanel;
 
+    protected virtual void OnAwake() { }
+
     void Awake() {
         modalPanel = Modal.Instance();
+        OnAwake();
     }
 
     public void OpenMenu(GameObject menu) {
@@ -65,6 +68,7 @@ public class Menu : MonoBehaviour {
     //Just a shorthand funciton for the standard confirmation dialog
     //Pass in the function to call on confirm
     protected void StandardModal(UnityAction act) {
+
         menus.AddLast(modalPanel.modalPanelObject);
 
         ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Are you sure?" };

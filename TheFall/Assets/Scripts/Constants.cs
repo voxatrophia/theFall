@@ -20,12 +20,14 @@ public static class Tags {
 	public const string Bomb = "Bomb";
 	public const string Apple = "Apple";
 	public const string Ribs = "Ribs";
-	public const string GroundCheck = "GroundCheck";
+    public const string Orb = "Orb";
+    public const string GroundCheck = "GroundCheck";
 	public const string Stopwatch = "Stopwatch";
 	public const string Explosion = "Explosion";
 	public const string PlayerAttack = "PlayerAttack";
 	public const string Cloud = "Cloud";
 	public const string PlayerCatcher = "PlayerCatcher";
+
 }
 
 public static class BossAnim {

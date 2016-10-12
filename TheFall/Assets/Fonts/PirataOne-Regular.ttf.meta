@@ -3,17 +3,18 @@ guid: 3de320335dc8ba44c84137bef706cd3c
 timeCreated: 1443586269
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontNames:
+  - Pirata One
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

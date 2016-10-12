@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class InputHandler : Singleton<InputHandler> {
 
-    FadeText fade;
-
     //Window where key binding happens
     public GameObject RebindWindow;
     public GameObject RebindMenu;
+
     //component to cache
     Rebind rebind;
+    FadeText fade;
 
     public Text JumpText;
     public Text PauseText;
@@ -97,13 +97,6 @@ public class InputHandler : Singleton<InputHandler> {
             EventSystem.current.SetSelectedGameObject(lastButton.gameObject);
         }
     }
-
-    //public void ReturnFocus() {
-    //    Debug.Log("?");
-    //    lastButton.interactable = true;
-    //    EventSystem.current.SetSelectedGameObject(lastButton.gameObject);
-    //    //EventSystem.current.sendNavigationEvents = true;
-    //}
 
     public void Save() {
         Controls.Instance.Save();

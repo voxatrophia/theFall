@@ -2,16 +2,19 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class StartGame : Menu {
-
     AudioSource audioSrc;
 	public AudioClip hoverSound;
 	public AudioClip clickSound;
     public GameObject startFocus;
 
-	void Start(){
-		audioSrc = GetComponent<AudioSource>();
+    protected override void OnAwake() {
+    }
+
+    void Start() {
+        audioSrc = GetComponent<AudioSource>();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(startFocus);
     }

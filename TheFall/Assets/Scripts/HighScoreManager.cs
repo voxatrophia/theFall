@@ -1,29 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class HighScoreManager : MonoBehaviour {
     public GameObject scoreRecord;
     public Transform scoreTable;
+    public Color bgColor;
+
+    public GameObject namePanel;
+    public Text scoreText;
 
     HighScore currentScore;
     HighScores scoreList;
 
     int newScore = -1; //no new score
+    string playerName;
+
+    //Flow 1 - Start() -> CheckLastScore() -> UpdateUI()
+    //Flow 2 - Start() -> CheckLastScore() -> UpdateScoreTable() -> Ask for Name [Other Script] -> GetName() -> UpdateUI() 
 
     void Start() {
-        newScore = 2;
-        LoadScores();
-        CheckLastScore();
-        UpdateUI();
-    }
+        //Disable score Table
+        scoreTable.gameObject.SetActive(false);
 
-    //x at end of level, create highscore object and save to file
-    //x start gameover scene, load last score and score table
-    //x check if lastscore is in top scores
-    //if so, add to score, change background color
-    //allow input name - Need to use Modal window, doesn't work inline
-    //remove last score
-    //save scoretable
+        //Load Scores from file
+        LoadScores();
+        
+        //Compare last score with high scores
+        CheckLastScore();
+    }
 
     void LoadScores() {
         currentScore = (HighScore)DataAccess.Load(Data.LastScore);
@@ -38,46 +43,85 @@ public class HighScoreManager : MonoBehaviour {
     }
 
     void CheckLastScore() {
-        for(int i = 0; i < scoreList.scores.Count; i++) {
-            if (currentScore.score > scoreList.scores[i].score) {
-                Debug.Log("element in list: " + i);
-                UpdateScoreTable(i);
-                break;
+
+        //If score table empty
+        if (scoreList.scores.Count == 0) {
+            newScore = 0;
+        }
+        else {
+            //Check if latest score is higher than existing scores
+            for (int i = 0; i < scoreList.scores.Count; i++) {
+                if (currentScore.score > scoreList.scores[i].score) {
+                    //set to index in score table
+                    newScore = i;
+                    break;
+                }
             }
+        }
+
+        //If not higher than existing scores
+        if (newScore < 0) {
+            //Check to see if less than 10 in table
+            if (scoreList.scores.Count < 10) {
+                newScore = scoreList.scores.Count;
+                UpdateScoreTable(newScore);
+            }
+            else {
+                UpdateUI();
+            }
+        }
+        //else, update the score table with the new score
+        else {
+            UpdateScoreTable(newScore);
         }
     }
 
     void UpdateScoreTable(int place) {
-        //insert new score after
+        //insert new score
+        scoreList.scores.Insert(newScore, currentScore);
 
+        if (scoreList.scores.Count > 10) {
+            //remove last score
+            scoreList.scores.RemoveAt(scoreList.scores.Count - 1);
+        }
+
+        //Ask for Player Name
+        scoreText.text = currentScore.score.ToString("N0");
+        namePanel.SetActive(true);
     }
 
-    void AskForName() {
-
+    //Called after receiving name
+    public void GetName(string name) {
+        playerName = name;
+        UpdateUI();
     }
 
     void UpdateUI() {
         for (int i = 0; i < 10; i++) {
             GameObject record = Instantiate(scoreRecord, Vector3.zero, Quaternion.identity) as GameObject;
-
-            if (scoreList.scores != null && scoreList.scores.Count > 0) {
-                record.GetComponent<ScoreUI>().SetUI(scoreList.scores[i].name, scoreList.scores[i].score, scoreList.scores[i].date, i + 1);
-            }
-            else {
-                record.GetComponent<ScoreUI>().SetUI(i + 1);
-            }
-
             record.transform.SetParent(scoreTable, false);
+            ScoreUI ui = record.GetComponent<ScoreUI>();
 
+            //Change row for new (current) high score
             if (i == newScore) {
-                record.GetComponent<ScoreUI>().nameField.gameObject.SetActive(true);
-                Debug.Log(record.GetComponent<ScoreUI>().nameEntered);
+                ui.background.color = bgColor;
+                scoreList.scores[i].name = playerName;
             }
+
+            //Sets name, score, date to UI
+            if (scoreList.scores != null && scoreList.scores.Count > (i)) {
+                ui.SetUI(scoreList.scores[i].name, scoreList.scores[i].score, scoreList.scores[i].date, i + 1);
+            }
+            //Fills "-" in when score table not full 
             else {
-                record.GetComponent<ScoreUI>().nameField.gameObject.SetActive(false);
+                ui.SetUI(i + 1);
             }
-
         }
-    }
 
+        //Display Score Table
+        scoreTable.gameObject.SetActive(true);
+
+        //Save Score
+        DataAccess.Save(scoreList, Data.ScoreTable);
+    }
 }

@@ -20,20 +20,20 @@ public class SetAudioLevels : MonoBehaviour {
 
 	}
 
-	public void SetMusicLevel(float musicVol){
-		if(musicVol < -24f){
-			musicVol = -80;
-		}
-		mainMixer.SetFloat("musicVol", musicVol);
-		PlayerPrefs.SetFloat("musicVol", musicVol);
-	}
+    public void SetMusicLevel(float musicVol) {
+        if (musicVol < -40f) {
+            musicVol = -80;
+        }
+        mainMixer.SetFloat("musicVol", musicVol);
+        PlayerPrefs.SetFloat("musicVol", musicVol);
+    }
 
-	public void SetSfxLevel(float sfxVol){
-		if(sfxVol < -24f){
-			sfxVol = -80;
-		}
-		mainMixer.SetFloat("sfxVol", sfxVol);
-		PlayerPrefs.SetFloat("sfxVol", sfxVol);
-	}
+    public void SetSfxLevel(float sfxVol) {
+        if (sfxVol < -40f) {
+            sfxVol = -80;
+        }
+        mainMixer.SetFloat("sfxVol", sfxVol);
+        PlayerPrefs.SetFloat("sfxVol", sfxVol);
+    }
 
 }

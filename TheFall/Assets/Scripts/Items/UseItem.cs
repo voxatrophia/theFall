@@ -9,8 +9,9 @@ public class UseItem : MonoBehaviour {
 	public AudioClip bombSE;
 	public AudioClip appleSE;
 	public AudioClip watchSE;
+    public AudioClip orbSE;
 
-	void Start(){
+    void Start(){
 		audioSrc = GetComponent<AudioSource>();
 	}
 
@@ -34,6 +35,11 @@ public class UseItem : MonoBehaviour {
 						Stopwatch useStopwatch = item.GetComponent<Stopwatch>();
 						useStopwatch.StopTime();
 						break;
+                    case Tags.Orb:
+                        audioSrc.PlayOneShot(watchSE);
+                        Orb useOrb = item.GetComponent<Orb>();
+                        useOrb.SpeedUp();
+                        break;
 					default:
 						break;
 

@@ -18,10 +18,10 @@ public class ScoreUI : MonoBehaviour {
     }
 
     public void SetUI(string player, int scr, DateTime dt, int num) {
-        playerName.text = player;
-        score.text = scr.ToString();
-        date.text = dt.ToShortDateString();
         number.text = num.ToString();
+        playerName.text = player;
+        score.text = scr.ToString("N0");
+        date.text = dt.ToShortDateString();
     }
 
     public void SetUI(int num) {

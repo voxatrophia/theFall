@@ -3,18 +3,19 @@ guid: f872cf3e2a7a3944db25b77e15bc6311
 timeCreated: 1443591619
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 2
-  fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  serializedVersion: 4
+  fontSize: 20
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontNames:
+  - Inknut Antiqua
   fallbackFontReferences:
   - {fileID: 12800000, guid: fb3343cea34db7249b28130bccf9ca86, type: 3}
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

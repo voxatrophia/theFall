@@ -10,7 +10,6 @@ public class Controls : Singleton<Controls> {
     public KeyCode useItem { get; private set; }
     public KeyCode back { get; private set; }
 
-    //private KeyCode[] _defaultBindings = new KeyCode[] { KeyCode.Space, KeyCode.Escape, KeyCode.LeftShift, KeyCode.Backspace};
     private Dictionary<string, KeyCode> _default = new Dictionary<string, KeyCode>()
     {
         { Control.Jump, KeyCode.Space },

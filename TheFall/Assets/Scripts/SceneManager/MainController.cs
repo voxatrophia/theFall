@@ -130,8 +130,6 @@ public class MainController : MonoBehaviour
 		}
 		else
 		{
-            Debug.Log(sceneLoadTask.progress);
-			// update scene loading progress
 		}
 	}
 

@@ -19,6 +19,7 @@ TagManager:
   - Cloud
   - PlayerCatcher
   - Wall
+  - Orb
   layers:
   - Default
   - TransparentFX

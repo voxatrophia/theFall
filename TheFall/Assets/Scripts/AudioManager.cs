@@ -12,6 +12,10 @@ public class AudioManager : Singleton<AudioManager> {
 		audioSource = GetComponent<AudioSource>();
 	}
 
+    void Start() {
+
+    }
+
 	public void SwitchMusic(AudioClip clip){
 		audioSource.clip = clip;
 		audioSource.Play();

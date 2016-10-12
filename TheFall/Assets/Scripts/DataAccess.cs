@@ -9,7 +9,7 @@ public class GameDetails { }
 
 [Serializable]
 public class HighScore : ISavable {
-    public string name = "My Name";
+    public string name = "Player Name";
     public int score = 5000;
     public DateTime date = DateTime.Today;
 }
