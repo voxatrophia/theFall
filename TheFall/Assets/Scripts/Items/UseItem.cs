@@ -36,7 +36,7 @@ public class UseItem : MonoBehaviour {
 						useStopwatch.StopTime();
 						break;
                     case Tags.Orb:
-                        audioSrc.PlayOneShot(watchSE);
+                        audioSrc.PlayOneShot(orbSE);
                         Orb useOrb = item.GetComponent<Orb>();
                         useOrb.SpeedUp();
                         break;

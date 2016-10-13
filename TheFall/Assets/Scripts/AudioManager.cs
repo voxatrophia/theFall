@@ -22,8 +22,8 @@ public class AudioManager : Singleton<AudioManager> {
 	}
 
     IEnumerator FadeAudio (float timer, Fade fadeType) {
-        float start = fadeType == Fade.In? 0.0F : 1.0F;
-        float end = fadeType == Fade.In? 1.0F : 0.0F;
+        float start = fadeType == Fade.In ? 0.0F : 1.0F;
+        float end = fadeType == Fade.In ? 1.0F : 0.0F;
         float i = 0.0F;
         float step = 1.0F/timer;
      

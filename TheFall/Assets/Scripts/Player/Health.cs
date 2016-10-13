@@ -93,7 +93,7 @@ public class Health : MonoBehaviour {
         EventManager.TriggerEvent(Events.Death);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.8f));
         anim.SetBool(PlayerAnim.Dead,true);
-        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(3f));
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(4f));
         EventManager.TriggerEvent(Events.DeathFade);
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         Time.timeScale = 1;

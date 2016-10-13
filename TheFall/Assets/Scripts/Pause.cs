@@ -55,11 +55,14 @@ public class Pause : Menu {
         ////Bug: Doesn't initially trigger the highlight color
         //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject(startFocus);
+        //Handled in the Menu class now
+        EventManager.TriggerEvent("GamePaused");
         AudioManager.Instance.Pause();
     }
 
     public void Resume() {
         AudioManager.Instance.Play();
+        EventManager.TriggerEvent("UnPaused");
         Time.timeScale = 1;
         CloseOpenMenu();
     }

@@ -120,13 +120,12 @@ namespace UnityStandardAssets._2D
 
         public void SpeedUp() {
             StartCoroutine(MoveFaster());
-            Debug.Log("Speed up");
         }
 
         IEnumerator MoveFaster() {
             origSpeed = m_MaxSpeed;
             m_MaxSpeed = 25f;
-            yield return Yielders.Get(2f);
+            yield return Yielders.Get(2.5f);
             m_MaxSpeed = origSpeed;
         }
     }
