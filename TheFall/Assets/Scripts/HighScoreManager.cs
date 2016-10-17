@@ -16,6 +16,8 @@ public class HighScoreManager : MonoBehaviour {
     int newScore = -1; //no new score
     string playerName;
 
+    public OnlineHighScore dreamlo;
+
     //Flow 1 - Start() -> CheckLastScore() -> UpdateUI()
     //Flow 2 - Start() -> CheckLastScore() -> UpdateScoreTable() -> Ask for Name [Other Script] -> GetName() -> UpdateUI() 
 
@@ -87,11 +89,34 @@ public class HighScoreManager : MonoBehaviour {
 
         //Ask for Player Name
         scoreText.text = currentScore.score.ToString("N0");
-        namePanel.SetActive(true);
+
+        if (PlayerPrefs.HasKey("PlayerName")){
+            playerName = PlayerPrefs.GetString("PlayerName");
+            SaveOnlineScore();
+            UpdateUI();
+        }
+        else {
+            namePanel.SetActive(true);
+        }
+    }
+
+    public void SaveOnlineScore() {
+        string platform = "";
+        if (Application.platform == RuntimePlatform.WebGLPlayer) {
+            platform = "Web";
+        }
+        if (Application.platform == RuntimePlatform.WindowsPlayer) {
+            platform = "Windows";
+        }
+        if (Application.platform == RuntimePlatform.WindowsEditor) {
+            platform = "Windows";
+        }
+        dreamlo.AddScore(playerName, currentScore.score, 0, platform);
     }
 
     //Called after receiving name
     public void GetName(string name) {
+        PlayerPrefs.SetString("PlayerName", name);
         playerName = name;
         UpdateUI();
     }

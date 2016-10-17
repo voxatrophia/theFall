@@ -14,6 +14,11 @@ public class ScreenShake : MonoBehaviour {
 
 	private bool isShakeRunning = false;
 
+    void Start() {
+        if (Application.platform == RuntimePlatform.WindowsEditor) {
+            shakeDecay = 0.02f;
+        }
+    }
 
 	public void DoShake(float intensity)
 	{
