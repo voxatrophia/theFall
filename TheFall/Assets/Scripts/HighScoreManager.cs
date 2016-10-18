@@ -1,41 +1,30 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 public class HighScoreManager : MonoBehaviour {
-    public GameObject scoreRecord;
-    public Transform scoreTable;
-    public Color bgColor;
-
-    public GameObject namePanel;
-    public Text scoreText;
-
     HighScore currentScore;
     HighScores scoreList;
 
     int newScore = -1; //no new score
-    string playerName;
 
-    public OnlineHighScore dreamlo;
-
-    //Flow 1 - Start() -> CheckLastScore() -> UpdateUI()
-    //Flow 2 - Start() -> CheckLastScore() -> UpdateScoreTable() -> Ask for Name [Other Script] -> GetName() -> UpdateUI() 
-
-    void Start() {
-        //Disable score Table
-        scoreTable.gameObject.SetActive(false);
+    void Awake() {
+        //currentScore = new HighScore();
+        //scoreList = new HighScores();
 
         //Load Scores from file
         LoadScores();
-        
-        //Compare last score with high scores
-        CheckLastScore();
+
+        //Debug.Log("Deleting Local Scores");
+        //DataAccess.Clear(Data.ScoreTable);
     }
 
     void LoadScores() {
         currentScore = (HighScore)DataAccess.Load(Data.LastScore);
         if (currentScore == null) {
             currentScore = new HighScore();
+        }
+        else {
+            //delete last score
+            DataAccess.Clear(Data.LastScore);
         }
 
         scoreList = (HighScores)DataAccess.Load(Data.ScoreTable);
@@ -44,8 +33,31 @@ public class HighScoreManager : MonoBehaviour {
         }
     }
 
-    void CheckLastScore() {
+    //checks last score vs score table
+    //Saves player name to score table
+    //saves score table to file
+    //returns score table
+    public HighScores GetScoreTable(string playerName) {
+        CheckLastScore();
 
+        if (newScore >= 0) {
+            scoreList.scores[newScore].name = playerName;
+        }
+
+        DataAccess.Save(scoreList, Data.ScoreTable);
+
+        return scoreList;
+    }
+
+    public HighScore GetLastScore() {
+        return currentScore;
+    }
+
+    public int GetPlace() {
+        return newScore;
+    }
+
+    void CheckLastScore() {
         //If score table empty
         if (scoreList.scores.Count == 0) {
             newScore = 0;
@@ -68,9 +80,6 @@ public class HighScoreManager : MonoBehaviour {
                 newScore = scoreList.scores.Count;
                 UpdateScoreTable(newScore);
             }
-            else {
-                UpdateUI();
-            }
         }
         //else, update the score table with the new score
         else {
@@ -80,73 +89,12 @@ public class HighScoreManager : MonoBehaviour {
 
     void UpdateScoreTable(int place) {
         //insert new score
-        scoreList.scores.Insert(newScore, currentScore);
+        scoreList.scores.Insert(place, currentScore);
 
         if (scoreList.scores.Count > 10) {
             //remove last score
             scoreList.scores.RemoveAt(scoreList.scores.Count - 1);
         }
-
-        //Ask for Player Name
-        scoreText.text = currentScore.score.ToString("N0");
-
-        if (PlayerPrefs.HasKey("PlayerName")){
-            playerName = PlayerPrefs.GetString("PlayerName");
-            SaveOnlineScore();
-            UpdateUI();
-        }
-        else {
-            namePanel.SetActive(true);
-        }
     }
 
-    public void SaveOnlineScore() {
-        string platform = "";
-        if (Application.platform == RuntimePlatform.WebGLPlayer) {
-            platform = "Web";
-        }
-        if (Application.platform == RuntimePlatform.WindowsPlayer) {
-            platform = "Windows";
-        }
-        if (Application.platform == RuntimePlatform.WindowsEditor) {
-            platform = "Windows";
-        }
-        dreamlo.AddScore(playerName, currentScore.score, 0, platform);
-    }
-
-    //Called after receiving name
-    public void GetName(string name) {
-        PlayerPrefs.SetString("PlayerName", name);
-        playerName = name;
-        UpdateUI();
-    }
-
-    void UpdateUI() {
-        for (int i = 0; i < 10; i++) {
-            GameObject record = Instantiate(scoreRecord, Vector3.zero, Quaternion.identity) as GameObject;
-            record.transform.SetParent(scoreTable, false);
-            ScoreUI ui = record.GetComponent<ScoreUI>();
-
-            //Change row for new (current) high score
-            if (i == newScore) {
-                ui.background.color = bgColor;
-                scoreList.scores[i].name = playerName;
-            }
-
-            //Sets name, score, date to UI
-            if (scoreList.scores != null && scoreList.scores.Count > (i)) {
-                ui.SetUI(scoreList.scores[i].name, scoreList.scores[i].score, scoreList.scores[i].date, i + 1);
-            }
-            //Fills "-" in when score table not full 
-            else {
-                ui.SetUI(i + 1);
-            }
-        }
-
-        //Display Score Table
-        scoreTable.gameObject.SetActive(true);
-
-        //Save Score
-        DataAccess.Save(scoreList, Data.ScoreTable);
-    }
 }

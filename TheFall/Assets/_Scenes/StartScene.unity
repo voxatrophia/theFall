@@ -1963,51 +1963,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fb507d2a70d19945a02a513faad429a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1638390598 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 122044, guid: 7d70138561178c649a90b8031894568a, type: 2}
-  m_PrefabInternal: {fileID: 1864850373}
---- !u!114 &1638390599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638390598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2a34249b546dc44b5d4e2ad91ea9a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: {fileID: 992515798}
-  iconImage: {fileID: 1106438141}
-  button1: {fileID: 1866217720}
-  button2: {fileID: 562751148}
-  button1Text: {fileID: 1221606128}
-  button2Text: {fileID: 192741757}
-  modalPanelObject: {fileID: 1797185446}
---- !u!114 &1638390600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638390598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b63871e6694e9446a2f0f84f761c2b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 5f296c287d4a6b14080a9af8c5655ee6, type: 2}
---- !u!114 &1638390604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638390598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c931d46b0ea7be844868e3abe1bf63ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1659766413 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194014, guid: 0d18c6f28e295e246bffe872b6e666dc, type: 2}
@@ -2367,44 +2322,45 @@ Prefab:
       propertyPath: fadeImg
       value: 
       objectReference: {fileID: 668031847}
-    - target: {fileID: 11439118, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: quitMenu
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8238220, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24339046, guid: 5f296c287d4a6b14080a9af8c5655ee6,
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
         type: 2}
-    - target: {fileID: 8238220, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439118, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: optionsMenu
+      propertyPath: message
       value: 
-      objectReference: {fileID: 490284026}
-    - target: {fileID: 8238220, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8238220, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8238220, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 992515798}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: iconImage
+      value: 
+      objectReference: {fileID: 1106438141}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: button1
+      value: 
+      objectReference: {fileID: 1866217720}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: button2
+      value: 
+      objectReference: {fileID: 562751148}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: button1Text
+      value: 
+      objectReference: {fileID: 1221606128}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: button2Text
+      value: 
+      objectReference: {fileID: 192741757}
+    - target: {fileID: 114000010965078506, guid: 7d70138561178c649a90b8031894568a,
+        type: 2}
+      propertyPath: modalPanelObject
+      value: 
+      objectReference: {fileID: 1797185446}
     - target: {fileID: 11439118, guid: 7d70138561178c649a90b8031894568a, type: 2}
       propertyPath: startFocus
       value: 
       objectReference: {fileID: 532886933}
-    - target: {fileID: 11439118, guid: 7d70138561178c649a90b8031894568a, type: 2}
-      propertyPath: mainMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 5f296c287d4a6b14080a9af8c5655ee6,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d70138561178c649a90b8031894568a, type: 2}
   m_IsPrefabParent: 0

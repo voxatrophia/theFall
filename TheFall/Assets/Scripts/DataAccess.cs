@@ -5,12 +5,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class GameDetails { }
-
 [Serializable]
 public class HighScore : ISavable {
     public string name = "Player Name";
-    public int score = 5000;
+    public int score = 1;
     public DateTime date = DateTime.Today;
 }
 
@@ -57,6 +55,11 @@ public class DataAccess {
         }
 
         return data;
+    }
+
+    public static void Clear(string filename) {
+        string dataPath = string.Format("{0}/{1}.dat", Application.persistentDataPath, filename);
+        File.Delete(dataPath);
     }
 
     public static void Save(ISavable data, string filename) {

@@ -4,9 +4,9 @@ using System.Collections;
 
 public class LoadAudioSettings : MonoBehaviour {
     public AudioMixer mainMixer;
-    AudioSource audioSrc;
 
     void Start() {
+
         if (PlayerPrefs.HasKey("musicVol")) {
             mainMixer.SetFloat("musicVol", PlayerPrefs.GetFloat("musicVol"));
         }
