@@ -12,9 +12,24 @@ public class OnlineHighScore : MonoBehaviour {
 
     List<DreamloScore> scores;
 
+    string url = "http://dreamlo.com/lb/57ff1b868af6031578e790f5/pipe/1";
+
     void Start() {
         server = GetComponent<Dreamlo>();
         scores = new List<DreamloScore>();
+    }
+
+    public IEnumerator CheckServer(GameObject go) {
+        WWW www = new WWW(url);
+        yield return www;
+
+        if (!string.IsNullOrEmpty(www.error)) {
+            //Error
+            go.SetActive(false);
+        }
+        else {
+            go.SetActive(true);
+        }
     }
 
     //Save Score

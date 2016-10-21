@@ -833,7 +833,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.534}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1852,6 +1852,38 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 320
       objectReference: {fileID: 0}
+    - target: {fileID: 11486650, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486650, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486650, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486650, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.522
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474520, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.559
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474520, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474520, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474520, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d78820182f698946ad40e1c866b68a8, type: 2}
   m_IsPrefabParent: 0
@@ -2701,6 +2733,11 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1624594920}
+    - target: {fileID: 114000011436657518, guid: 8ffefca5ec7f3ec4489fcc37b718258b,
+        type: 2}
+      propertyPath: LeaderboardButton
+      value: 
+      objectReference: {fileID: 235899203}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ffefca5ec7f3ec4489fcc37b718258b, type: 2}
   m_IsPrefabParent: 0
@@ -2720,7 +2757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &525759158
 RectTransform:
   m_ObjectHideFlags: 0

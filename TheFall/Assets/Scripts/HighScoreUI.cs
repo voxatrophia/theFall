@@ -10,10 +10,13 @@ public class HighScoreUI : MonoBehaviour {
     public GameObject namePanel;
     public Text scoreText;
 
+    public GameObject LeaderboardButton;
+
     HighScore currentScore;
     HighScores scoreList;
 
     OnlineHighScore online;
+
     HighScoreManager hs;
 
     void Start() {
@@ -22,6 +25,11 @@ public class HighScoreUI : MonoBehaviour {
 
         online = GetComponent<OnlineHighScore>();
         if (online == null) { Debug.Log("OnlineHighScore not attached"); }
+
+        //Disable Leaderboard button
+        LeaderboardButton.SetActive(false);
+        //Enable button if server is available
+        StartCoroutine(online.CheckServer(LeaderboardButton));
 
         //Disable score Table
         scoreTable.gameObject.SetActive(false);
@@ -43,6 +51,7 @@ public class HighScoreUI : MonoBehaviour {
     public void SetName(string playerName) {
         //Update scoretable data
         scoreList = hs.GetScoreTable(playerName);
+
         //Save score online
         StartCoroutine(online.SaveScore(playerName, currentScore.score));
 
@@ -51,7 +60,6 @@ public class HighScoreUI : MonoBehaviour {
 
     void UpdateUI() {
         int newScore = hs.GetPlace();
-        Debug.Log(newScore);
 
         for (int i = 0; i < 10; i++) {
             GameObject record = Instantiate(scoreRecord, Vector3.zero, Quaternion.identity) as GameObject;

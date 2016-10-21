@@ -29,6 +29,7 @@ public class HealthCharge : MonoBehaviour {
 
     void ResetEnergy() {
         energyLevel = 0;
+        healthMeter.value = energyLevel;
     }
 
     void Start() {

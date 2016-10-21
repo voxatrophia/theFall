@@ -78,11 +78,25 @@ public class Menu : MonoBehaviour {
         modalPanel.NewChoice(modalPanelDetails);
     }
 
-    protected void Announcement(UnityAction act) {
+    //protected void Announcement(UnityAction act) {
+    //    menus.AddLast(modalPanel.modalPanelObject);
+
+    //    ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Press a key" };
+    //    modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "Yes", action = act };
+
+    //    modalPanel.NewChoice(modalPanelDetails);
+    //}
+
+    protected IEnumerator Announcement(string msg) {
+        //Add the last button, because it will be called again
+        //selected.AddLast(selected.Last.Value);
+
+        yield return Yielders.Get(0.5f);
         menus.AddLast(modalPanel.modalPanelObject);
 
-        ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = "Press a key" };
-        modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "Yes", action = act };
+        ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = msg };
+        modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "OK", action = CloseOpenMenu };
+
 
         modalPanel.NewChoice(modalPanelDetails);
     }

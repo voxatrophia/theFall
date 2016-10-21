@@ -36,7 +36,13 @@ public class StartGame : Menu {
     IEnumerator Play() {
         audioSrc.PlayOneShot(clickSound);
         yield return Yielders.Get(0.5f);
-        MainController.SwitchScene(Scenes.Main);
+        if (PlayerPrefsX.GetBool("NewPlayer", true)) {
+            PlayerPrefsX.SetBool("NewPlayer", true);
+            MainController.SwitchScene("Tutorial_1");
+        }
+        else {
+            MainController.SwitchScene(Scenes.Main);
+        }
     }
 
     public void Quit() {
@@ -47,13 +53,23 @@ public class StartGame : Menu {
         StandardModal(Quit);
     }
 
-    public void ClearHighScore() {
+    public void ConfirmClearScore() {
         StandardModal(ClearScore);
+    }
+
+    public void StartTutorial() {
+        MainController.SwitchScene("Tutorial_1");
     }
 
     public void ClearScore() {
         audioSrc.PlayOneShot(clickSound);
-        PlayerPrefs.SetInt("HighScore", 0);
+        //PlayerPrefs.SetInt("HighScore", 0);
+        DataAccess.Clear(Data.ScoreTable);
+
+        selected.AddLast(selected.Last.Value);
+
         CloseOpenMenu();
+
+        StartCoroutine(Announcement("High Scores Cleared!"));
     }
 }

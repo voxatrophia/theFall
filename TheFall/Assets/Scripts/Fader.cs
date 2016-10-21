@@ -5,7 +5,7 @@ using System.Collections;
 public class Fader : MonoBehaviour {
 	public Image fadeImg;
 
-	float duration = 1.5f;
+	float duration = 1.25f;
 	float smoothness = 0.02f;
 	bool isFading = false;
 
