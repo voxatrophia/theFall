@@ -25,7 +25,7 @@ public class ScreenEffects : MonoBehaviour {
 	}
 
 	void ScreenEffect(){
-		shake.DoShake(0.7f);
+		shake.DoShake(1f);
 		flash.FlashScreen(damageColor);
 	}
 

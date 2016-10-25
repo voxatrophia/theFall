@@ -65,23 +65,26 @@ public class DifficultyManager : Singleton<DifficultyManager> {
 
     void Start () {
         //Difficulty only starts increasing once the tutorial is over
-        if (!TutorialManager.Instance.inTutorial) {
-            StartCoroutine(IncreaseDifficulty());
-        }
-    }
+        //if (!TutorialManager.Instance.inTutorial) {
+        //    StartCoroutine(IncreaseDifficulty());
+        //}
 
-    void OnEnable() {
-        //Called from TutorialManager
-        EventManager.StartListening(TutorialEvents.Done, StartAttack);
-    }
-
-    void OnDisable() {
-        EventManager.StopListening(TutorialEvents.Done, StartAttack);
-    }
-
-    void StartAttack() {
         StartCoroutine(IncreaseDifficulty());
+
     }
+
+    //void OnEnable() {
+    //    //Called from TutorialManager
+    //    EventManager.StartListening(TutorialEvents.Done, StartAttack);
+    //}
+
+    //void OnDisable() {
+    //    EventManager.StopListening(TutorialEvents.Done, StartAttack);
+    //}
+
+    //void StartAttack() {
+    //    StartCoroutine(IncreaseDifficulty());
+    //}
 
     public Dictionary<string, float> GetAttackList() {
         return diff.levels[attackLevel];

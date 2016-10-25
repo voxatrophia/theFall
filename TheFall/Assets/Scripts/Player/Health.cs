@@ -47,31 +47,31 @@ public class Health : MonoBehaviour {
 
      void OnTriggerEnter2D(Collider2D other){
 		if(!invulnerable){
-	    	if(other.CompareTag("Enemy")) {
+	    	if(other.CompareTag(Tags.Enemy)) {
                 audioSrc.Play();
-    			TakeDamage();
-
+    			TakeDamage(other.name);
                 //If hit near top of screen, too chaotic, move screen down
                 if(transform.position.y > 6){
                     EventManager.TriggerEvent(Events.MoveBackwards);
                 }
 	    	}
- 
     	}
     }
 
 	void AddHealth(){
     	i.health += 1;
         flash.FlashSprite(healthColor);
+        Tracker.Instance.TrackHealth(health);
         EventManager.TriggerEvent(Events.AddHealth);
 	}
 
-    public void TakeDamage() {
+    public void TakeDamage(string enemy) {
         if(!invulnerable){
             health -= 1;
 			EventManager.TriggerEvent(Events.Damage);
             StartCoroutine(JustHurt());
             if(health <= 0){
+                Tracker.Instance.TrackEnemy(enemy);
                 StartCoroutine(Die());
             }
         }
@@ -85,6 +85,8 @@ public class Health : MonoBehaviour {
      }
 
     IEnumerator Die(){
+        Tracker.Instance.TrackEvents();
+
         Time.timeScale = 0;
         ScoreManager.Instance.SaveScores();
         audioSrc.clip = deathSound2;

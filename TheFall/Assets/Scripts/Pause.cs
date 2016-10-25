@@ -1,22 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(AudioSource))]
 public class Pause : Menu {
 
     public GameObject pauseMenu;
     public GameObject startFocus;
 
     public AudioClip hoverSound;
-    AudioSource audioSrc;
 
     void Start() {
-        audioSrc = GetComponent<AudioSource>();
         pauseMenu.SetActive(false);
     }
 
     public void Hover() {
-        audioSrc.PlayOneShot(hoverSound);
+        AudioManager.Instance.PlaySoundEffect(hoverSound);
+        //audioSrc.PlayOneShot(hoverSound);
     }
 
     void Update() {

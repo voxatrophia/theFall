@@ -6,7 +6,7 @@ public class ScreenShake : MonoBehaviour {
 	public bool shakePosition;
 	public bool shakeRotation;
 
-	public float shakeIntensity = 0.5f; 
+	public float shakeIntensity = 1f;
 	public float shakeDecay = 0.02f;
 
 	private Vector3 OriginalPos;
@@ -16,15 +16,21 @@ public class ScreenShake : MonoBehaviour {
 
     void Start() {
         if (Application.platform == RuntimePlatform.WindowsEditor) {
-            shakeDecay = 0.02f;
+            shakeDecay = 0.025f;
         }
+        OriginalPos = transform.position;
+        OriginalRot = transform.rotation;
     }
 
-	public void DoShake(float intensity)
+    public void DoShake() {
+        StartCoroutine(ProcessShake());
+    }
+
+    public void DoShake(float intensity)
 	{
 		shakeIntensity = intensity;
-		OriginalPos = transform.position;
-		OriginalRot = transform.rotation;
+		//OriginalPos = transform.position;
+		//OriginalRot = transform.rotation;
 
 		StartCoroutine (ProcessShake());
 	}

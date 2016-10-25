@@ -4,21 +4,27 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : Singleton<AudioManager> {
 
-	AudioSource audioSource;
+	AudioSource effects;
+    AudioSource music;
     enum Fade {In, Out};
 
 	void Awake(){
         DontDestroyOnLoad(transform.gameObject);
-		audioSource = GetComponent<AudioSource>();
-	}
-
-    void Start() {
-
+        foreach (AudioSource aud in GetComponents<AudioSource>()) {
+            switch (aud.outputAudioMixerGroup.name) {
+                case "Music":
+                    music = aud;
+                    break;
+                case "SoundEffects":
+                    effects = aud;
+                    break;
+            }
+        }
     }
 
 	public void SwitchMusic(AudioClip clip){
-		audioSource.clip = clip;
-		audioSource.Play();
+		music.clip = clip;
+		music.Play();
 	}
 
     IEnumerator FadeAudio (float timer, Fade fadeType) {
@@ -29,19 +35,23 @@ public class AudioManager : Singleton<AudioManager> {
      
         while (i <= 1.0F) {
             i += step * Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(start, end, i);
+            music.volume = Mathf.Lerp(start, end, i);
             yield return Yielders.Get(step * Time.deltaTime);
         }
     }
 
+    public void PlaySoundEffect(AudioClip se) {
+        effects.PlayOneShot(se);
+    }
+
     public void Pause(){
-		if(audioSource.isPlaying){
-			audioSource.Pause();
+		if(music.isPlaying){
+			music.Pause();
 		}
     }
 
     public void Play(){
-		audioSource.Play();
+		music.Play();
     }
 
 	public void PauseSound(){
@@ -49,14 +59,14 @@ public class AudioManager : Singleton<AudioManager> {
 	}
 
 	public void StopSound(){
-		audioSource.Stop();
+		music.Stop();
 	}
 	
 	IEnumerator StopMusic(){
-		if(audioSource.isPlaying){
-			audioSource.Pause();
+		if(music.isPlaying){
+			music.Pause();
 			yield return Yielders.Get(2f);
-			audioSource.Play();
+			music.Play();
 		}
 	}
 }

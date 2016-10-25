@@ -22,14 +22,14 @@ public class MovingPlatform : MonoBehaviour {
 
         StartCoroutine(IncreaseSpeed());
 
-		switch(LevelManager.Instance.GetMode()){
-			case Modes.Arcade:
-				increase = arcadeIncrease;
-				break;
-			case Modes.Story:
-				increase = speedIncrease;
-				break;
-		}
+		//switch(LevelManager.Instance.GetMode()){
+		//	case Modes.Arcade:
+		//		increase = arcadeIncrease;
+		//		break;
+		//	case Modes.Story:
+		//		increase = speedIncrease;
+		//		break;
+		//}
         increase = 0.1f;
     }
 

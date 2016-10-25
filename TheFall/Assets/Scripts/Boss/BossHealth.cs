@@ -31,14 +31,14 @@ public class BossHealth : MonoBehaviour {
                 firstAttack = false;
                 EventManager.TriggerEvent(TutorialEvents.AttackStageDone);
             }
-			switch(LevelManager.Instance.GetMode()){
-				case Modes.Arcade:
-					ArcadeDamage();
-					break;
-				case Modes.Story:
-					StoryDamage();
-					break;
-			}
+			//switch(LevelManager.Instance.GetMode()){
+			//	case Modes.Arcade:
+			//		ArcadeDamage();
+			//		break;
+			//	case Modes.Story:
+			//		StoryDamage();
+			//		break;
+			//}
 
 			//damage effects
 			audioSrc.PlayOneShot(damageSound);

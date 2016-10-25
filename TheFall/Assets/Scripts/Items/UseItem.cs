@@ -44,6 +44,9 @@ public class UseItem : MonoBehaviour {
 						break;
 
 				}
+                //Track item
+                Tracker.Instance.TrackItemUsed(item.tag);
+
 				//Remove item from image
 				ItemManager.i.UsedItem();
 
