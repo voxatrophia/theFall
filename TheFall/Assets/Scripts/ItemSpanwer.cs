@@ -17,24 +17,24 @@ public class ItemSpanwer : MonoBehaviour {
     string itemToSpawn;
 
 
-    int tutorialItemIndex = 0;
-    List<string> tutorialItems;
-    bool inTutorial;
+    //int tutorialItemIndex = 0;
+    //List<string> tutorialItems;
+    //bool inTutorial;
 
-    void OnEnable() {
-        //Triggered in UseItem
-        EventManager.StartListening(TutorialEvents.ItemUsed, ChangeItem);
-    }
-    void OnDisable() {
-        EventManager.StopListening(TutorialEvents.ItemUsed, ChangeItem);
-    }
+    //void OnEnable() {
+    //    //Triggered in UseItem
+    //    EventManager.StartListening(TutorialEvents.ItemUsed, ChangeItem);
+    //}
+    //void OnDisable() {
+    //    EventManager.StopListening(TutorialEvents.ItemUsed, ChangeItem);
+    //}
 
     void Start() {
         itemList = GetComponent<MultiObjectPooler>();
-        inTutorial = TutorialManager.Instance.inTutorial;
+        //inTutorial = TutorialManager.Instance.inTutorial;
 
         SetUpItemList();
-        tutorialItems = itemList.GetObjectTypes();
+        //tutorialItems = itemList.GetObjectTypes();
         StartCoroutine(SpawnItems());
     }
 
@@ -52,33 +52,34 @@ public class ItemSpanwer : MonoBehaviour {
     IEnumerator SpawnItems() {
         while (true) {
             yield return Yielders.Get(Random.Range(spawnMinTime, spawnMaxTime));
-            if (inTutorial) {
-                TutorialSpawn();
-            }
-            else {
-                SelectItem();
-            }
+            SelectItem();
+            //if (inTutorial) {
+            //    TutorialSpawn();
+            //}
+            //else {
+            //    SelectItem();
+            //}
         }
     }
 
-    void TutorialSpawn() {
-        itemToSpawn = tutorialItems[tutorialItemIndex];
-        SpawnItem(itemToSpawn);
-    }
+    //void TutorialSpawn() {
+    //    itemToSpawn = tutorialItems[tutorialItemIndex];
+    //    SpawnItem(itemToSpawn);
+    //}
 
-    //Called by event trigger
-    //Increments item to spawn
-    void ChangeItem() {
-        if (inTutorial) {
-            if (tutorialItemIndex == tutorialItems.Count - 1) {
-                inTutorial = false;
-                EventManager.TriggerEvent(TutorialEvents.ItemStageDone);
-            }
-            else {
-                tutorialItemIndex += 1;
-            }
-        }
-    }
+    ////Called by event trigger
+    ////Increments item to spawn
+    //void ChangeItem() {
+    //    if (inTutorial) {
+    //        if (tutorialItemIndex == tutorialItems.Count - 1) {
+    //            inTutorial = false;
+    //            EventManager.TriggerEvent(TutorialEvents.ItemStageDone);
+    //        }
+    //        else {
+    //            tutorialItemIndex += 1;
+    //        }
+    //    }
+    //}
 
     void SpawnItem(string spawningItem) {
         if (spawningItem == "NA") {

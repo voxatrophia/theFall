@@ -7,7 +7,6 @@ public class Item : MonoBehaviour {
 		if(coll.gameObject.CompareTag(Tags.Player)){
 			ItemManager.i.SetItem(gameObject);
 			gameObject.SetActive(false);
-			ItemManager.i.audioSrc.Play();
 		}
 	}
 }

@@ -97,7 +97,6 @@ public class Menu : MonoBehaviour {
         ModalPanelDetails modalPanelDetails = new ModalPanelDetails { message = msg };
         modalPanelDetails.button1Details = new EventButtonDetails { buttonTitle = "OK", action = CloseOpenMenu };
 
-
         modalPanel.NewChoice(modalPanelDetails);
     }
 

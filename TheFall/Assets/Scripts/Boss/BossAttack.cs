@@ -20,22 +20,24 @@ public class BossAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
         attackPool = GetComponent<MultiObjectPooler>();
 
+        StartCoroutine(RandomAttack());
+
         //If not in the tutorial, start attacking
-        if (!TutorialManager.Instance.inTutorial) {
-            StartCoroutine(RandomAttack());
-        }
+        //if (!TutorialManager.Instance.inTutorial) {
+        //    StartCoroutine(RandomAttack());
+        //}
     }
 
     void OnEnable() {
         //Called from Stopwatch item
         EventManager.StartListening(Events.StopMoving, StopMoving);
         //Called from TutorialManager
-        EventManager.StartListening(TutorialEvents.Done, StartAttack);
+        //EventManager.StartListening(TutorialEvents.Done, StartAttack);
     }
 
     void OnDisable() {
         EventManager.StopListening(Events.StopMoving, StopMoving);
-        EventManager.StopListening(TutorialEvents.Done, StartAttack);
+        //EventManager.StopListening(TutorialEvents.Done, StartAttack);
     }
 
     //Sets all attacks to be equal chance

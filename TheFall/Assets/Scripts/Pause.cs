@@ -5,11 +5,13 @@ public class Pause : Menu {
 
     public GameObject pauseMenu;
     public GameObject startFocus;
+    public GameObject OptionsMenu;
 
     public AudioClip hoverSound;
 
     void Start() {
         pauseMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
     }
 
     public void Hover() {

@@ -50,10 +50,10 @@ public class UseItem : MonoBehaviour {
 				//Remove item from image
 				ItemManager.i.UsedItem();
 
-                //Tutorial
-                if (TutorialManager.Instance.inTutorial) {
-                    EventManager.TriggerEvent(TutorialEvents.ItemUsed);
-                }
+                ////Tutorial
+                //if (TutorialManager.Instance.inTutorial) {
+                //    EventManager.TriggerEvent(TutorialEvents.ItemUsed);
+                //}
 
             }
 		}

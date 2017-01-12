@@ -17,6 +17,11 @@ public class AspectRatioController : Singleton<AspectRatioController> {
         }
     }
 
+    public float Ratio {
+        get { return AspectRatio; }
+        private set { AspectRatio = value; }
+    }
+
     void Awake() {
         AspectRatio = (float)Screen.width / (float)Screen.height;
         scale = (AspectRatio * 9) / 16;

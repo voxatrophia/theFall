@@ -11,6 +11,7 @@ public class HighScoreUI : MonoBehaviour {
     public Text scoreText;
 
     public GameObject LeaderboardButton;
+    public GameObject LocalLeaderboardButton;
 
     HighScore currentScore;
     HighScores scoreList;
@@ -18,6 +19,13 @@ public class HighScoreUI : MonoBehaviour {
     OnlineHighScore online;
 
     HighScoreManager hs;
+
+    bool localScore;
+
+    void Awake() {
+        //Local High Score not available in WebGL
+        localScore = (Application.platform != RuntimePlatform.WebGLPlayer);
+    }
 
     void Start() {
         hs = GetComponent<HighScoreManager>();

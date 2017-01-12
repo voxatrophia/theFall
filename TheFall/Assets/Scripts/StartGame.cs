@@ -37,7 +37,7 @@ public class StartGame : Menu {
         audioSrc.PlayOneShot(clickSound);
         yield return Yielders.Get(0.5f);
         if (PlayerPrefsX.GetBool("NewPlayer", true)) {
-            PlayerPrefsX.SetBool("NewPlayer", true);
+            PlayerPrefsX.SetBool("NewPlayer", false);
             MainController.SwitchScene("Tutorial_1");
         }
         else {

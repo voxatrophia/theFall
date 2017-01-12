@@ -7,7 +7,7 @@ public class ScreenShake : MonoBehaviour {
 	public bool shakeRotation;
 
 	public float shakeIntensity = 1f;
-	public float shakeDecay = 0.02f;
+	public float shakeDecay = 0.025f;
 
 	private Vector3 OriginalPos;
 	private Quaternion OriginalRot;

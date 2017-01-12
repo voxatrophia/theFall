@@ -9,9 +9,9 @@ public class ItemManager : MonoBehaviour {
 	private GameObject item;	//current item
     bool firstItem;
 
-	public AudioSource audioSrc;
+    public AudioClip itemSE;
 
-	void Awake(){
+    void Awake(){
 		if(i == null){
 			i = this;
 		} else if(i != this){
@@ -19,7 +19,6 @@ public class ItemManager : MonoBehaviour {
 		}
 
 		image = GetComponent<Image>();
-		audioSrc = GetComponent<AudioSource>();
 	}
 
 	void Start(){
@@ -27,7 +26,7 @@ public class ItemManager : MonoBehaviour {
 
         //Tutorial Trigger for first text
         //If inTutorial, then check for first item
-        firstItem = (TutorialManager.Instance.inTutorial) ? true : false;
+        //firstItem = (TutorialManager.Instance.inTutorial) ? true : false;
 
     }
 
@@ -45,6 +44,8 @@ public class ItemManager : MonoBehaviour {
 		image.sprite = spr.sprite;
 		changeAlpha(255);
 		item = obj;
+
+        AudioManager.Instance.PlaySoundEffect(itemSE);
 
         if (firstItem) {
             EventManager.TriggerEvent(TutorialEvents.FirstItem);
